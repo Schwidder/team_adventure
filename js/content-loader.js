@@ -16,7 +16,6 @@ function loadContent() {
     var z, i, elmnt, file, xhttp;
     /*loop through a collection of all HTML elements:*/
     z = document.getElementsByTagName("*");
-    console.log("start loading");
     for (i = 0; i < z.length; i++) {
         elmnt = z[i];
         /*search for elements with a certain atrribute:*/
@@ -30,13 +29,12 @@ function loadContent() {
                     if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
                     /*remove the attribute, and call this function once more:*/
                     elmnt.removeAttribute("include-html-content");
-                    
                 }
             }
             xhttp.open("GET", file, true);
             xhttp.send();
             /*exit the function:*/
-            console.log("end loading");
+            console.log("finish loading");
             return;
         }
     }
