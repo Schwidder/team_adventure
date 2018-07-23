@@ -55,5 +55,5 @@ IceDash wird durch folgende Drittanbieter-Assets ermöglicht:
 
 Wesentlich an dem Projkekt mitgewirkt haben:
 * Gleb Shpak (Development, Design, Lizenzierung)
-* Fabian Kasper (Level Design, Testing)
+* Fabian Kaspar (Level Design, Testing)
 * Kevin Schwidder (Development, Design, Animationen)
