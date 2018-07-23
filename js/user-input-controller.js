@@ -120,6 +120,6 @@ controller = {
 };
 
 //Wenn das Event ausgelöst wird führe die Funktion aus
-window.addEventListener("keydown", controller.keyListener)
+window.addEventListener("keydown", controller.keyListener);
 window.addEventListener("keyup", controller.keyListener); 
 window.requestAnimationFrame(loop);
