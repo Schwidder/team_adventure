@@ -1,3 +1,5 @@
+function initGame() {
+    
 var context, controller, rectangle, loop;
 
 context = document.querySelector("canvas").getContext("2d");
@@ -122,3 +124,4 @@ loop = function() {
 window.addEventListener("keydown", controller.keyListener)
 window.addEventListener("keyup", controller.keyListener);
 window.requestAnimationFrame(loop);
+}
