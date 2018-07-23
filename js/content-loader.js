@@ -42,11 +42,32 @@ function loadMenu() {
 function loadGame() {
     document.getElementById("inner").setAttribute("include-html-content", "content/game.html");
     loadContent();
+    setTimeout(function() {
+        //getCanvas();
+        console.log(document.getElementById("mycanvas"));
+        initGame();
+    }, 2000);
 }
 function loadImpressum() {
     document.getElementById("inner").setAttribute("include-html-content", "content/impressum.html");
     loadContent();
 }
+/* async function is not working
+async function getCanvas() {
+    try {
+        let content = await loadContent();
+        console.log(content);
+        if (content) {
+            console.log("wait on load success");
+            initGame();
+        }
+        else{
+            console.log("wait on load failed");
+        }
+    } catch (err) {
+        console.log(err);
+    }
+}//*/
 
 function loadContent() {
     var z, i, elmnt, file, xhttp;
@@ -71,7 +92,8 @@ function loadContent() {
             xhttp.send();
             /*exit the function:*/
             console.log("finish loading");
-            return;
+            return true;
         }
     }
+    return false;
 }
