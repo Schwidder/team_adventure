@@ -36,13 +36,9 @@ Zu den relevanten Verzeichnissen und Dateien zählen:
 * `css/`: CSS-Dateien
 
 
-### Drei-Layer-Aufbau
-Die Architektur des Spiels setzt sich im Wesentlichen aus drei Ebenen (Layern) zusammen:
-1. **Model-Layer** (`src/model`): Der Model-Layer kapselt das Datenmodell des Spiels (Level). Daneben beschreibt er die innere Spiellogik, d.h. das Verhalten der einzelnen Feldtypen. Er basiert als einziger Layer vollständig auf dem Klassenkonzept von ES6.
-2. **Loading-Layer** (`src/loading`): Im Loading-Layer werden das Preloading der Assets (nach intialem Seitenaufbau) sowie die Initialisierung eines Levels durchgeführt.
-3. **Game-Layer** (`src/game`): Der Game Layer bildet die "äußere" Spiellogik, d.h. Benutzerführung und GameLoop, sowie das Rendering des Spiels ab.
+### Layer-Aufbau
+Die Architektur des Spiels setzt sich im Wesentlichen aus X Ebenen (Layern) zusammen:
 
-Details zu den einzelnen Layern werden im Wiki beschrieben.
 
 
 ## Credits
