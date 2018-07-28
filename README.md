@@ -25,7 +25,7 @@ Die Einbindung von Libraries ist generell nicht vorgesehen.
 
 Um das Projekt lokal aufsetzen, sind die folgenden Schritte erforderlich:
 1. [Node.js](https://nodejs.org/de/) (6er-Release-Zyklus, aktuellster LTS-Release) mit npm (Node Package Manager) installieren
-1. Repository klonen: `git clone git@github.com:fastexitlane/icedash.git`
+1. Repository klonen: `git clone https://github.com/Schwidder/team_adventure.git`
 2. Abhängigkeiten des Projekts lokal installieren: `npm install`
 
 ## Architektur
