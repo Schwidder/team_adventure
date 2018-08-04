@@ -1,6 +1,7 @@
 # team_adventure
 BlockRun ist ein Adventure Spiel, welches im Rahmen der Vorlesung "Projekte der Wirtschaftsinformatik" (Q3/2018) an der FHDW in Bergisch Gladbach entwickelt wurde.
 
+<<<<<<< HEAD
 Das ganze Spiel basiert auf unterschiedlichen Leveln die der Spieler erfolgreich meisten muss.
 Ein Level zählt dann als geschafft, wenn alle Münzen aufgesammelt worden sind:
 Wenn der Spieler die Lava berührt wird das Level zurückgesetzt und er muss wieder 
@@ -9,6 +10,8 @@ von seiner Startpositon (Spawn) anfangen.
 Wir haben uns für ein einfaches und schlichtes Level design in Form eines Array's entschieden, 
 sodass es für jeden einfach zu lesen und zu editieren ist. 
 **
+=======
+>>>>>>> 09b26d9a3bf1b2f45c0d3ba3c537160d20b493d6
 ## Release-Informationen
 **Release**: Block Run 1.0
 

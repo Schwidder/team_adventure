@@ -1,1 +1,119 @@
-.animate{}
+/* .animate{} */
+
+
+button#music_play:focus      /* beim start chrck ob music läuft (ja eig autostart) dann button grün */
+
+{
+    background:green;
+}
+
+button#music_pause:focus
+{
+    background:green;
+}
+
+
+/* play und pause sollen in einer reihe sein und ein button muss grün sein */
+/* mute und unmute sollen in einer reihe sein und ein button muss grün sein */
+
+button#sound_off:focus
+{
+    background:green;
+}
+
+button#sound_on:focus
+{
+    background:green;
+}
+
+button#sound_on:focus
+{
+    background:green;
+}
+
+
+  input[type=range] {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+    background: red;
+    border-radius: 1.3px;
+    border: 0.2px solid black;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+    border: 1px solid black;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: white;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -14px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: red;
+  }
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+    background: red;
+    border-radius: 1.3px;
+    border: 0.2px solid black;
+  }
+  input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+    border: 1px solid black;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: white;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: red;
+    border: 0.2px solid black;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: red;
+    border: 0.2px solid black;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+  }
+  input[type=range]::-ms-thumb {
+    box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+    border: 1px solid black;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: white;
+    cursor: pointer;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: red;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: red;
+  }

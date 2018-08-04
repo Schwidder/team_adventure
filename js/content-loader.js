@@ -48,10 +48,38 @@ function loadGame() {
         initGame();
     }, 2000);
 }
+
 function loadImpressum() {
     document.getElementById("inner").setAttribute("include-html-content", "content/impressum.html");
     loadContent();
 }
+
+function loadHelp() {
+    document.getElementById("inner").setAttribute("include-html-content", "content/help.html");
+    loadContent();
+}
+
+function loadOptions() {
+    document.getElementById("menu").setAttribute("include-html-content", "content/options.html");
+    loadContent();
+}
+
+function loadMusic() {
+    document.getElementById("menu").setAttribute("include-html-content", "content/music.html");
+    loadContent();
+}
+
+function setVolume() {
+    var myAudio = document.getElementById("audio_player");  
+    myAudio.volume = 0.03; // set start volume
+}
+
+function setVolumebar() {
+    var audio_player = document.getElementById("audio_player");
+    audio_player.volume = document.getElementById("volumecontrol").value;
+    }
+
+
 /* async function is not working
 async function getCanvas() {
     try {

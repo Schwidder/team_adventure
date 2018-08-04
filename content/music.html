@@ -1,0 +1,11 @@
+<div id="music_status">
+    <button id = "music_play" onclick="document.getElementById('audio_player').play()">Play</button>
+    <button id = "music_pause" onclick="document.getElementById('audio_player').pause()">Pause</button>
+</div>
+
+ <div id="sound_volume">
+    <button id = "sound_off" onclick="document.getElementById('audio_player').muted = true">Music off</button>
+    <button id = "sound_on" onclick="document.getElementById('audio_player').muted = false">Music on</button>
+</div>
+
+<input type="range" onchange="setVolumebar()" id='volumecontrol' min=0 max=1 step=0.01 value='1'> <!--die music bar soll links sein beim 1. laden bei ca 3%-->
