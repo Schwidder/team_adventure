@@ -19,6 +19,9 @@ function initGame() {
 
     };
 
+    
+
+   
     controller = {
         left:false,
         right:false,
@@ -42,6 +45,9 @@ function initGame() {
           case 39:  //Pfeil nach rechts
             controller.right = key_state;
           break;
+          //case 27: //esc
+         // pauseGame();  //game freeze + menu overlay
+         // break;
 
         }
 

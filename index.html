@@ -13,6 +13,7 @@
 </head>
 <body onload="loadMenu()">
     <div id="header">
+            <button id = "home" onclick="loadMenu()">Home</button> <!--position und farbe noch ändern-->
         <div id="header-title" class="center-block"><h1> Welcome to Team Adventure</h1></div>
     </div>
     <div id="outer">
@@ -24,5 +25,10 @@
     <div id="footer">
 
     </div>
+
+    <audio id="audio_player" src="sounds\background_music.mp3" autoplay onloadeddata ="setVolume()">
+        Your browser does not support the HTML5 Audio element.
+    </audio>
+
 </body>
 </html>
