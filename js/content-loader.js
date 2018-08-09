@@ -71,7 +71,7 @@ function loadMusic() {
 
 function setVolume() {
     var myAudio = document.getElementById("audio_player");  
-    myAudio.volume = 0.03; // set start volume
+    myAudio.volume = 0.1; // set start volume
 }
 
 function setVolumebar() {
