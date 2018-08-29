@@ -24,7 +24,7 @@ var canvas = document.getElementById("canvas"),
     friction = 0.75, // a lower number makes you slide less, a higher number makes you slide more
     gravity = 0.25;
 
-
+    var starttime = Date.now();
  
 
 // 4 below = framework
@@ -243,7 +243,7 @@ for (var i = 0; i < lava.length; i++) {
         if (player.life > 1)
         {
             player.life = player.life - 1;
-            alert("YOU DIED!!!\n You have " + player.life + " lifes left ...");
+            //alert("YOU DIED!!!\n You have " + player.life + " lifes left ...");
             player.x = 250;
             player.y = 200;
         }
@@ -311,6 +311,8 @@ for (var i = 0; i < coin.length; i++) {
     
 }
 
+
+
 //    
     if(player.grounded){
          player.velY = 0;
@@ -332,18 +334,23 @@ for (var i = 0; i < coin.length; i++) {
     for (var i = 0; i < lava.length; i++) {
         ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
     }
+    ctx.fill();
 
-
+    //
     ctx.font = "20px Comic Sans MS";
     ctx.fillStyle = "green";
-    ctx.fillText("Coins:" + coin_current, 400, 30); 
+    ctx.fillText("Coins: " + coin_current, 400, 30); 
 
     ctx.font = "20px Comic Sans MS";
     ctx.fillStyle = "red";
-    ctx.fillText("Lifes:" + player.life, 400, 50); 
+    ctx.fillText("Lifes: " + player.life, 400, 55);
+
+    ctx.font = "20px Comic Sans MS";
+    ctx.fillStyle = "yellow";
+    ctx.fillText("Time: " + Math.round((Date.now()-starttime)/1000), 500, 50); 
 
  //
- ctx.fill();
+ 
  ctx.fillStyle = "yellow"; 
  ctx.beginPath();
 
@@ -407,7 +414,6 @@ function colCheck(shapeA, shapeB) {
     }
     return colDir;
 }
-
 
 
 document.body.addEventListener("keydown", function (e) {
