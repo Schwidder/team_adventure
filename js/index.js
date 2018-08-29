@@ -5,8 +5,8 @@
 
 var canvas = document.getElementById("canvas"),
     ctx = canvas.getContext("2d"),
-    width = 500,
-    height = 200,
+    width = 600, //500
+    height = 400, //200
     player = {
         width: 8,
         height: 8, 
@@ -28,7 +28,6 @@ var canvas = document.getElementById("canvas"),
  
 
 // 4 below = framework
-// AUSLAGERN??
 var boxes = [];
 
 boxes.push({    // left wall
@@ -76,8 +75,51 @@ boxes.push({
     width: 80,
     height: 80
 });
+
 boxes.push({
-    x: 270,
+    x: 30,
+    y: 300,
+    width: 80,
+    height: 80
+});
+boxes.push({
+    x: 80,
+    y: 250,
+    width: 40,
+    height: 40
+});
+boxes.push({
+    x: 120,
+    y: 350,
+    width: 40,
+    height: 40
+});
+boxes.push({
+    x: 300,
+    y: 300,
+    width: 40,
+    height: 40
+});
+boxes.push({
+    x: 400,
+    y: 250,
+    width: 40,
+    height: 40
+});
+boxes.push({
+    x: 350,
+    y: 330,
+    width: 40,
+    height: 40
+});
+boxes.push({
+    x: 350,
+    y: 200,
+    width: 40,
+    height: 40
+});
+boxes.push({
+    x: 380,
     y: 150,
     width: 40,
     height: 40
