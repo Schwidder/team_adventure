@@ -11,7 +11,7 @@ var canvas = document.getElementById("canvas"),
         width: 8,
         height: 8, 
         x: 250, //width / 2
-        y: 200
+        y: 20
         ,
         speed: 3,
         velX: 0,
@@ -26,6 +26,12 @@ var canvas = document.getElementById("canvas"),
 
     var starttime = Date.now();
  
+
+
+
+canvas.width = width;
+canvas.height = height;
+var blockSize = canvas.width / current_level.width;
 
 // 4 below = framework
 var boxes = [];
@@ -57,7 +63,7 @@ boxes.push({    // bottom
 
 //platform
 
-boxes.push({
+/* boxes.push({
     x: 120,
     y: 10,
     width: 80,
@@ -123,14 +129,21 @@ boxes.push({
     y: 150,
     width: 40,
     height: 40
-});
+}); */
 
+
+
+for (var b in current_level.walls)
+{
+    var block = current_level.walls[b];
+    boxes.push({x: block.x * blockSize, y: block.y * blockSize, width: blockSize, height: blockSize});
+}
 
 // lava
 
 var lava = []
 
-lava.push({
+/* lava.push({
     x: 190,
     y: 20,
     width: 20,
@@ -141,8 +154,13 @@ lava.push({
     y: 100,
     width: 10,
     height: 5
-});
+}); */
 
+for (var b in current_level.lava)
+{
+    var block = current_level.lava[b];
+    lava.push({x: block.x * blockSize, y: block.y * blockSize, width: blockSize, height: blockSize});
+}
 
 //
 
@@ -150,7 +168,7 @@ lava.push({
 
 var coin = []
 
-coin.push({
+/* coin.push({
     x: 250,
     y: 30,
     width: 6,
@@ -179,7 +197,14 @@ coin.push({
     width: 6,
     height: 6,
     alive: 1
-});
+}); */
+
+
+for (var b in current_level.coins)
+{
+    var block = current_level.coins[b];
+    coin.push({x: block.x * blockSize, y: block.y * blockSize, width: blockSize, height: blockSize, alive: 1});
+}
 
 var coin_current = 0; //coin.length;
 
@@ -192,11 +217,6 @@ for (var i in coin)
         coin_current = coin_current + 1;
     }
 }
-
-
-
-canvas.width = width;
-canvas.height = height;
 
 function update() {
     // check keys
@@ -258,7 +278,6 @@ for (var i = 0; i < lava.length; i++) {
 
 
 }
-
 
     //collesion box
     for (var i = 0; i < boxes.length; i++) {
