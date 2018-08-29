@@ -1,4 +1,33 @@
-<div id="game">
-    <button id = "gamemenu" onclick="loadGamemenu()">Menu</button>
-    <canvas id="mycanvas" width="600" height="400"></canvas>
+<head>
+    <meta charset="UTF-8">
+    <meta name ="adaptive" content="width=device-width">
+
+    <title>Go Team Adventure, Go!</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/animation.css" />
+    <script type="application/javascript" src="../js/content-loader.js"></script>
+</head>
+<body onload="loadMenu()">
+<div id="header">
+    <a id="home" href="../index.html">Home</a> <!--position und farbe noch ändern-->
+    <div id="header-title" class="center-block"><h1> Welcome to Team Adventure</h1></div>
 </div>
+<div id="outer">
+    <div id="inner" class="center-block">
+        <div id="game">
+            <button id = "gamemenu" onclick="loadGamemenu()">Menu</button>
+            <canvas id="mycanvas" width="600" height="400"></canvas>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+
+</div>
+
+<audio id="audio_player" src="sounds\background_music1.mp3" autoplay onloadeddata ="setVolume()">
+    Your browser does not support the HTML5 Audio element.
+</audio>
+
+</body>
+</html>

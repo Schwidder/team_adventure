@@ -8,27 +8,25 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/animation.css" />
     <script type="application/javascript" src="js/content-loader.js"></script>
-    <script type="application/javascript" src="js/game-area-controller.js"></script>
-    <script type="application/javascript" src="js/user-input-controller.js"></script>
 </head>
 <body onload="loadMenu()">
     <div id="header">
-            <button id = "home" onclick="loadMenu()">Home</button> <!--position und farbe noch ändern-->
+            <a id="home" href="#">Home</a> <!--position und farbe noch ändern-->
         <div id="header-title" class="center-block"><h1> Welcome to Team Adventure</h1></div>
     </div>
     <div id="outer">
         <div id="inner" class="center-block">
-            not ready yet
-            <!--Content-area load with js-->
+            <div id="menu">
+                <a href="content/game.html">Play</a>
+                <a href="content/help.html">Help</a>
+                <a href="content/impressum.html">Legal notice</a>
+            </div>
         </div>
     </div>
+
     <div id="footer">
 
     </div>
-
-    <audio id="audio_player" src="sounds\background_music1.mp3" autoplay onloadeddata ="setVolume()">
-        Your browser does not support the HTML5 Audio element.
-    </audio>
 
 </body>
 </html>

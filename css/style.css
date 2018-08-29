@@ -46,13 +46,14 @@ body{
     text-align: center;
 }
 
-button{
+a{
     display: block;
     background-color: #990000;
     color: #f0f0f0;
     font-size: 14px;
     font-weight: bold;
     text-shadow: 1px 1px #333333;
+    text-decoration: none;
     padding: 10px;
     border: 1px solid #800000;
     border-radius: 4px;
@@ -60,7 +61,7 @@ button{
     text-align: center;
     width: 150px;
 }
-button:hover{
+a:hover{
     background-color: #111111;
     border-color: #333333;
     color: #f0f0f0;
