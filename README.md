@@ -50,7 +50,6 @@ Die Architektur des Spiels setzt sich im Wesentlichen aus X Ebenen (Layern) zusa
 
 
 ## Credits
-IceDash wird durch folgende Drittanbieter-Assets ermöglicht:
 * Grafik ([http://bevouliin.com](http://bevouliin.com), Open Game Art License / OGA-BY)
 * Coin Animation ([dontmind8.blogspot.com](dontmind8.blogspot.com), Creative Commons / CC-BY)
 * Platformer Art Deluxe ([kenney.nl](kenney.nl), Creative Commons / CC0)
