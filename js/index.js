@@ -32,7 +32,7 @@ var canvas = document.getElementById("canvas"),
 canvas.width = width;
 canvas.height = height;
 var blockSize = Math.floor(canvas.width / current_level.width);
-
+var highestLevelPosition = height - ((current_level.height) * blockSize);
 // 4 below = framework
 var boxes = [];
 
@@ -136,7 +136,11 @@ boxes.push({
 for (var b in current_level.walls)
 {
     var block = current_level.walls[b];
-    boxes.push({x: block.x * blockSize, y: block.y * blockSize, width: blockSize, height: blockSize});
+    boxes.push({
+        x: block.x * blockSize,
+        y: highestLevelPosition + block.y * blockSize,
+        width: blockSize,
+        height: blockSize});
 }
 
 // lava
@@ -159,11 +163,15 @@ lava.push({
 for (var b in current_level.lava)
 {
     var block = current_level.lava[b];
-    lava.push({x: block.x * blockSize, y: block.y * blockSize, width: blockSize, height: blockSize});
+    lava.push({
+        x: block.x * blockSize,
+        y: highestLevelPosition + block.y * blockSize,
+        width: blockSize,
+        height: blockSize});
 }
 console.log("Level player position= "+current_level.player.x+ ":"+current_level.player.y);
 player.x = (current_level.player.x-1) * blockSize;
-player.y = (current_level.player.y-1) * blockSize;
+player.y = highestLevelPosition + (current_level.player.y-1) * blockSize;
 //
 
 // coin
@@ -205,7 +213,12 @@ coin.push({
 for (var b in current_level.coins)
 {
     var block = current_level.coins[b];
-    coin.push({x: block.x * blockSize, y: block.y * blockSize, width: blockSize, height: blockSize, alive: 1});
+    coin.push({
+        x: block.x * blockSize,
+        y: highestLevelPosition + block.y * blockSize,
+        width: blockSize,
+        height: blockSize,
+        alive: 1});
 }
 
 var coin_current = 0; //coin.length;
