@@ -4,9 +4,13 @@ class Level
 	{
         this.walls = [];
         this.lava = [];
+        this.horizlava = [];
+        this.vertlava = [];
         this.coins = [];
+        this.player = [];
         this.width = lvl[0].length;
         this.height = lvl.length;
+        
 
 		for(var y=0; y < lvl.length; y++)
         {
@@ -30,6 +34,29 @@ class Level
                 if(c == '!')
                 {
                     this.lava.push({
+                        x: posX,
+                        y: posY
+                    });
+                }
+
+                if(c == '$')
+                {
+                    this.player.x = posX;
+                    this.player.y = posY;
+                    console.log("Player:"+this.player.x+"="+posX+"_"+this.player.y+"="+posY);
+                }
+
+                if(c == 'v')
+                {
+                    this.vertlava.push({
+                        x: posX,
+                        y: posY
+                    });
+                }
+
+                if(c == '|')
+                {
+                    this.horizlava.push({
                         x: posX,
                         y: posY
                     });
@@ -74,4 +101,4 @@ for(var i=0; i < levelPlans.length;i++)
 
 console.log("levels:", levels);
 
-var current_level = levels[0];
+var current_level = levels[1];

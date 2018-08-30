@@ -11,8 +11,7 @@ var canvas = document.getElementById("canvas"),
         width: 8,
         height: 8, 
         x: 250, //width / 2
-        y: 20
-        ,
+        y: 40,
         speed: 3,
         velX: 0,
         velY: 0,
@@ -24,6 +23,7 @@ var canvas = document.getElementById("canvas"),
     friction = 0.75, // a lower number makes you slide less, a higher number makes you slide more
     gravity = 0.25;
 
+//time
     var starttime = Date.now();
  
 
@@ -31,7 +31,7 @@ var canvas = document.getElementById("canvas"),
 
 canvas.width = width;
 canvas.height = height;
-var blockSize = canvas.width / current_level.width;
+var blockSize = Math.floor(canvas.width / current_level.width);
 
 // 4 below = framework
 var boxes = [];
@@ -161,7 +161,9 @@ for (var b in current_level.lava)
     var block = current_level.lava[b];
     lava.push({x: block.x * blockSize, y: block.y * blockSize, width: blockSize, height: blockSize});
 }
-
+console.log("Level player position= "+current_level.player.x+ ":"+current_level.player.y);
+player.x = (current_level.player.x-1) * blockSize;
+player.y = (current_level.player.y-1) * blockSize;
 //
 
 // coin
