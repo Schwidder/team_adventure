@@ -347,7 +347,7 @@ for (var i = 0; i < coin.length; i++) {
 
 
 
-//    
+
     if(player.grounded){
          player.velY = 0;
     }
@@ -360,7 +360,7 @@ for (var i = 0; i < coin.length; i++) {
     } else if (player.x <= 0) {
         player.x = 0;
     }
-//
+
     ctx.fill();
     ctx.fillStyle = "red"; //lava zeichnen
     ctx.beginPath();

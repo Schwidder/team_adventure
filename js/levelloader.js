@@ -22,72 +22,53 @@ class Level
 
                 var posX = x;
                 var posY = y;
-
-                if(c == 'x')
-                {
-                    this.walls.push({
-                        x: posX,
-                        y: posY
-                    });
-                }
-
-                if(c == '!')
-                {
-                    this.lava.push({
-                        x: posX,
-                        y: posY
-                    });
-                }
-
-                if(c == '$')
-                {
-                    this.player.x = posX;
-                    this.player.y = posY;
-                    console.log("Player:"+this.player.x+"="+posX+"_"+this.player.y+"="+posY);
-                }
-
-                if(c == 'v')
-                {
-                    this.vertlava.push({
-                        x: posX,
-                        y: posY
-                    });
-                }
-
-                if(c == '|')
-                {
-                    this.horizlava.push({
-                        x: posX,
-                        y: posY
-                    });
-                }
-
-                if(c == 'o')
-                {
-                    this.coins.push({
-                        x: posX,
-                        y: posY
-                    });
+                switch(c) {
+                    case 'x':
+                        this.walls.push({
+                            x: posX,
+                            y: posY
+                        });
+                        break;
+                    case '!':
+                        this.lava.push({
+                            x: posX,
+                            y: posY
+                        });
+                        break;
+                    case '$':
+                        this.player.x = posX;
+                        this.player.y = posY;
+                        console.log("Player:" + this.player.x + "=" + posX + "_" + this.player.y + "=" + posY);
+                        break;
+                    case 'v':
+                        this.vertlava.push({
+                            x: posX,
+                            y: posY
+                        });
+                        break;
+                    case '|':
+                        this.horizlava.push({
+                            x: posX,
+                            y: posY
+                        });
+                        break;
+                    case 'o':
+                        this.coins.push({
+                            x: posX,
+                            y: posY
+                        });
+                        break;
+                    default:break;
                 }
             }
         }
 	}
 }
-
-/* var canvas = document.querySelector('canvas');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-var ctx = canvas.getContext('2d');
-
-var posX=0;
-var posY=0;
-var blockSize = 16; */
-
+/*
 var boden   = new Image();
 var lava    = new Image();
 var coin    = new Image();
+*/
 
 var boxes = [];
 var levels = [];
