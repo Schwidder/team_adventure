@@ -23,13 +23,11 @@ var canvas = document.getElementById("canvas"),
     friction = 0.75, // a lower number makes you slide less, a higher number makes you slide more
     gravity = 0.25;
 
-//time
-    var starttime = Date.now();
+
+var starttime = Date.now();
 var blockSize;
 var highestLevelPosition;
-var boxes = [];
-var lava = [];
-var coin = [];
+var boxes = [], lava = [], coin = [];
 var coin_current = 0;
 creatLevel();
 
@@ -154,8 +152,9 @@ function update() {
     player.velX *= friction; //both update loop
     player.velY += gravity;
 
+    //box zeichnen
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = "black"; //box zeichnen
+    ctx.fillStyle = "black";
     ctx.beginPath();
     
     player.grounded = false;
@@ -205,9 +204,6 @@ function update() {
 
     }
 
-
-
-
     //collesion coin
     for (var i = 0; i < coin.length; i++) {
         //ctx.rect(coin[i].x, coin[i].y, coin[i].width, coin[i].height);
@@ -218,25 +214,23 @@ function update() {
         {
             var dir2 = colCheck(player, coin[i]);
 
-
-
-        if (dir2 === "l" || dir2 === "r" || dir2 === "b" || dir2 === "t") {
-            //coin-- and disappear
-            coin[i].alive = 0;
-            if (coin[i].alive == 0)
-            {
-                if(counter == 0)
+            if (dir2 === "l" || dir2 === "r" || dir2 === "b" || dir2 === "t") {
+                //coin-- and disappear
+                coin[i].alive = 0;
+                if (coin[i].alive == 0)
                 {
-                coin_current = coin_current -1;
-                console.log("ABZUG:" + coin_current);
+                    if(counter == 0)
+                    {
+                    coin_current = coin_current -1;
+                    console.log("ABZUG:" + coin_current);
+                    }
+
                 }
 
             }
-
         }
-    }
     
-}
+    }
 
 
 
@@ -254,8 +248,9 @@ function update() {
         player.x = 0;
     }
 
+    //lava zeichnen
     ctx.fill();
-    ctx.fillStyle = "red"; //lava zeichnen
+    ctx.fillStyle = "red";
     ctx.beginPath();
      
     for (var i = 0; i < lava.length; i++) {
@@ -263,45 +258,31 @@ function update() {
     }
     ctx.fill();
 
-    //
-    ctx.font = "20px Comic Sans MS";
-    ctx.fillStyle = "green";
-    ctx.fillText("Coins: " + coin_current, 400, 30); 
+    // Game information
+    document.getElementById("game_coins").innerHTML = "Coins: " + coin_current;
+    document.getElementById("game_life").innerHTML = "Life: " + player.life;
+    document.getElementById("game_time").innerHTML = "Time: "+ Math.round((Date.now()-starttime)/1000);
 
-    ctx.font = "20px Comic Sans MS";
-    ctx.fillStyle = "red";
-    ctx.fillText("Lifes: " + player.life, 400, 55);
 
-    ctx.font = "20px Comic Sans MS";
+
+    ctx.beginPath();
+    //coin zeichnen
     ctx.fillStyle = "yellow";
-    ctx.fillText("Time: " + Math.round((Date.now()-starttime)/1000), 500, 50); 
 
- //
- 
- ctx.fillStyle = "yellow"; 
- ctx.beginPath();
-
-
-
-//coin zeichnen
- for (var i = 0; i < coin.length; i++) {
-     if ( coin[i].alive == 1)
-     {
-     ctx.arc(coin[i].x, coin[i].y,5,0, 2* Math.PI);
-     ctx.closePath();
-     }
-     
+    for (var i = 0; i < coin.length; i++) {
+        if ( coin[i].alive == 1)
+        {
+            ctx.arc(coin[i].x, coin[i].y,5,0, 2* Math.PI);
+            ctx.closePath();
+        }
     }
 
+    //player zeichnen
+    ctx.fill();
+    ctx.fillStyle = "blue";
+    ctx.fillRect(player.x, player.y, player.width, player.height);
 
-
-//
-     
-ctx.fill();
-ctx.fillStyle = "blue"; //player zeichnen
-ctx.fillRect(player.x, player.y, player.width, player.height);
-
-requestAnimationFrame(update);
+    requestAnimationFrame(update);
 
 }
 
