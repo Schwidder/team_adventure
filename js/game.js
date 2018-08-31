@@ -5,8 +5,8 @@
 
 var canvas = document.getElementById("canvas"),
     ctx = canvas.getContext("2d"),
-    width = 600, //500
-    height = 400, //200
+    width = 604, //500
+    height = 404, //200
     player = {
         width: 8,
         height: 8, 
@@ -40,7 +40,7 @@ function creatLevel() {
 
     canvas.width = width;
     canvas.height = height;
-    blockSize = Math.floor(canvas.width / current_level.width);
+    blockSize = 6;
     highestLevelPosition = height - ((current_level.height) * blockSize);
     // 4 below = framework
 
@@ -124,6 +124,70 @@ function creatCoins() {
     }
 }
 
+function collisionLava() {
+    for (var i = 0; i < lava.length; i++) {
+        ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
+        var dir1 = colCheck(player, lava[i]);
+
+        if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
+            if (player.life > 1) {
+                player.life = player.life - 1;
+                //alert("YOU DIED!!!\n You have " + player.life + " lifes left ...");
+                player.x = 250;
+                player.y = 200;
+            }
+            else {
+                player.life = player.life - 1;
+                alert("GAME OVER");
+                location.reload(true); // to the menu /deathscreen
+            }
+        }
+    }
+}
+function collisionBox() {
+    for (var i = 0; i < boxes.length; i++) {
+        ctx.rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
+
+        var dir = colCheck(player, boxes[i]);
+
+        if (dir === "l" || dir === "r") {
+            player.velX = 0;
+            player.jumping = false;
+        } else if (dir === "b") {
+            player.grounded = true;
+            player.jumping = false;
+        } else if (dir === "t") {
+            player.velY *= -1;
+        }
+
+    }
+}
+function collisionCoin() {
+    for (var i = 0; i < coin.length; i++) {
+        //ctx.rect(coin[i].x, coin[i].y, coin[i].width, coin[i].height);
+
+        if(coin[i].alive == 1)
+        {
+            var dir2 = colCheck(player, coin[i]);
+
+            if (dir2 === "l" || dir2 === "r" || dir2 === "b" || dir2 === "t") {
+                //coin-- and disappear
+                coin[i].alive = 0;
+
+                coin_current = coin_current -1;
+                console.log("ABZUG:" + coin_current);
+                if(coin_current == 0)
+                {
+                    alert("WIN");
+                    location.reload(true);
+                }
+            }
+
+        }
+
+    }
+}
+
 function update() {
     // check keys
     if (keys[37]) {
@@ -159,81 +223,9 @@ function update() {
     
     player.grounded = false;
 
-
-    //collesion lava
-    for (var i = 0; i < lava.length; i++) {
-        ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
-
-        var dir1 = colCheck(player, lava[i]);
-
-        if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
-            if (player.life > 1)
-            {
-                player.life = player.life - 1;
-                //alert("YOU DIED!!!\n You have " + player.life + " lifes left ...");
-                player.x = 250;
-                player.y = 200;
-            }
-            else
-            {
-                player.life = player.life - 1;
-                alert("GAME OVER")
-                location.reload(true); // to the menu /deathscreen
-            }
-
-        }
-
-
-    }
-
-    //collesion box
-    for (var i = 0; i < boxes.length; i++) {
-        ctx.rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
-        
-        var dir = colCheck(player, boxes[i]);
-
-        if (dir === "l" || dir === "r") {
-            player.velX = 0;
-            player.jumping = false;
-        } else if (dir === "b") {
-            player.grounded = true;
-            player.jumping = false;
-        } else if (dir === "t") {
-            player.velY *= -1;
-        }
-
-    }
-
-    //collesion coin
-    for (var i = 0; i < coin.length; i++) {
-        //ctx.rect(coin[i].x, coin[i].y, coin[i].width, coin[i].height);
-
-        var counter = 0;
-
-        if(coin[i].alive == 1)
-        {
-            var dir2 = colCheck(player, coin[i]);
-
-            if (dir2 === "l" || dir2 === "r" || dir2 === "b" || dir2 === "t") {
-                //coin-- and disappear
-                coin[i].alive = 0;
-                if (coin[i].alive == 0)
-                {
-                    if(counter == 0)
-                    {
-                    coin_current = coin_current -1;
-                    console.log("ABZUG:" + coin_current);
-                    }
-
-                }
-
-            }
-        }
-    
-    }
-
-
-
+    collisionLava();
+    collisionBox();
+    collisionCoin();
 
     if(player.grounded){
          player.velY = 0;
