@@ -25,211 +25,104 @@ var canvas = document.getElementById("canvas"),
 
 //time
     var starttime = Date.now();
- 
-
-
-
-canvas.width = width;
-canvas.height = height;
-var blockSize = Math.floor(canvas.width / current_level.width);
-var highestLevelPosition = height - ((current_level.height) * blockSize);
-// 4 below = framework
+var blockSize;
+var highestLevelPosition;
 var boxes = [];
-
-boxes.push({    // left wall
-    x: 0,
-    y: 0,
-    width: 2,
-    height: height
-});
-boxes.push({    // right
-    x: width - 2,
-    y: 0,
-    width: 50,
-    height: height
-});
-boxes.push({    // top
-    x: 0,
-    y: 0,
-    width: width,
-    height: 2
-});
-boxes.push({    // bottom
-    x: 0,
-    y: height - 2,
-    width: width,
-    height: 50
-});
-
-//platform
-
-/* boxes.push({
-    x: 120,
-    y: 10,
-    width: 80,
-    height: 80
-});
-boxes.push({
-    x: 170,
-    y: 50,
-    width: 80,
-    height: 80
-});
-boxes.push({
-    x: 220,
-    y: 100,
-    width: 80,
-    height: 80
-});
-
-boxes.push({
-    x: 30,
-    y: 300,
-    width: 80,
-    height: 80
-});
-boxes.push({
-    x: 80,
-    y: 250,
-    width: 40,
-    height: 40
-});
-boxes.push({
-    x: 120,
-    y: 350,
-    width: 40,
-    height: 40
-});
-boxes.push({
-    x: 300,
-    y: 300,
-    width: 40,
-    height: 40
-});
-boxes.push({
-    x: 400,
-    y: 250,
-    width: 40,
-    height: 40
-});
-boxes.push({
-    x: 350,
-    y: 330,
-    width: 40,
-    height: 40
-});
-boxes.push({
-    x: 350,
-    y: 200,
-    width: 40,
-    height: 40
-});
-boxes.push({
-    x: 380,
-    y: 150,
-    width: 40,
-    height: 40
-}); */
+var lava = [];
+var coin = [];
+var coin_current = 0;
+creatLevel();
 
 
 
-for (var b in current_level.walls)
-{
-    var block = current_level.walls[b];
-    boxes.push({
-        x: block.x * blockSize,
-        y: highestLevelPosition + block.y * blockSize,
-        width: blockSize,
-        height: blockSize});
+
+
+
+function creatLevel() {
+
+    canvas.width = width;
+    canvas.height = height;
+    blockSize = Math.floor(canvas.width / current_level.width);
+    highestLevelPosition = height - ((current_level.height) * blockSize);
+    // 4 below = framework
+
+    boxes.push({    // left wall
+        x: 0,
+        y: 0,
+        width: 2,
+        height: height
+    });
+    boxes.push({    // right
+        x: width - 2,
+        y: 0,
+        width: 50,
+        height: height
+    });
+    boxes.push({    // top
+        x: 0,
+        y: 0,
+        width: width,
+        height: 2
+    });
+    boxes.push({    // bottom
+        x: 0,
+        y: height - 2,
+        width: width,
+        height: 50
+    });
+
+    creatPlattform();
+    creatLava();
+    creatCoins();
+    // coin counter
+    for (var i in coin) {
+        if (coin[i].alive == 1) {
+            coin_current = coin_current + 1;
+        }
+    }
+    // set Player position
+    console.log("Level player position= " + current_level.player.x + ":" + current_level.player.y);
+    player.x = (current_level.player.x - 1) * blockSize;
+    player.y = highestLevelPosition + (current_level.player.y - 1) * blockSize;
+
 }
 
-// lava
 
-var lava = []
-
-/* lava.push({
-    x: 190,
-    y: 20,
-    width: 20,
-    height: 5
-});
-lava.push({
-    x: 290,
-    y: 100,
-    width: 10,
-    height: 5
-}); */
-
-for (var b in current_level.lava)
-{
-    var block = current_level.lava[b];
-    lava.push({
-        x: block.x * blockSize,
-        y: highestLevelPosition + block.y * blockSize,
-        width: blockSize,
-        height: blockSize});
-}
-console.log("Level player position= "+current_level.player.x+ ":"+current_level.player.y);
-player.x = (current_level.player.x-1) * blockSize;
-player.y = highestLevelPosition + (current_level.player.y-1) * blockSize;
-//
-
-// coin
-
-var coin = []
-
-/* coin.push({
-    x: 250,
-    y: 30,
-    width: 6,
-    height: 6,
-    alive: 1
-});
-coin.push({
-    x: 380,
-    y: 190,
-    width: 6,
-    height: 6,
-    alive: 1
-
-});
-coin.push({
-    x: 340,
-    y: 190,
-    width: 6,
-    height: 6,
-    alive: 1
-
-});
-coin.push({
-    x: 50,
-    y: 190,
-    width: 6,
-    height: 6,
-    alive: 1
-}); */
-
-
-for (var b in current_level.coins)
-{
-    var block = current_level.coins[b];
-    coin.push({
-        x: block.x * blockSize,
-        y: highestLevelPosition + block.y * blockSize,
-        width: blockSize,
-        height: blockSize,
-        alive: 1});
+function creatPlattform() {
+    //platform
+    for (var b in current_level.walls) {
+        var block = current_level.walls[b];
+        boxes.push({
+            x: block.x * blockSize,
+            y: highestLevelPosition + block.y * blockSize,
+            width: blockSize,
+            height: blockSize
+        });
+    }
 }
 
-var coin_current = 0; //coin.length;
+function creatLava() {
+    for (var b in current_level.lava) {
+        var block = current_level.lava[b];
+        lava.push({
+            x: block.x * blockSize,
+            y: highestLevelPosition + block.y * blockSize,
+            width: blockSize,
+            height: blockSize
+        });
+    }
+}
 
-
-//
-for (var i in coin)
-{
-    if (coin[i].alive == 1)
-    {
-        coin_current = coin_current + 1;
+function creatCoins() {
+    for (var b in current_level.coins) {
+        var block = current_level.coins[b];
+        coin.push({
+            x: block.x * blockSize,
+            y: highestLevelPosition + block.y * blockSize,
+            width: blockSize,
+            height: blockSize,
+            alive: 1
+        });
     }
 }
 
@@ -268,31 +161,31 @@ function update() {
     player.grounded = false;
 
 
-//collesion lava
-for (var i = 0; i < lava.length; i++) {
-    ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
-    
-    var dir1 = colCheck(player, lava[i]);
+    //collesion lava
+    for (var i = 0; i < lava.length; i++) {
+        ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
 
-    if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
-        if (player.life > 1)
-        {
-            player.life = player.life - 1;
-            //alert("YOU DIED!!!\n You have " + player.life + " lifes left ...");
-            player.x = 250;
-            player.y = 200;
+        var dir1 = colCheck(player, lava[i]);
+
+        if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
+            if (player.life > 1)
+            {
+                player.life = player.life - 1;
+                //alert("YOU DIED!!!\n You have " + player.life + " lifes left ...");
+                player.x = 250;
+                player.y = 200;
+            }
+            else
+            {
+                player.life = player.life - 1;
+                alert("GAME OVER")
+                location.reload(true); // to the menu /deathscreen
+            }
+
         }
-        else 
-        {
-            player.life = player.life - 1;   
-            alert("GAME OVER")
-            location.reload(true); // to the menu /deathscreen
-        }
-        
-    } 
 
 
-}
+    }
 
     //collesion box
     for (var i = 0; i < boxes.length; i++) {
@@ -315,33 +208,33 @@ for (var i = 0; i < lava.length; i++) {
 
 
 
-//collesion coin
-for (var i = 0; i < coin.length; i++) {
-    //ctx.rect(coin[i].x, coin[i].y, coin[i].width, coin[i].height);
-    
-    var counter = 0;
+    //collesion coin
+    for (var i = 0; i < coin.length; i++) {
+        //ctx.rect(coin[i].x, coin[i].y, coin[i].width, coin[i].height);
 
-    if(coin[i].alive == 1)
-    {
-        var dir2 = colCheck(player, coin[i]);
-    
-    
+        var counter = 0;
 
-    if (dir2 === "l" || dir2 === "r" || dir2 === "b" || dir2 === "t") {
-        //coin-- and disappear
-        coin[i].alive = 0;
-        if (coin[i].alive == 0)
+        if(coin[i].alive == 1)
         {
-            if(counter == 0)
+            var dir2 = colCheck(player, coin[i]);
+
+
+
+        if (dir2 === "l" || dir2 === "r" || dir2 === "b" || dir2 === "t") {
+            //coin-- and disappear
+            coin[i].alive = 0;
+            if (coin[i].alive == 0)
             {
-            coin_current = coin_current -1;
-            console.log("ABZUG:" + coin_current);
+                if(counter == 0)
+                {
+                coin_current = coin_current -1;
+                console.log("ABZUG:" + coin_current);
+                }
+
             }
 
         }
-        
-    } 
-}
+    }
     
 }
 

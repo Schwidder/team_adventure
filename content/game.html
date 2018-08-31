@@ -10,7 +10,7 @@
     <script type="application/javascript" src="../js/levelloader.js"></script>
     
 </head>
-<body onload="loadMenu()">
+<body>
 <div id="header">
     <a id="home" href="../index.html">Home</a> <!--position und farbe noch ändern-->
     <div id="header-title" class="center-block"><h1> Welcome to Team Adventure</h1></div>
@@ -18,9 +18,9 @@
 <div id="outer">
     <div id="inner" class="center-block">
         <div id="game">
-            <button id = "gamemenu" onclick="loadGamemenu()">Menu</button>
             <canvas id="canvas" width="600" height="400"></canvas>
         </div>
+        <div class="sidemenu"></div>
     </div>
 </div>
 
@@ -28,7 +28,7 @@
 
 </div>
 
-<audio id="audio_player" src="sounds\background_music1.mp3" autoplay onloadeddata ="setVolume()">
+<audio id="audio_player" src="../sounds/background_music1.mp3" autoplay onloadeddata ="setVolume()">
     Your browser does not support the HTML5 Audio element.
 </audio>
 <script type="text/javascript" src="../js/index.js" charset="utf-8"></script>
