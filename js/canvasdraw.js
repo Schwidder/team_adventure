@@ -61,8 +61,13 @@ function updateFrame(){
 function drawPlayer(){
 //führt nach jedem zeichnen ein Update durch 
 updateFrame();
-//Zeichnet das Bild
-ctx.drawImage(character,srcX,srcY,width,height,player.x,player.y,width,height);
+
+//Zeichnet das Bild //Position im Spritespeet:
+ctx.drawImage        (character,srcX,srcY,width,height,
+
+                    //Position in Canvas: Wo befindet sich der Spieler und wie groß ist er?
+                        player.x,player.y,width,height);
+
 }
 
 // Updatet die Funktion alle 100 milisekunden
