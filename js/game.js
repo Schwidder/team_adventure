@@ -21,7 +21,7 @@ var canvas = document.getElementById("canvas"),
     },
     keys = [],
     friction = 0.75, // a lower number makes you slide less, a higher number makes you slide more
-    gravity = 0.25;
+    gravity = 0.50;
 
 
 var starttime = Date.now();
@@ -31,8 +31,16 @@ var boxes = [], lava = [], coin = [];
 var coin_current = 0;
 creatLevel();
 
+/*
+var ilava = newImage();
+var iplayer = newImage();
+var iboxes = newImage();
 
 
+ilava.src='../assets/lava/lava_1.png';
+iplayer.src='../assets/player/stand/s1.png';
+iboxes.src='../assets/block/chocoMid.png';
+*/
 
 
 
@@ -40,7 +48,7 @@ function creatLevel() {
 
     canvas.width = width;
     canvas.height = height;
-    blockSize = 6;
+    blockSize = 10;
     highestLevelPosition = height - ((current_level.height) * blockSize);
     // 4 below = framework
 
@@ -127,6 +135,7 @@ function creatCoins() {
 function collisionLava() {
     for (var i = 0; i < lava.length; i++) {
         ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
+       // ctx.drawImage(ilava,lava[i].x, lava[i].y, lava[i].width, lava[i].height);
         var dir1 = colCheck(player, lava[i]);
 
         if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
@@ -147,7 +156,7 @@ function collisionLava() {
 function collisionBox() {
     for (var i = 0; i < boxes.length; i++) {
         ctx.rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
-
+       // ctx.drawImage(iboxes,boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
         var dir = colCheck(player, boxes[i]);
 
         if (dir === "l" || dir === "r") {
@@ -192,13 +201,20 @@ function update() {
     // check keys
     if (keys[37]) {
         // left arrow
+        srcY = trackLeft * height;
+        console.log('links');
+
         if (player.velX > -player.speed) {
             player.velX--;
         }
+        
     }
 
     if (keys[39]) {
-        // right arrow, 
+        // right arrow,
+        srcY = trackRight * height;
+        console.log('rechts');
+
         if (player.velX < player.speed) {
             player.velX++;
         }
@@ -247,6 +263,7 @@ function update() {
      
     for (var i = 0; i < lava.length; i++) {
         ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
+      //  ctx.drawImage(ilava,lava[i].x, lava[i].y, lava[i].width, lava[i].height);
     }
     ctx.fill();
 
@@ -273,6 +290,7 @@ function update() {
     ctx.fill();
     ctx.fillStyle = "blue";
     ctx.fillRect(player.x, player.y, player.width, player.height);
+   // ctx.drawImage(iplayer,player.x, player.y, player.width, player.height);
 
     requestAnimationFrame(update);
 
@@ -314,6 +332,7 @@ function colCheck(shapeA, shapeB) {
     }
     return colDir;
 }
+
 
 
 document.body.addEventListener("keydown", function (e) {
