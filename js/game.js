@@ -8,8 +8,8 @@ var canvas = document.getElementById("canvas"),
     width = 604, //500
     height = 404, //200
     player = {
-        width: 20,
-        height: 20, 
+        width: 10,
+        height: 10, 
         x: 250, //width / 2
         y: 40,
         speed: 3,
@@ -21,7 +21,7 @@ var canvas = document.getElementById("canvas"),
     },
     keys = [],
     friction = 0.75, // a lower number makes you slide less, a higher number makes you slide more
-    gravity = 0.20;
+    gravity = 0.50;
 
 
 var starttime = Date.now();
@@ -54,7 +54,7 @@ function creatLevel() {
     current_level = levels[1];
     canvas.width = width;
     canvas.height = height;
-    blockSize = 20;
+    blockSize = 10;
     highestLevelPosition = height - ((current_level.height) * blockSize);
     // 4 below = framework
 
@@ -153,9 +153,9 @@ function collisionLava() {
             else {
                 //player.life == 0;
                 //player.life = player.life - 1;
-                //alert("GAME OVER");
-                //location.reload(true); // to the menu /deathscreen
-                document.getElementById("gameover").innerHTML = "Life: ";
+                alert("GAME OVER");
+                location.reload(true); // to the menu /deathscreen
+               // document.getElementById("gameover").innerHTML = "Life: ";
                //document.getElementById("canvas").style.visibility = "hidden";
                //document.getElementById("game-over").style.visibility = "visible";  
                //$('#gameover').show();
