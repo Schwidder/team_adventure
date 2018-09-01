@@ -132,14 +132,18 @@ function collisionLava() {
         if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
             if (player.life > 1) {
                 player.life = player.life - 1;
-                //alert("YOU DIED!!!\n You have " + player.life + " lifes left ...");
                 player.x = 250;
                 player.y = 200;
             }
             else {
-                player.life = player.life - 1;
-                alert("GAME OVER");
-                location.reload(true); // to the menu /deathscreen
+                //player.life == 0;
+                //player.life = player.life - 1;
+                //alert("GAME OVER");
+                //location.reload(true); // to the menu /deathscreen
+                document.getElementById("gameover").innerHTML = "Life: ";
+               //document.getElementById("canvas").style.visibility = "hidden";
+               //document.getElementById("game-over").style.visibility = "visible";  
+               //$('#gameover').show();
             }
         }
     }
@@ -180,6 +184,7 @@ function collisionCoin() {
                 {
                     alert("WIN");
                     location.reload(true);
+                   //win menu --> next level
                 }
             }
 
@@ -211,6 +216,12 @@ function update() {
             player.grounded = false;
             player.velY = -player.speed * 2;
         }
+    }
+
+    if (keys[27]) {
+        // esc, 
+        //game freeze + menu laden
+        alert("Hello! I am an alert box!!");
     }
 
     player.velX *= friction; //both update loop
@@ -254,6 +265,7 @@ function update() {
     document.getElementById("game_coins").innerHTML = "Coins: " + coin_current;
     document.getElementById("game_life").innerHTML = "Life: " + player.life;
     document.getElementById("game_time").innerHTML = "Time: "+ Math.round((Date.now()-starttime)/1000);
+    //document.getElementById("music").innerHTML = "Menu";
 
 
 

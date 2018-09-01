@@ -95,6 +95,23 @@ canvas{
     color: red;
 }
 
+.gameover{
+    display: none;
+    text-align: center;
+    padding-top: 92px;
+    z-index: 1;
+    width: 300px;
+    height: 200px;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+  }
+
+.sidemenu #restart {
+    color: red;
+}
+  
+
 #footer{
     display: block;
     padding: 30px;
