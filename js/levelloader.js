@@ -1,69 +1,75 @@
-class Level
+
+function constructor(lvl)
 {
-	constructor(lvl)
-	{
-        this.walls = [];
-        this.lava = [];
-        this.horizlava = [];
-        this.vertlava = [];
-        this.coins = [];
-        this.player = [];
-        this.width = lvl[0].length;
-        this.height = lvl.length;
+    var Level =
+        {
+            walls: [],
+            lava: [],
+            horizlava: [],
+            vertlava: [],
+            coins: [],
+            player: [],
+            width: 0,
+            height: 0
+        };
+
+    Level.width = lvl[0].length;
+    Level.height = lvl.length;
         
 
-		for(var y=0; y < lvl.length; y++)
+    for(var y=0; y < lvl.length; y++)
+    {
+        var row = lvl[y];
+        console.log(row, "=>", row.length);
+        for(var x=0; x<row.length;x++)
         {
-            var row = lvl[y];
-            console.log(row, "=>", row.length);
-            for(var x=0; x<row.length;x++)
-            {
-                var c = row[x];
+            var c = row[x];
 
-                var posX = x;
-                var posY = y;
-                switch(c) {
-                    case 'x':
-                        this.walls.push({
-                            x: posX,
-                            y: posY
+            var posX = x;
+            var posY = y;
+            switch(c) {
+                case 'x':
+                    Level.walls.push({
+                        x: posX,
+                        y: posY
+                    });
+                    break;
+                case '!':
+                    Level.lava.push({
+                        x: posX,
+                        y: posY
+                    });
+                    break;
+                case '$':
+                    Level.player.x = posX;
+                    Level.player.y = posY;
+                    console.log("Player:" + Level.player.x + "=" + posX + "_" + Level.player.y + "=" + posY);
+                    break;
+                case 'v':
+                    Level.vertlava.push({
+                        x: posX,
+                        y: posY
+                    });
+                    break;
+                case '|':
+                    Level.horizlava.push({
+                        x: posX,
+                        y: posY
+                    });
+                    break;
+                case 'o':
+                    Level.coins.push({
+                        x: posX,
+                        y: posY
                         });
-                        break;
-                    case '!':
-                        this.lava.push({
-                            x: posX,
-                            y: posY
-                        });
-                        break;
-                    case '$':
-                        this.player.x = posX;
-                        this.player.y = posY;
-                        console.log("Player:" + this.player.x + "=" + posX + "_" + this.player.y + "=" + posY);
-                        break;
-                    case 'v':
-                        this.vertlava.push({
-                            x: posX,
-                            y: posY
-                        });
-                        break;
-                    case '|':
-                        this.horizlava.push({
-                            x: posX,
-                            y: posY
-                        });
-                        break;
-                    case 'o':
-                        this.coins.push({
-                            x: posX,
-                            y: posY
-                        });
-                        break;
-                    default:break;
-                }
+                    break;
+                default:break;
             }
         }
-	}
+    }
+    return Level;
 }
+
 /*
 var boden   = new Image();
 var lava    = new Image();
@@ -76,10 +82,8 @@ var levels = [];
 console.log("levels", levelPlans.length);
 for(var i=0; i < levelPlans.length;i++)
 {
-    var level = new Level(levelPlans[i]);
+    var level = constructor(levelPlans[i]);
     levels.push(level);
 }
 
 console.log("levels:", levels);
-
-var current_level = levels[0];
