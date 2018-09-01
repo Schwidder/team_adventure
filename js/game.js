@@ -29,6 +29,7 @@ var blockSize;
 var highestLevelPosition;
 var boxes = [], lava = [], coin = [];
 var coin_current = 0;
+var current_level;
 creatLevel();
 
 
@@ -37,7 +38,7 @@ creatLevel();
 
 
 function creatLevel() {
-
+    current_level = levels[1];
     canvas.width = width;
     canvas.height = height;
     blockSize = 6;
@@ -81,7 +82,7 @@ function creatLevel() {
     // set Player position
     console.log("Level player position= " + current_level.player.x + ":" + current_level.player.y);
     player.x = (current_level.player.x - 1) * blockSize;
-    player.y = highestLevelPosition + (current_level.player.y - 1) * blockSize;
+    player.y =  (current_level.player.y - 1) * blockSize;
 
 }
 
@@ -92,7 +93,7 @@ function creatPlattform() {
         var block = current_level.walls[b];
         boxes.push({
             x: block.x * blockSize,
-            y: highestLevelPosition + block.y * blockSize,
+            y:  block.y * blockSize,
             width: blockSize,
             height: blockSize
         });
@@ -104,7 +105,7 @@ function creatLava() {
         var block = current_level.lava[b];
         lava.push({
             x: block.x * blockSize,
-            y: highestLevelPosition + block.y * blockSize,
+            y: block.y * blockSize,
             width: blockSize,
             height: blockSize
         });
@@ -116,7 +117,7 @@ function creatCoins() {
         var block = current_level.coins[b];
         coin.push({
             x: block.x * blockSize,
-            y: highestLevelPosition + block.y * blockSize,
+            y: block.y * blockSize,
             width: blockSize,
             height: blockSize,
             alive: 1
@@ -179,6 +180,7 @@ function collisionCoin() {
                 if(coin_current == 0)
                 {
                     alert("WIN");
+
                     location.reload(true);
                 }
             }
