@@ -82,4 +82,4 @@ for(var i=0; i < levelPlans.length;i++)
 
 console.log("levels:", levels);
 
-var current_level = levels[1];
+var current_level = levels[0];
