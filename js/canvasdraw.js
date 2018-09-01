@@ -21,25 +21,9 @@ var height = spriteHeight/rows;
 var curFrame = 0; 
 var frameCount = 5; 
 
-//x und y Kordinate zum Rändern des Sprites (Anfang) 
-var x=0;
-var y=0; 
-
 //x und y Kordinate um aus dem feld zu zeichnen
 var srcX=0; 
 var srcY=0; 
-
-//Bewegung erfassen
-var left = false;
-var right = false;
-
-
-// holt das <canvas>-Element anhand seiner ID
-var canvas = document.getElementById('canvas');
-
-
-//Holt den 2D-Context
-var ctx = canvas.getContext("2d");
 
 // Erstellt ein Bildobjekt für den Charakter
 var character = new Image(); 
@@ -54,21 +38,69 @@ function updateFrame(){
     srcX = curFrame * width; 
 
 // Löscht das vorherige Bild
-    ctx.clearRect(x,y,width,height);
+   // ctx.clearRect(x,y,width,height);
 }
 
 // Zeichnet das Sprite
 function drawPlayer(){
 //führt nach jedem zeichnen ein Update durch 
-updateFrame();
+    updateFrame();
 
 //Zeichnet das Bild //Position im Spritespeet:
 ctx.drawImage        (character,srcX,srcY,width,height,
 
                     //Position in Canvas: Wo befindet sich der Spieler und wie groß ist er?
-                        player.x,player.y,width,height);
+                    player.x, player.y, player.width, player.height);
 
 }
+function drawBackground(){
 
-// Updatet die Funktion alle 100 milisekunden
-setInterval(drawPlayer,100);
+// Erstellt ein Bildobjekt für den Blöcke
+var boden = new Image(); 
+boden.src = "../assets/boden/boden.png";
+
+// Erstellt ein Bildobjekt für den Lava
+var ilava = new Image(); 
+ilava.src = "../assets/lava/lava_1.png";
+
+// Erstellt ein Bildobjekt für den Cookie
+var cookie = new Image(); 
+cookie.src = "../assets/coin/cookie.png";
+
+// Erstellt ein Bildobjekt für den Charakter
+var character = new Image(); 
+character.src = "../assets/player/walk/player.png";
+
+    ctx.drawImage        (character,0,0,560,600,
+    player.x, player.y, player.width, player.height);
+
+    //Block
+    for (var i = 0; i < boxes.length; i++) {
+        //ctx.rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
+        ctx.drawImage        (boden,0,0,70,70,
+            boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
+    
+    }
+
+    //Lava
+    for (var i = 0; i < lava.length; i++) {
+        // ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
+         ctx.drawImage        (ilava,0,0,1024,1024,
+             lava[i].x, lava[i].y, lava[i].width, lava[i].height);
+ 
+     }
+
+    // Coin
+    for (var i = 0; i < coin.length; i++) {
+        if ( coin[i].alive == 1)
+        {
+            //ctx.arc(coin[i].x, coin[i].y,5,0, 2* Math.PI);
+           // ctx.closePath();
+            ctx.drawImage        (cookie,0,0,1533,695,
+                coin[i].x, coin[i].y, coin[i].width, coin[i].height);
+        }
+    }
+
+    ctx.clearRect(0, 0, width, height);
+    ctx.fill(); 
+}

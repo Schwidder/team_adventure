@@ -31,16 +31,17 @@ var boxes = [], lava = [], coin = [];
 var coin_current = 0;
 creatLevel();
 
-/*
-var ilava = newImage();
-var iplayer = newImage();
-var iboxes = newImage();
+// Erstellt ein Bildobjekt für den Charakter
+var character = new Image(); 
+character.src = "../assets/player/walk/player.png";
 
+// Erstellt ein Bildobjekt für den Blöcke
+var boden = new Image(); 
+boden.src = "../assets/boden/boden.png";
 
-ilava.src='../assets/lava/lava_1.png';
-iplayer.src='../assets/player/stand/s1.png';
-iboxes.src='../assets/block/chocoMid.png';
-*/
+// Erstellt ein Bildobjekt für den Lava
+var ilava = new Image(); 
+ilava.src = "../assets/lava/lava_1.png";
 
 
 
@@ -155,8 +156,10 @@ function collisionLava() {
 }
 function collisionBox() {
     for (var i = 0; i < boxes.length; i++) {
-        ctx.rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
-       // ctx.drawImage(iboxes,boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
+        //ctx.rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
+        ctx.drawImage        (boden,0,0,70,70,
+            boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
+
         var dir = colCheck(player, boxes[i]);
 
         if (dir === "l" || dir === "r") {
@@ -234,7 +237,6 @@ function update() {
 
     //box zeichnen
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = "black";
     ctx.beginPath();
     
     player.grounded = false;
@@ -262,8 +264,10 @@ function update() {
     ctx.beginPath();
      
     for (var i = 0; i < lava.length; i++) {
-        ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
-      //  ctx.drawImage(ilava,lava[i].x, lava[i].y, lava[i].width, lava[i].height);
+       // ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
+        ctx.drawImage        (ilava,0,0,1024,1024,
+            lava[i].x, lava[i].y, lava[i].width, lava[i].height);
+
     }
     ctx.fill();
 
@@ -288,9 +292,13 @@ function update() {
 
     //player zeichnen
     ctx.fill();
-    ctx.fillStyle = "blue";
-    ctx.fillRect(player.x, player.y, player.width, player.height);
-   // ctx.drawImage(iplayer,player.x, player.y, player.width, player.height);
+    //ctx.fillStyle = "blue";
+    //ctx.fillRect(player.x, player.y, player.width, player.height);
+    //console.log('update');
+    //drawPlayer();
+
+    ctx.drawImage        (character,0,0,560,600,
+                         player.x, player.y, player.width, player.height);
 
     requestAnimationFrame(update);
 
