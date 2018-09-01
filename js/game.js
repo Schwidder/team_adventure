@@ -8,8 +8,8 @@ var canvas = document.getElementById("canvas"),
     width = 604, //500
     height = 404, //200
     player = {
-        width: 8,
-        height: 8, 
+        width: 10,
+        height: 10, 
         x: 250, //width / 2
         y: 40,
         speed: 3,
@@ -31,10 +31,6 @@ var boxes = [], lava = [], coin = [];
 var coin_current = 0;
 creatLevel();
 
-// Erstellt ein Bildobjekt für den Charakter
-var character = new Image(); 
-character.src = "../assets/player/walk/player.png";
-
 // Erstellt ein Bildobjekt für den Blöcke
 var boden = new Image(); 
 boden.src = "../assets/boden/boden.png";
@@ -42,6 +38,14 @@ boden.src = "../assets/boden/boden.png";
 // Erstellt ein Bildobjekt für den Lava
 var ilava = new Image(); 
 ilava.src = "../assets/lava/lava_1.png";
+
+// Erstellt ein Bildobjekt für den Cookie
+var cookie = new Image(); 
+cookie.src = "../assets/coin/cookie.png";
+
+// Erstellt ein Bildobjekt für den Charakter
+var character = new Image(); 
+character.src = "../assets/player/walk/player.png";
 
 
 
@@ -259,8 +263,8 @@ function update() {
     }
 
     //lava zeichnen
-    ctx.fill();
-    ctx.fillStyle = "red";
+   // ctx.fill();
+   // ctx.fillStyle = "red";
     ctx.beginPath();
      
     for (var i = 0; i < lava.length; i++) {
@@ -278,15 +282,17 @@ function update() {
 
 
 
-    ctx.beginPath();
+   ctx.beginPath();
     //coin zeichnen
-    ctx.fillStyle = "yellow";
+    // ctx.fillStyle = "yellow";
 
     for (var i = 0; i < coin.length; i++) {
         if ( coin[i].alive == 1)
         {
-            ctx.arc(coin[i].x, coin[i].y,5,0, 2* Math.PI);
-            ctx.closePath();
+           // ctx.arc(coin[i].x, coin[i].y,5,0, 2* Math.PI);
+           // ctx.closePath();
+            ctx.drawImage        (cookie,0,0,162,162,
+                coin[i].x, coin[i].y, coin[i].width, coin[i].height);
         }
     }
 

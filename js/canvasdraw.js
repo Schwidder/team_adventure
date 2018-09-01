@@ -96,7 +96,7 @@ character.src = "../assets/player/walk/player.png";
         {
             //ctx.arc(coin[i].x, coin[i].y,5,0, 2* Math.PI);
            // ctx.closePath();
-            ctx.drawImage        (cookie,0,0,1533,695,
+            ctx.drawImage        (cookie,0,0,162,162,
                 coin[i].x, coin[i].y, coin[i].width, coin[i].height);
         }
     }
