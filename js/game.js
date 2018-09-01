@@ -8,8 +8,8 @@ var canvas = document.getElementById("canvas"),
     width = 604, //500
     height = 404, //200
     player = {
-        width: 10,
-        height: 10, 
+        width: 20,
+        height: 20, 
         x: 250, //width / 2
         y: 40,
         speed: 3,
@@ -21,7 +21,7 @@ var canvas = document.getElementById("canvas"),
     },
     keys = [],
     friction = 0.75, // a lower number makes you slide less, a higher number makes you slide more
-    gravity = 0.50;
+    gravity = 0.20;
 
 
 var starttime = Date.now();
@@ -53,7 +53,7 @@ function creatLevel() {
 
     canvas.width = width;
     canvas.height = height;
-    blockSize = 10;
+    blockSize = 20;
     highestLevelPosition = height - ((current_level.height) * blockSize);
     // 4 below = framework
 
