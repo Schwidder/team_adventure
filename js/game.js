@@ -164,17 +164,7 @@ function collisionLava() {
 function collisionBox() {
     for (var i = 0; i < boxes.length; i++) {
         //ctx.rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
-        ctx.drawImage(
-            boden,
-            0,
-            0,
-            70,
-            70,
-            boxes[i].x,
-            boxes[i].y,
-            boxes[i].width,
-            boxes[i].height);
-        //*/
+        drawBlock(i);
 
         var dir = colCheck(player, boxes[i]);
 
@@ -281,64 +271,15 @@ function update() {
     } else if (player.x <= 0) {
         player.x = 0;
     }
+    drawBackground();
 
-    //lava zeichnen
-   // ctx.fill();
-   // ctx.fillStyle = "red";
 
-    ctx.beginPath();
-     
-    for (var i = 0; i < lava.length; i++) {
-       // ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
-        ctx.drawImage(
-            ilava,
-            0,
-            0,
-            1024,
-            1024,
-            lava[i].x,
-            lava[i].y,
-            lava[i].width,
-            lava[i].height);
-    }
-    ctx.fill();
-    //*/
 
     // Game information
     document.getElementById("game_coins").innerHTML = "Coins: " + coin_current;
     document.getElementById("game_life").innerHTML = "Life: " + player.life;
     document.getElementById("game_time").innerHTML = "Time: "+ Math.round((Date.now()-starttime)/1000);
     //document.getElementById("music").innerHTML = "Menu";
-
-
-
-    //ctx.beginPath();
-    //coin zeichnen
-    // ctx.fillStyle = "yellow";
-
-    for (var i = 0; i < coin.length; i++) {
-        if ( coin[i].alive == 1)
-        {
-           // ctx.arc(coin[i].x, coin[i].y,5,0, 2* Math.PI);
-           // ctx.closePath();
-            ctx.drawImage(
-                cookie,
-                0,
-                0,
-                162,
-                162,
-                coin[i].x,
-                coin[i].y,
-                coin[i].width,
-                coin[i].height);
-        }
-    }
-    //*/
-    ctx.fill();
-    //ctx.fillStyle = "blue";
-    //ctx.fillRect(player.x, player.y, player.width, player.height);
-    //console.log('update');
-    //drawPlayer();
 
     //player zeichnen
     ctx.drawImage(
