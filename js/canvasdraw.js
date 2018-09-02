@@ -1,10 +1,10 @@
 //Die Höhe und Breite des Sprites
-var spriteWidth = 865; 
-var spriteHeight = 400; 
+var spriteWidth = 1598; 
+var spriteHeight = 568; 
 
 // Anzahl der Zeilen und Spalten des Sprites
 var rows = 2; 
-var cols = 5; 
+var cols = 6; 
 
 //Die erste Zeile ist die Bewegung nach rechts
 var trackRight = 0; 
@@ -14,12 +14,12 @@ var trackLeft = 1;
 
 //Die Höhe und Breite der einzelner Bildelemente ausrechnen
 //weil alle Sprites die selbe Größe haben
-var width = spriteWidth/cols; 
-var height = spriteHeight/rows; 
+var swidth = spriteWidth/cols; 
+var sheight = spriteHeight/rows; 
 
 //Anzahl der Bilder/Sprites
 var curFrame = 0; 
-var frameCount = 5; 
+var frameCount = 6; 
 
 //x und y Kordinate um aus dem feld zu zeichnen
 var srcX=0; 
@@ -35,8 +35,17 @@ function updateFrame(){
     curFrame = ++curFrame % frameCount; 
 
 //Berechnet die X Koordinate des Sprites 
-    srcX = curFrame * width; 
+    if(keys[37]){
+        //linkeanimation
+        srcX = curFrame * swidth; 
+        srcY = trackLeft * sheight; 
+    }
 
+    if (keys[39]) {
+    //rechte Animation
+        srcX = curFrame * swidth; 
+        srcY = trackRight * sheight;
+    }
 // Löscht das vorherige Bild
    // ctx.clearRect(x,y,width,height);
 }
@@ -44,15 +53,14 @@ function updateFrame(){
 // Zeichnet das Sprite
 function drawPlayer(){
     //führt nach jedem zeichnen ein Update durch
-    //updateFrame();
-
+    updateFrame();
     //Zeichnet das Bild //Position im Spritespeet:
     ctx.drawImage(
         character,
         srcX,
         srcY,
-        width,
-        height,
+        swidth,
+        sheight,
         player.x,
         player.y,
         player.width,
@@ -60,13 +68,14 @@ function drawPlayer(){
 
 }
 function drawBackground(){
-
     console.log("STart draw");
     ctx.beginPath();
+
     //Lava
     drawLava();
     // Cookie
     drawCookie();
+
     ctx.fill();
 }
 

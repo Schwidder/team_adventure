@@ -70,12 +70,6 @@ function constructor(lvl)
     return Level;
 }
 
-/*
-var boden   = new Image();
-var lava    = new Image();
-var coin    = new Image();
-*/
-
 var boxes = [];
 var levels = [];
 

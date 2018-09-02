@@ -8,8 +8,8 @@ var canvas = document.getElementById("canvas"),
     width = 604, //500
     height = 404, //200
     player = {
-        width: 10,
-        height: 10, 
+        width: 50,
+        height: 50, 
         x: 250, //width / 2
         y: 40,
         speed: 3,
@@ -43,18 +43,18 @@ ilava.src = "../assets/lava/lava_1.png";
 // Erstellt ein Bildobjekt für den Cookie
 var cookie = new Image(); 
 cookie.src = "../assets/coin/cookie.png";
-
+/*
 // Erstellt ein Bildobjekt für den Charakter
 var character = new Image(); 
 character.src = "../assets/player/walk/player.png";
 
-
+*/
 
 function creatLevel() {
-    current_level = levels[1];
+    current_level = levels[0];
     canvas.width = width;
     canvas.height = height;
-    blockSize = 10;
+    blockSize = 15;
     highestLevelPosition = height - ((current_level.height) * blockSize);
     // 4 below = framework
 
@@ -138,8 +138,7 @@ function creatCoins() {
 
 function collisionLava() {
     for (var i = 0; i < lava.length; i++) {
-        ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
-       // ctx.drawImage(ilava,lava[i].x, lava[i].y, lava[i].width, lava[i].height);
+
         var dir1 = colCheck(player, lava[i]);
 
         if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
@@ -163,7 +162,6 @@ function collisionLava() {
 }
 function collisionBox() {
     for (var i = 0; i < boxes.length; i++) {
-        //ctx.rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
         drawBlock(i);
 
         var dir = colCheck(player, boxes[i]);
@@ -177,13 +175,10 @@ function collisionBox() {
         } else if (dir === "t") {
             player.velY *= -1;
         }
-
     }
 }
 function collisionCoin() {
     for (var i = 0; i < coin.length; i++) {
-        //ctx.rect(coin[i].x, coin[i].y, coin[i].width, coin[i].height);
-
         if(coin[i].alive == 1)
         {
             var dir2 = colCheck(player, coin[i]);
@@ -212,7 +207,7 @@ function update() {
     // check keys
     if (keys[37]) {
         // left arrow
-        srcY = trackLeft * height;
+
         console.log('links');
 
         if (player.velX > -player.speed) {
@@ -223,7 +218,8 @@ function update() {
 
     if (keys[39]) {
         // right arrow,
-        srcY = trackRight * height;
+
+    
         console.log('rechts');
 
         if (player.velX < player.speed) {
@@ -272,7 +268,7 @@ function update() {
         player.x = 0;
     }
     drawBackground();
-
+    drawPlayer();
 
 
     // Game information
@@ -281,18 +277,7 @@ function update() {
     document.getElementById("game_time").innerHTML = "Time: "+ Math.round((Date.now()-starttime)/1000);
     //document.getElementById("music").innerHTML = "Menu";
 
-    //player zeichnen
-    ctx.drawImage(
-        character,
-        0,
-        0,
-        560,
-        600,
-        player.x,
-        player.y,
-        player.width,
-        player.height);
-
+    
     requestAnimationFrame(update);
 
 }
