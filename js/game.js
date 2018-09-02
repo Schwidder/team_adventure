@@ -44,6 +44,7 @@ ilava.src = "../assets/lava/lava_1.png";
 var cookie = new Image(); 
 cookie.src = "../assets/coin/cookie.png";
 
+// Sounds
 var eatSound;
 var loseSound;
 var jumpSound;
@@ -52,7 +53,7 @@ eatSound = new sound("../sounds/cookie.wav");
 loseSound = new sound("../sounds/losing.wav");
 jumpSound = new sound("../sounds/jump.wav");
 
-
+// Sound construktor
 function sound(src) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
