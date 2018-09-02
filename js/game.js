@@ -8,8 +8,8 @@ var canvas = document.getElementById("canvas"),
     width = 604, //500
     height = 404, //200
     player = {
-        width: 50,
-        height: 50, 
+        width: 20,
+        height: 20, 
         x: 250, //width / 2
         y: 40,
         speed: 3,
@@ -43,18 +43,36 @@ ilava.src = "../assets/lava/lava_1.png";
 // Erstellt ein Bildobjekt für den Cookie
 var cookie = new Image(); 
 cookie.src = "../assets/coin/cookie.png";
-/*
-// Erstellt ein Bildobjekt für den Charakter
-var character = new Image(); 
-character.src = "../assets/player/walk/player.png";
 
-*/
+var eatSound;
+var loseSound;
+var jumpSound;
+
+eatSound = new sound("../sounds/cookie.wav");
+loseSound = new sound("../sounds/losing.wav");
+jumpSound = new sound("../sounds/jump.wav");
+
+
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }
+}
 
 function creatLevel() {
     current_level = levels[0];
     canvas.width = width;
     canvas.height = height;
-    blockSize = 15;
+    blockSize = 10;
     highestLevelPosition = height - ((current_level.height) * blockSize);
     // 4 below = framework
 
@@ -150,7 +168,9 @@ function collisionLava() {
             else {
                 //player.life == 0;
                 //player.life = player.life - 1;
+                loseSound.play();
                 alert("GAME OVER");
+    
                 location.reload(true); // to the menu /deathscreen
                // document.getElementById("gameover").innerHTML = "Life: ";
                //document.getElementById("canvas").style.visibility = "hidden";
@@ -186,7 +206,7 @@ function collisionCoin() {
             if (dir2 === "l" || dir2 === "r" || dir2 === "b" || dir2 === "t") {
                 //coin-- and disappear
                 coin[i].alive = 0;
-
+                eatSound.play();
                 coin_current = coin_current -1;
                 console.log("ABZUG:" + coin_current);
                 if(coin_current == 0)
@@ -231,6 +251,7 @@ function update() {
         // up arrow
         if (!player.jumping && player.grounded) {
             player.jumping = true;
+            jumpSound.play();
             player.grounded = false;
             player.velY = -player.speed * 2;
         }
@@ -277,7 +298,7 @@ function update() {
     document.getElementById("game_time").innerHTML = "Time: "+ Math.round((Date.now()-starttime)/1000);
     //document.getElementById("music").innerHTML = "Menu";
 
-    
+
     requestAnimationFrame(update);
 
 }
