@@ -163,14 +163,15 @@ function collisionLava() {
         if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
             if (player.life > 1) {
                 player.life = player.life - 1;
-                player.x = 250;
-                player.y = 200;
+                level.player.x; //Spawnfix
+                level.player.y;
+                
             }
             else {
                 //player.life == 0;
                 //player.life = player.life - 1;
                 loseSound.play();
-                alert("GAME OVER");
+               // alert("GAME OVER");
     
                 location.reload(true); // to the menu /deathscreen
                // document.getElementById("gameover").innerHTML = "Life: ";
