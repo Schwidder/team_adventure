@@ -112,7 +112,6 @@ function creatPlattform() {
         });
     }
 }
-
 function creatLava() {
     for (var b in current_level.lava) {
         var block = current_level.lava[b];
@@ -124,7 +123,6 @@ function creatLava() {
         });
     }
 }
-
 function creatCoins() {
     for (var b in current_level.coins) {
         var block = current_level.coins[b];
@@ -166,8 +164,17 @@ function collisionLava() {
 function collisionBox() {
     for (var i = 0; i < boxes.length; i++) {
         //ctx.rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
-        ctx.drawImage        (boden,0,0,70,70,
-            boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
+        ctx.drawImage(
+            boden,
+            0,
+            0,
+            70,
+            70,
+            boxes[i].x,
+            boxes[i].y,
+            boxes[i].width,
+            boxes[i].height);
+        //*/
 
         var dir = colCheck(player, boxes[i]);
 
@@ -255,7 +262,7 @@ function update() {
     //box zeichnen
     ctx.clearRect(0, 0, width, height);
     ctx.beginPath();
-    
+
     player.grounded = false;
 
     collisionLava();
@@ -278,15 +285,24 @@ function update() {
     //lava zeichnen
    // ctx.fill();
    // ctx.fillStyle = "red";
+
     ctx.beginPath();
      
     for (var i = 0; i < lava.length; i++) {
        // ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
-        ctx.drawImage        (ilava,0,0,1024,1024,
-            lava[i].x, lava[i].y, lava[i].width, lava[i].height);
-
+        ctx.drawImage(
+            ilava,
+            0,
+            0,
+            1024,
+            1024,
+            lava[i].x,
+            lava[i].y,
+            lava[i].width,
+            lava[i].height);
     }
     ctx.fill();
+    //*/
 
     // Game information
     document.getElementById("game_coins").innerHTML = "Coins: " + coin_current;
@@ -296,7 +312,7 @@ function update() {
 
 
 
-   ctx.beginPath();
+    //ctx.beginPath();
     //coin zeichnen
     // ctx.fillStyle = "yellow";
 
@@ -305,20 +321,36 @@ function update() {
         {
            // ctx.arc(coin[i].x, coin[i].y,5,0, 2* Math.PI);
            // ctx.closePath();
-            ctx.drawImage        (cookie,0,0,162,162,
-                coin[i].x, coin[i].y, coin[i].width, coin[i].height);
+            ctx.drawImage(
+                cookie,
+                0,
+                0,
+                162,
+                162,
+                coin[i].x,
+                coin[i].y,
+                coin[i].width,
+                coin[i].height);
         }
     }
-
-    //player zeichnen
+    //*/
     ctx.fill();
     //ctx.fillStyle = "blue";
     //ctx.fillRect(player.x, player.y, player.width, player.height);
     //console.log('update');
     //drawPlayer();
 
-    ctx.drawImage        (character,0,0,560,600,
-                         player.x, player.y, player.width, player.height);
+    //player zeichnen
+    ctx.drawImage(
+        character,
+        0,
+        0,
+        560,
+        600,
+        player.x,
+        player.y,
+        player.width,
+        player.height);
 
     requestAnimationFrame(update);
 

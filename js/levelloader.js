@@ -20,7 +20,7 @@ function constructor(lvl)
     for(var y=0; y < lvl.length; y++)
     {
         var row = lvl[y];
-        console.log(row, "=>", row.length);
+        //console.log(row, "=>", row.length);
         for(var x=0; x<row.length;x++)
         {
             var c = row[x];
@@ -43,7 +43,7 @@ function constructor(lvl)
                 case '$':
                     Level.player.x = posX;
                     Level.player.y = posY;
-                    console.log("Player:" + Level.player.x + "=" + posX + "_" + Level.player.y + "=" + posY);
+                    //console.log("Player:" + Level.player.x + "=" + posX + "_" + Level.player.y + "=" + posY);
                     break;
                 case 'v':
                     Level.vertlava.push({
