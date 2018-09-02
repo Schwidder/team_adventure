@@ -44,7 +44,7 @@ var levelPlans = [[
 	"                                              x        xx !  xx                 ",
 	"                                              xxx      xxxxxxx                  ",
 	"                                              xx       xx                       ",
-	"                                              xx      oxx                       ",
+	"                                  =           xx      oxx                       ",
 	"               xxxxxxx        xxx    xxx      xx      xxx                       ",
 	"              xxxxxxxxx         x    x        xx       xx                       ",
 	"             xx!!!!!!!!x        x o  x        xxo      xx                       ",
