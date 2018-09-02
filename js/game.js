@@ -30,6 +30,7 @@ var highestLevelPosition;
 var boxes = [], lava = [], coin = [];
 var coin_current = 0;
 var current_level;
+var respawn = {x:0,y:0};
 creatLevel();
 
 // Erstellt ein Bildobjekt für den Blöcke
@@ -113,8 +114,10 @@ function creatLevel() {
     }
     // set Player position
     console.log("Level player position= " + current_level.player.x + ":" + current_level.player.y);
-    player.x = (current_level.player.x - 1) * blockSize;
-    player.y =  (current_level.player.y - 1) * blockSize;
+    player.x = (current_level.player.x) * blockSize;
+    player.y = (current_level.player.y) * blockSize;
+    respawn.x = player.x;
+    respawn.y = player.y;
 
 }
 
@@ -163,8 +166,8 @@ function collisionLava() {
         if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
             if (player.life > 1) {
                 player.life = player.life - 1;
-                level.player.x; //Spawnfix
-                level.player.y;
+                player.x = respawn.x; //Spawnfix
+                player.y = respawn.y;
                 
             }
             else {

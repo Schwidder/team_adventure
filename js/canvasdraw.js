@@ -68,7 +68,7 @@ function drawPlayer(){
 
 }
 function drawBackground(){
-    console.log("STart draw");
+    //console.log("STart draw");
     ctx.beginPath();
 
     //Lava
