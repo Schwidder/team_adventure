@@ -13,39 +13,62 @@
 </head>
 <body>
 <div id="header">
-    <a id="home" href="../index.html">Home</a> <!--position und farbe noch ändern-->
+    <a id="home" class="button" href="../index.html">Home</a> <!--position und farbe noch ändern-->
     <div id="header-title" class="center-block"><h1> Welcome to Team Adventure</h1></div>
 </div>
 <div id="outer">
-        <div id="game">
-            <canvas id="canvas" width="600" height="400"></canvas>
-            <div class="gameover hidden">
+    <div id="game">
+        <canvas id="canvas"></canvas>
+        <div class="gameover hidden">
                     <div id="restart">
                         <h3>Game Over</h3>
                         <div class="game_states"></div>
-                        <a onclick="(function(){location.reload(true);})();">
+                        <a class="button" onclick="(function(){location.reload(true);})();">
                             Try again
                         </a>
-                    </div>>
+                    </div>
                <!-- <div id="menu"></div> -->
             </div>
-            <div class="win hidden">
+        <div class="win hidden">
                 <div id="next_lvl">
                     <h3>You Win!</h3>
                     <div class="game_states"></div>
-                    <b onclick="nextLevel()">
+                    <a class="button" onclick="nextLevel()">
                         Next level
-                    </b>
+                    </a>
                 </div>
             </div>
-            <div class="sidemenu">
-                <div id="game_life"></div>
-                <div id="game_coins"></div>
-                <div id="game_time"></div>
+        <div class="sidemenu">
+            <div id="game_life"></div>
+            <div id="game_cookies"></div>
+            <div id="game_time"></div>
            <!-- <div id="menu"></div> -->
+        </div>
+    </div>
+    <div id="helper_container" class="show">
+        <div class="container">
+            <a id="help_button" class="button" onclick="openColseHelpMenu()">Help</a>
+        </div>
+        <div id="helps" class="rollout">
+            <div class="controles">
+                <div>Move Right: </div>
+                <div>Move Left: </div>
+                <div>Jump: </div>
+            </div>
+            <div class="collectives">
+                <div>Cookies:
+                    <img src="../assets/coin/cookie.png" width="20" height="20" />
+                </div>
+            </div>
+            <div class="enemies">
+                <div>
+                    Hot Milk:
+                    <img src="../assets/lava/lava2.png" width="20" height="20" />
+                </div>
+                <div>Dropping Hot Milk: </div>
+                <div>Enemy: </div>
             </div>
         </div>
-
     </div>
 </div>
 

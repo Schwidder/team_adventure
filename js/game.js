@@ -28,7 +28,7 @@ var starttime = Date.now();
 var blockSize;
 var highestLevelPosition;
 var boxes = [], lava = [], coin = [];
-var coin_current = 0;
+var cookie_current = 0;
 var current_level, current_level_id = 0, game_status = 0;
 var respawn = {x:0,y:0};
 var map_shift_x = 0;
@@ -105,7 +105,7 @@ function creatLevel(id) {
     // coin counter
     for (var i in coin) {
         if (coin[i].alive == 1) {
-            coin_current = coin_current + 1;
+            cookie_current = cookie_current + 1;
         }
     }
 
@@ -205,14 +205,14 @@ function collisionCoin() {
                 //coin-- and disappear
                 coin[i].alive = 0;
                 eatSound.play();
-                coin_current = coin_current -1;
-                console.log("ABZUG:" + coin_current);
-                if(coin_current == 0)
+                cookie_current = cookie_current -1;
+                console.log("ABZUG:" + cookie_current);
+                if(cookie_current == 0)
                 {
                     //WIN SOUND
                     document.querySelector(".win").setAttribute("class","win show");
                     document.querySelector(".win .game_states").innerHTML = "Time needed: "+ Math.round((Date.now()-starttime)/1000)+ " Seconds";
-                    game_status = 2;
+                    game_status = 1;
                 }
             }
 
@@ -295,7 +295,7 @@ function update() {
 
 
     // Game information
-    document.getElementById("game_coins").innerHTML = "Coins: " + coin_current;
+    document.getElementById("game_cookies").innerHTML = "Cookies: " + cookie_current;
     document.getElementById("game_life").innerHTML = "Life: " + player.life;
     document.getElementById("game_time").innerHTML = "Time: "+ Math.round((Date.now()-starttime)/1000);
     //document.getElementById("music").innerHTML = "Menu";
