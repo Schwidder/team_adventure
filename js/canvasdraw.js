@@ -61,65 +61,73 @@ function drawPlayer(){
         srcY,
         swidth,
         sheight,
-        player.x,
-        player.y,
+        player.x - map_shift_x,
+        player.y - map_shift_y,
         player.width,
         player.height);
 
 }
-function drawBackground(){
+function drawBackground(level)
+{
     //console.log("STart draw");
     ctx.beginPath();
 
+    
+    for (var i = 0; i < boxes.length; i++) {
+        drawBlock(boxes[i]);
+    }
+
     //Lava
-    drawLava();
+    for (var i = 0; i < lava.length; i++) {
+        drawLava(lava[i]);
+    }
+
     // Cookie
-    drawCookie();
+    
+    for (var i = 0; i < coin.length; i++) {
+       drawCookie(coin[i]);
+    }
 
     ctx.fill();
 }
 
-function drawBlock(i) {
+function drawBlock(box) {
     ctx.drawImage(
         boden,
         0,
         0,
         70,
         70,
-        boxes[i].x,
-        boxes[i].y,
-        boxes[i].width,
-        boxes[i].height);
+        box.x - map_shift_x,
+        box.y - map_shift_y,
+        box.width,
+        box.height);
 }
-function drawLava() {
-    for (var i = 0; i < lava.length; i++) {
-        // ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
-        ctx.drawImage(
-            ilava,
-            0,
-            0,
-            1024,
-            1024,
-            lava[i].x,
-            lava[i].y,
-            lava[i].width,
-            lava[i].height);
-    }
+function drawLava(lava) {
+    // ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
+    ctx.drawImage(
+        ilava,
+        0,
+        0,
+        1024,
+        1024,
+        lava.x - map_shift_x,
+        lava.y - map_shift_y,
+        lava.width,
+        lava.height);
 }
 
-function drawCookie() {
-    for (var i = 0; i < coin.length; i++) {
-        if ( coin[i].alive == 1){
-            ctx.drawImage(
-                cookie,
-                0,
-                0,
-                162,
-                162,
-                coin[i].x,
-                coin[i].y,
-                coin[i].width,
-                coin[i].height);
-        }
+function drawCookie(coin) {
+    if ( coin.alive == 1){
+        ctx.drawImage(
+            cookie,
+            0,
+            0,
+            162,
+            162,
+            coin.x - map_shift_x,
+            coin.y - map_shift_y,
+            coin.width,
+            coin.height);
     }
 }

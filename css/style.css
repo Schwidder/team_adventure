@@ -60,11 +60,34 @@ a{
     padding: 10px;
     border: 1px solid #800000;
     border-radius: 4px;
+    margin: auto;
     margin-bottom: 10px;
     text-align: center;
     width: 150px;
 }
 a:hover{
+    background-color: #111111;
+    border-color: #333333;
+    color: #f0f0f0;
+    cursor: pointer;
+}
+b{
+    display: block;
+    background-color: #990000;
+    color: #f0f0f0;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 1px 1px #333333;
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid #800000;
+    border-radius: 4px;
+    margin: auto;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 150px;
+}
+b:hover{
     background-color: #111111;
     border-color: #333333;
     color: #f0f0f0;
@@ -95,7 +118,19 @@ canvas{
     color: red;
 }
 
+
 .gameover{
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+    padding: 70px 30px;
+    z-index: 1;
+    width: 546px;
+    height: 266px;
+    overflow: auto;
+    margin-left: -604px;
+    position: absolute;
+}
+.win{
     background-color: rgba(0,0,0,0.5);
     text-align: center;
     padding: 70px 30px;
@@ -118,6 +153,12 @@ canvas{
     color: red;
 }
   
+#restart{
+    color: yellow;
+}
+#next_lvl{
+    color: yellow;
+}
 
 #footer{
     display: block;

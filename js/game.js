@@ -8,8 +8,8 @@ var canvas = document.getElementById("canvas"),
     width = 604, //500
     height = 404, //200
     player = {
-        width: 20,
-        height: 20, 
+        width: 25,
+        height: 25, 
         x: 250, //width / 2
         y: 40,
         speed: 3,
@@ -21,7 +21,7 @@ var canvas = document.getElementById("canvas"),
     },
     keys = [],
     friction = 0.75, // a lower number makes you slide less, a higher number makes you slide more
-    gravity = 0.50;
+    gravity = 0.20;
 
 
 var starttime = Date.now();
@@ -29,10 +29,25 @@ var blockSize;
 var highestLevelPosition;
 var boxes = [], lava = [], coin = [];
 var coin_current = 0;
-var current_level, game_status = 0;
+var current_level, current_level_id = 0, game_status = 0;
 var respawn = {x:0,y:0};
+var map_shift_x = 0;
+var map_shift_y = 0;
 
-creatLevel();
+creatLevel(current_level_id);
+
+function nextLevel()
+{
+    current_level_id++;
+    creatLevel(current_level_id);
+    map_shift_x = 0;
+    map_shift_y = 0;
+
+    document.querySelector(".win").setAttribute("class","win hidden");
+    document.querySelector(".win .game_states").innerHTML = "";
+    game_status = 0;
+    update();
+}
 
 // Erstellt ein Bildobjekt für den Blöcke
 var boden = new Image(); 
@@ -71,38 +86,18 @@ function sound(src) {
     }
 }
 
-function creatLevel() {
-    current_level = levels[0];
+function creatLevel(id) {
+    current_level = levels[id];
     canvas.width = width;
     canvas.height = height;
-    blockSize = 10;
+    blockSize = 25;
     highestLevelPosition = height - ((current_level.height) * blockSize);
-    // 4 below = framework
 
-    boxes.push({    // left wall
-        x: 0,
-        y: 0,
-        width: 2,
-        height: height
-    });
-    boxes.push({    // right
-        x: width - 2,
-        y: 0,
-        width: 50,
-        height: height
-    });
-    boxes.push({    // top
-        x: 0,
-        y: 0,
-        width: width,
-        height: 2
-    });
-    boxes.push({    // bottom
-        x: 0,
-        y: height - 2,
-        width: width,
-        height: 50
-    });
+
+    boxes = [];
+    lava = [];
+    coin = [];
+
 
     creatPlattform();
     creatLava();
@@ -113,6 +108,7 @@ function creatLevel() {
             coin_current = coin_current + 1;
         }
     }
+
     // set Player position
     console.log("Level player position= " + current_level.player.x + ":" + current_level.player.y);
     player.x = (current_level.player.x) * blockSize;
@@ -172,27 +168,19 @@ function collisionLava() {
                 
             }
             else {
-                //player.life == 0;
-                //player.life = player.life - 1;
                 loseSound.play();
                // alert("GAME OVER");
                 document.querySelector(".gameover").setAttribute("class","gameover show");
-                document.querySelector(".game_states").innerHTML = "Time: "+ Math.round((Date.now()-starttime)/1000);
+                document.querySelector(".game_states").innerHTML = "Time: "+ Math.round((Date.now()-starttime)/1000) + " Seconds";
                 console.log("game over");
                 game_status = 2;
-               // location.reload(true); // to the menu /deathscreen
-               // document.getElementById("gameover").innerHTML = "Life: ";
-               //document.getElementById("canvas").style.visibility = "hidden";
-               //document.getElementById("game-over").style.visibility = "visible";  
-               //$('#gameover').show();
-                //ob.continue()
             }
         }
     }
 }
+console.log(boxes);
 function collisionBox() {
     for (var i = 0; i < boxes.length; i++) {
-        drawBlock(i);
 
         var dir = colCheck(player, boxes[i]);
 
@@ -221,10 +209,10 @@ function collisionCoin() {
                 console.log("ABZUG:" + coin_current);
                 if(coin_current == 0)
                 {
-                    alert("WIN");
-
-                    location.reload(true);
-                   //win menu --> next level
+                    //WIN SOUND
+                    document.querySelector(".win").setAttribute("class","win show");
+                    document.querySelector(".win .game_states").innerHTML = "Time needed: "+ Math.round((Date.now()-starttime)/1000)+ " Seconds";
+                    game_status = 2;
                 }
             }
 
@@ -293,13 +281,17 @@ function update() {
     player.x += player.velX;   //player movements
     player.y += player.velY;
 
-    if (player.x >= width-player.width) {
+    /* if (player.x >= width-player.width) {
         player.x = width-player.width;
     } else if (player.x <= 0) {
         player.x = 0;
-    }
-    drawBackground();
-    drawPlayer();
+    } */
+
+    map_shift_x = Math.max(0, player.x - width/2);
+    map_shift_y = Math.max(0, player.y - height/2);
+
+    drawBackground(current_level);
+    drawPlayer(player);
 
 
     // Game information
