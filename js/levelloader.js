@@ -4,9 +4,12 @@ function constructor(lvl)
     var Level =
         {
             walls: [],
+
             lava: [],
-            horizlava: [],
-            vertlava: [],
+            horizenemy: [],
+            vertenemy: [],
+            fallenemy: [],
+
             coins: [],
             player: [],
             width: 0,
@@ -46,17 +49,26 @@ function constructor(lvl)
                     //console.log("Player:" + Level.player.x + "=" + posX + "_" + Level.player.y + "=" + posY);
                     break;
                 case 'v':
-                    Level.vertlava.push({
+                    Level.fallenemy.push({
                         x: posX,
                         y: posY
                     });
                     break;
                 case '|':
-                    Level.horizlava.push({
+                    Level.horizenemy.push({
                         x: posX,
                         y: posY
                     });
                     break;
+                
+                case '=':
+                    Level.vertenemy.push({
+                        x: posX,
+                        y: posY
+                    });
+                    break;
+
+
                 case 'o':
                     Level.coins.push({
                         x: posX,
