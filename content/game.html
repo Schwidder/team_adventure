@@ -19,10 +19,16 @@
 <div id="outer">
         <div id="game">
             <canvas id="canvas" width="600" height="400"></canvas>
-            <div class="gameover">
-                    <div id="restart"></div>
+            <div class="gameover hidden">
+                    <div id="restart">
+                        <h3>Game Over</h3>
+                        <div class="game_states"></div>
+                        <a onclick="(function(){location.reload(true);})();">
+                            Try again
+                        </a>
+                    </div>
                <!-- <div id="menu"></div> -->
-                </div>
+            </div>
             <div class="sidemenu">
                 <div id="game_life"></div>
                 <div id="game_coins"></div>

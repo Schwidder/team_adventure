@@ -29,8 +29,9 @@ var blockSize;
 var highestLevelPosition;
 var boxes = [], lava = [], coin = [];
 var coin_current = 0;
-var current_level;
+var current_level, game_status = 0;
 var respawn = {x:0,y:0};
+
 creatLevel();
 
 // Erstellt ein Bildobjekt für den Blöcke
@@ -175,12 +176,16 @@ function collisionLava() {
                 //player.life = player.life - 1;
                 loseSound.play();
                // alert("GAME OVER");
-    
-                location.reload(true); // to the menu /deathscreen
+                document.querySelector(".gameover").setAttribute("class","gameover show");
+                document.querySelector(".game_states").innerHTML = "Time: "+ Math.round((Date.now()-starttime)/1000);
+                console.log("game over");
+                game_status = 2;
+               // location.reload(true); // to the menu /deathscreen
                // document.getElementById("gameover").innerHTML = "Life: ";
                //document.getElementById("canvas").style.visibility = "hidden";
                //document.getElementById("game-over").style.visibility = "visible";  
                //$('#gameover').show();
+                //ob.continue()
             }
         }
     }
@@ -303,8 +308,8 @@ function update() {
     document.getElementById("game_time").innerHTML = "Time: "+ Math.round((Date.now()-starttime)/1000);
     //document.getElementById("music").innerHTML = "Menu";
 
-
-    requestAnimationFrame(update);
+    if(game_status == 0)
+        requestAnimationFrame(update);
 
 }
 
