@@ -97,7 +97,7 @@ function creatLevel(id) {
     boxes = [];
     lava = [];
     coin = [];
-
+s
 
     creatPlattform();
     creatLava();
