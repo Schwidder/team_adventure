@@ -1,4 +1,67 @@
-var levelPlans = [[
+var levelPlans = [
+	[
+		"x      ",
+		"x            |                                                                      ",
+		"x                                                                                  ",
+		"x                    xxxxxxxxxxxxx                                                          ",
+		"x                                x                                                  ",
+		"x                                x                                                ",
+		"x                  $             x                                              ",
+		"xx           xxxxxxxxxxxxx!xxxxx x                                                   ",
+		"x                         !!   x x                                                     ",
+		"x     x                   !!   xox                                                      ",
+		"x                         !!   x x                                                     ",
+		"xx             x          !!   x x                                                     ",
+		"x         o          x x  !!   xox                                                      ",
+		"x         x         xx|xxx!!   x x                                                      ",
+		"xxx                       !!xxxx x                                                        ",
+		"x                         !!!!!! x                                                       ",
+		"x    x        o             o!!!ox                                                         ",
+		"x       o    xxx!xx o xxxxxxxxx! x                                                       ",
+		"x            x  xxxx xxxxx!!!!!! x                                                     ",
+		"x       xx                !!   !o!                                                       ",
+		"x                 o       !!   !o!                                                      ",
+		"x                xxxxxxxx!!!!  xox                                                         ",
+		"x              xx       !!!!!! x x                                                         ",
+		"x      o               !!!!!!!!x x                                                            ",
+		"x     xxx             !!!!!!!!!x x                                                       ",
+		"x                         !!   x x                                                      ",
+		"x             o           !!   x x                                                     ",
+		"x             x           !!   x x                                                     ",
+		"x                         !!   x x                                                    ",
+		"x !!!!! x            o    !!   x x  x   xxx x                                                   ",
+		"x !   !              x    !!   x x  x   x x x                                                  ",
+		"x !                       !!   x x  xxx xxx xxx                                                ",
+		"x !          x            !!   x x                                                       ",
+		"x                         !!   x x                                                    ",
+		"x o x                     !!   x x                                                      ",
+		"xxxxx              x      !!   x x                                                         ",
+		"x   x   o                 !!   x x                                                       ",
+		"x       x                 !!   x x                                                       ",
+		"x              x      o   !!   x x                                                       ",
+		"x              !          !!   x x                                                      ",
+		"x      o              !   !!   x x                                                       ",
+		"x                   xx!   !!   x x                                                      ",
+		"x      x             !!   !!   x x                                                        ",
+		"x      !                  !!   x x                                                      ",
+		"x             x           !!   x x                                                      ",
+		"x                         !!   x x                                                     ",
+		"x                        o!!   xox                                                    ",
+		"x          x             x!!x  x x                                                       ",
+		"x                       xx!!xx x x                                                       ",
+		"x        !xxx!!!xxx!xx!!!!!!xxxxo                                                                         ",
+		"x   xxx!!!!!!xxxxxxxxxvxxxxxxxxxxxxxxxxxx                                                                        ",
+		"xxxx!!!        x  x                                                                       ",
+		"                                                                                  ",
+		"                                                                                  ",
+		"                                                                                  ",
+		"                                                                                  ",
+		"                                                                                  ",
+	
+		"																				"
+	],	
+	
+	[
 	"                                                                                ",
 	"                                                                                ",
 	"                                                                                ",
@@ -26,7 +89,9 @@ var levelPlans = [[
 	"                              xxxxx                  xxxxxxxx                   ",
 	"                                                                                ",
 	""
-], [
+], 
+
+[
 	"                                      x!!x                        xxxxxxx       ",
 	"                                      x!!x                     xxxx     xxxx    ",
 	"                                      x!!xxxxxxxxxxxx         xx           xx   ",
@@ -39,7 +104,7 @@ var levelPlans = [[
 	"                                                             xx  |   |   |  xx  ",
 	"                                           oo                xx!!!!!!!!!!!xx    ",
 	"                                           xx                  xxxx!!!!!xxxx    ",
-	"                                            xxx        xx    ! xx  xxxxxxx      ",
+	"                                            xxx         x    ! xx  xxxxxxx      ",
 	"                                         x    x        xx  !  xx                ",
 	"                                              x        xx !  xx                 ",
 	"                                        x     xxx      xxxxxxx                  ",
@@ -50,9 +115,9 @@ var levelPlans = [[
 	"             xx!!!!!!!xx        x o xx        xxo      xx                       ",
 	"     $       xx  v     x        x    x        xxx      xx                       ",
 	"    xxx      x         x        x    x        xx       xx                       ",
-	"    x x      x       v x       xx o xx        xx       xx                       ",
+	"    x x      x       v x       xx o xx        xx      xxx                       ",
 	"!!!!x x!!!!!!x         x!!!!!!xx     xx!!!!!!!!x       xx                       ",
-	"!!!!x x!!!!!!x v       x!!!!!xx       xxxxxxxxxx      xxx                       ",
+	"!!!!x x!!!!!!x v       x!!!!!xx       xxxxxxxxxxx      xx                       ",
 	"!!!!x x!!!!!!x         x!!!!!x    ox      xx            xx                      ",
 	"!!!!x x!!!!!!x         x!!!!!x          xx             xxx                     ",
 	"!!!!x x!!!!!!x         xxvxxvx       xxxxx!        xxxxxx                      ",
@@ -66,5 +131,7 @@ var levelPlans = [[
 	"!!!!x x!!!!!!x    o               o     xxxxx                                   ",
 	"!!!!x x!!!!!!x!!!xxx!!!xxxxxxxxxxxxxxxxxxxx                                     "
 	
-], ];
+],
+
+];
 

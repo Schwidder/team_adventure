@@ -52,9 +52,10 @@ Die Architektur des Spiels setzt sich im Wesentlichen aus X Ebenen (Layern) zusa
 ## Credits
 * Grafik ([http://bevouliin.com](http://bevouliin.com), Open Game Art License / OGA-BY)
 * Coin Animation ([dontmind8.blogspot.com](dontmind8.blogspot.com), Creative Commons / CC-BY)
-* Platformer Art Deluxe ([kenney.nl](kenney.nl), Creative Commons / CC0)
+* Platformer Art Candy ([kenney.nl](https://kenney.nl/assets/platformer-art-candy), Creative Commons / CC0)
 * Game-Game ([metaruka](https://opengameart.org/content/game-game), Creative Commons / CC-BY-SA)
 * Sound Pack ([artisticdude](https://opengameart.org/content/rpg-sound-pack), Creative Commons / CC0)
+
 
 Wesentlich an dem Projkekt mitgewirkt haben:
 * Gleb Shpak (Development, Design, Lizenzierung)

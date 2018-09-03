@@ -55,7 +55,7 @@ boden.src = "../assets/boden/boden.png";
 
 // Erstellt ein Bildobjekt für den Lava
 var ilava = new Image(); 
-ilava.src = "../assets/lava/lava_1.png";
+ilava.src = "../assets/lava/lava2.png";
 
 // Erstellt ein Bildobjekt für den Cookie
 var cookie = new Image(); 
@@ -97,7 +97,7 @@ function creatLevel(id) {
     boxes = [];
     lava = [];
     coin = [];
-s
+
 
     creatPlattform();
     creatLava();
