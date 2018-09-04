@@ -2,15 +2,17 @@ body {
     padding: 0;
     margin: 0;
     font-family: "Trebuchet MS";
-    background-color: #111111;
+    background-color: #B79B83;
 }
 /*
 Pink: #CA4BFF
-
+Sahne: #EDE5CC
+Choco: #917052
+Vanille: #FC3
 */
 #header {
     display: block;
-    background-color: #990000;
+    background-color: #876748;
     height: 120px;
     box-shadow: 0px 10px 8px 4px #000;
     z-index: 20;
@@ -19,21 +21,25 @@ Pink: #CA4BFF
 #header #home {
     width: auto;
     position: absolute;
-    background-color: #333;
+    font-size: 40px;
+    color: #EDE5CC;
+    padding: 10px;
+    margin-top: 26px;
+    margin-left: 20px;
 }
 #header #home:hover{
-    background-color: #111;
+    color: #D680FE;
 }
 #header-title {
     padding-top: 30px;
-    width: 1200px;
+    width: 100%;
 }
 #header-title h1 {
     margin: 0;
     font-size: 40px;
     font-weight: bold;
     text-shadow: 2px 2px #333;
-    color: #f0f0f0;
+    color: #EDE5CC;
 }
 .center-block {
     display: inline-block;
@@ -43,7 +49,7 @@ Pink: #CA4BFF
     z-index: 30;
     width: auto;
     display: block;
-    background-color: #333;
+    background-color: #EDE5CC;
     text-align: center;
     padding: 30px;
 }
@@ -51,7 +57,7 @@ Pink: #CA4BFF
     box-sizing: border-box;
     padding: 30px;
     width: 100%;
-    background-color: #f0f0f0;
+    background-color: #ffffff;
 }
 #menu{
     padding: 10px;
@@ -60,20 +66,20 @@ Pink: #CA4BFF
 }
 a{
     text-decoration: none;
-    color: #990000;
+    color: #D680FE;
 }
 a:hover{
-    color: #333;
+    color: #A21FD8;
 }
 a.button{
     display: block;
-    background-color: #990000;
-    color: #f0f0f0;
+    background-color: #D680FE;
+    color: #EDE5CC;
     font-size: 14px;
     font-weight: bold;
     text-shadow: 1px 1px #333;
     padding: 10px;
-    border: 1px solid #800000;
+    border: 1px solid #A21FD8;
     border-radius: 4px;
     margin: auto;
     margin-bottom: 10px;
@@ -81,21 +87,21 @@ a.button{
     width: 150px;
 }
 a.button:hover{
-    background-color: #111;
+    background-color: #917052;
     border-color: #333333;
-    color: #f0f0f0;
+    color: #EDE5CC;
     cursor: pointer;
 }
 b{
     display: block;
-    background-color: #990000;
-    color: #f0f0f0;
+    background-color: #D680FE;
+    color: #EDE5CC;
     font-size: 14px;
     font-weight: bold;
     text-shadow: 1px 1px #333;
     text-decoration: none;
     padding: 10px;
-    border: 1px solid #800000;
+    border: 1px solid #A21FD8;
     border-radius: 4px;
     margin: auto;
     margin-bottom: 10px;
@@ -103,14 +109,14 @@ b{
     width: 150px;
 }
 b:hover{
-    background-color: #111;
+    background-color: #917052;
     border-color: #333333;
-    color: #f0f0f0;
+    color: #EDE5CC;
     cursor: pointer;
 }
 canvas{
     display: inline-block;
-    border:1px solid rgb(12, 3, 3);
+    border:1px solid rgb(0, 0, 0);
     
     background-image: url('../assets/background/BG.png');
     background-repeat: no-repeat;
@@ -121,7 +127,7 @@ canvas{
     padding: 10px;
     width: 140px;
     height: 386px;
-    background-color: #f0f0f0;
+    background-color: #EDE5CC;
     border-radius: 0px 8px 8px 0px;
     position: absolute;
     font-family: "Comic Sans MS";
@@ -129,13 +135,13 @@ canvas{
     text-align: left;
 }
 .sidemenu #game_cookies {
-    color: green;
+    color: #9E5B29;
 }
 .sidemenu #game_time {
-    color: yellow;
+    color: #000;
 }
 .sidemenu #game_life {
-    color: red;
+    color: #A21FD8;
 }
 .gameover,
 .win{
@@ -162,7 +168,7 @@ canvas{
 }
 #helper_container{
     width: 596px;
-    background-color: #f0f0f0;
+    background-color: #EDE5CC;
     padding: 5px;
 }
 #helper_container #help_button{
@@ -171,6 +177,7 @@ canvas{
     padding: 4px;
 }
 #helps {
+    color: #876748;
     display: block;
     overflow: hidden;
     width: 606px;
@@ -197,19 +204,19 @@ canvas{
     width: 180px;
 }
 .sidemenu #restart {
-    color: red;
+    color: #A21FD8;
 }
 #restart{
-    color: yellow;
+    color: #EDE5CC;
 }
 #next_lvl{
-    color: yellow;
+    color: #EDE5CC;
 }
 #footer{
     display: block;
     padding: 30px;
-    background-color: #111;
-    color: #cccccc;
+    background-color: #B79B83;
+    color: #EDE5CC;
     text-align: center;
     font-size: 11px;
 

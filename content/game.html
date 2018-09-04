@@ -5,6 +5,10 @@
     <title>Go Team Adventure, Go!</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <link rel="stylesheet" type="text/css" href="../css/animation.css" />
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+          crossorigin="anonymous">
     <script type="application/javascript" src="../js/content-loader.js"></script>
     <script type="application/javascript" src="../js/level.js"></script>
     <script type="application/javascript" src="../js/levelloader.js"></script>
@@ -13,7 +17,7 @@
 </head>
 <body>
 <div id="header">
-    <a id="home" class="button" href="../index.html">Home</a> <!--position und farbe noch ändern-->
+    <a id="home" href="../index.html"><i class="fas fa-home"></i></a> <!--position und farbe noch ändern-->
     <div id="header-title" class="center-block"><h1> Welcome to Team Adventure</h1></div>
 </div>
 <div id="outer">
@@ -39,9 +43,9 @@
                 </div>
             </div>
         <div class="sidemenu">
-            <div id="game_life"></div>
-            <div id="game_cookies"></div>
-            <div id="game_time"></div>
+            <div id="game_life">Life: <span></span></div>
+            <div id="game_cookies"><img src="../assets/coin/cookie.png" width="20" height="20" /><span></span></div>
+            <div id="game_time">Time: <span></span></div>
            <!-- <div id="menu"></div> -->
         </div>
     </div>
@@ -51,9 +55,9 @@
         </div>
         <div id="helps" class="rollout">
             <div class="controles">
-                <div>Move Right: </div>
-                <div>Move Left: </div>
-                <div>Jump: </div>
+                <div>Move Right: <i class="fas fa-arrow-alt-circle-right"></i></div>
+                <div>Move Left: <i class="fas fa-arrow-alt-circle-left"></i></div>
+                <div>Jump: <i class="fas fa-arrow-alt-circle-up"></i></div>
             </div>
             <div class="collectives">
                 <div>Cookies:

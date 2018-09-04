@@ -295,9 +295,9 @@ function update() {
 
 
     // Game information
-    document.getElementById("game_cookies").innerHTML = "Cookies: " + cookie_current;
-    document.getElementById("game_life").innerHTML = "Life: " + player.life;
-    document.getElementById("game_time").innerHTML = "Time: "+ Math.round((Date.now()-starttime)/1000);
+    document.getElementById("game_cookies").querySelector("span").innerHTML = cookie_current;
+    document.getElementById("game_life").querySelector("span").innerHTML = player.life;
+    document.getElementById("game_time").querySelector("span").innerHTML = Math.round((Date.now()-starttime)/1000);
     //document.getElementById("music").innerHTML = "Menu";
 
     if(game_status == 0)
