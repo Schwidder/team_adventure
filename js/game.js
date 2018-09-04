@@ -155,26 +155,30 @@ function creatCoins() {
     }
 }
 
+function checkToRespawn() {
+    if (player.life > 1) {
+        player.life = player.life - 1;
+        player.x = respawn.x; //Spawnfix
+        player.y = respawn.y;
+
+    }
+    else {
+        loseSound.play();
+        // alert("GAME OVER");
+        document.querySelector(".gameover").setAttribute("class","gameover show");
+        document.querySelector(".game_states").innerHTML = "Time: "+ Math.round((Date.now()-starttime)/1000) + " Seconds";
+        console.log("game over");
+        game_status = 2;
+    }
+}
+
 function collisionLava() {
     for (var i = 0; i < lava.length; i++) {
 
         var dir1 = colCheck(player, lava[i]);
 
         if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
-            if (player.life > 1) {
-                player.life = player.life - 1;
-                player.x = respawn.x; //Spawnfix
-                player.y = respawn.y;
-                
-            }
-            else {
-                loseSound.play();
-               // alert("GAME OVER");
-                document.querySelector(".gameover").setAttribute("class","gameover show");
-                document.querySelector(".game_states").innerHTML = "Time: "+ Math.round((Date.now()-starttime)/1000) + " Seconds";
-                console.log("game over");
-                game_status = 2;
-            }
+            checkToRespawn();
         }
     }
 }
@@ -281,11 +285,10 @@ function update() {
     player.x += player.velX;   //player movements
     player.y += player.velY;
 
-    /* if (player.x >= width-player.width) {
-        player.x = width-player.width;
-    } else if (player.x <= 0) {
-        player.x = 0;
-    } */
+    if (player.y >= (current_level.height * blockSize)) {
+        console.log("fall");
+        checkToRespawn();
+    }
 
     map_shift_x = Math.max(0, player.x - width/2);
     map_shift_y = Math.max(0, player.y - height/2);
