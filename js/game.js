@@ -29,7 +29,7 @@ var blockSize;
 var highestLevelPosition;
 var boxes = [], lava = [], coin = [];
 var cookie_current = 0;
-var current_level, current_level_id = 0, game_status = 0;
+var current_level, current_level_id = 3, game_status = 0;
 var respawn = {x:0,y:0};
 var map_shift_x = 0;
 var map_shift_y = 0;
