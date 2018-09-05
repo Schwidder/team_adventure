@@ -323,7 +323,7 @@ function verticalEnemyMovement() {
 
 function update() {
     // check keys
-    if (keys[37]) {
+    if (keys[65]) {
         // left arrow
 
         console.log('links');
@@ -334,7 +334,7 @@ function update() {
         
     }
 
-    if (keys[39]) {
+    if (keys[68]) {
         // right arrow,
 
     
@@ -345,7 +345,7 @@ function update() {
         }
     }
 
-    if (keys[38]) {
+    if (keys[87]) {
         // up arrow
         if (!player.jumping && player.grounded) {
             player.jumping = true;

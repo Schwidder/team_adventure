@@ -35,13 +35,13 @@ function updateFrame(){
     curFrame = ++curFrame % frameCount; 
 
 //Berechnet die X Koordinate des Sprites 
-    if(keys[37]){
+    if(keys[65]){
         //linkeanimation
         srcX = curFrame * swidth; 
         srcY = trackLeft * sheight; 
     }
 
-    if (keys[39]) {
+    if (keys[68]) {
     //rechte Animation
         srcX = curFrame * swidth; 
         srcY = trackRight * sheight;
