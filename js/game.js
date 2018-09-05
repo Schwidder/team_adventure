@@ -27,9 +27,9 @@ var canvas = document.getElementById("canvas"),
 var starttime = Date.now();
 var blockSize;
 var highestLevelPosition;
-var boxes = [], lava = [], coin = [];
+var boxes = [], lava = [], coin = [], fallenemy = [];
 var cookie_current = 0;
-var current_level, current_level_id = 3, game_status = 0;
+var current_level, current_level_id = 0, game_status = 0;
 var respawn = {x:0,y:0};
 var map_shift_x = 0;
 var map_shift_y = 0;
@@ -104,12 +104,14 @@ function creatLevel(id) {
 
     boxes = [];
     lava = [];
+    fallenemy = [];
     coin = [];
 
 
     creatPlattform();
     creatLava();
     creatCoins();
+    creatFallEnemy();
     // coin counter
     for (var i in coin) {
         if (coin[i].alive == 1) {
@@ -150,6 +152,19 @@ function creatLava() {
         });
     }
 }
+function creatFallEnemy() {
+    for (var b in current_level.fallenemy) {
+        var block = current_level.fallenemy[b];
+        fallenemy.push({
+            x: block.x * blockSize,
+            y: block.y * blockSize,
+            spawnY: block.spawnY,
+            width: blockSize,
+            height: blockSize
+        });
+        //console.log("FALLENEMY" + fallenemy[b].y);
+    }
+}
 function creatCoins() {
     for (var b in current_level.coins) {
         var block = current_level.coins[b];
@@ -184,6 +199,14 @@ function collisionLava() {
     for (var i = 0; i < lava.length; i++) {
 
         var dir1 = colCheck(player, lava[i]);
+
+        if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
+            checkToRespawn();
+        }
+    }
+    for (var i = 0; i < fallenemy.length; i++) {
+
+        var dir1 = colCheck(player, fallenemy[i]);
 
         if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
             checkToRespawn();
@@ -231,6 +254,32 @@ function collisionCoin() {
         }
 
     }
+}
+
+function collisionFallingEnemy() {
+    for(var x = 0; x < fallenemy.length; x++) {
+        for (var i = 0; i < boxes.length; i++) {
+
+            var dir = colCheck(fallenemy[x], boxes[i]);
+
+            if (dir === "b") {
+                fallenemy[x].y = fallenemy[x].spawnY * blockSize;
+                console.log("Reset Position: " + fallenemy[x].y);
+            }
+        }
+    }
+}
+
+function fallingEnemyMovement() {
+    for(var x = 0; x < fallenemy.length; x++)
+    {
+        fallenemy[x].y += 14 * gravity;
+        if(fallenemy[x].y >= current_level.height * blockSize)
+        {
+            fallenemy[x].y = fallenemy[x].spawnY * blockSize;
+        }
+    }
+
 }
 
 function update() {
@@ -287,6 +336,7 @@ function update() {
     collisionLava();
     collisionBox();
     collisionCoin();
+    collisionFallingEnemy();
 
     if(player.grounded){
          player.velY = 0;
@@ -294,6 +344,9 @@ function update() {
     
     player.x += player.velX;   //player movements
     player.y += player.velY;
+
+    fallingEnemyMovement();
+
 
     if (player.y >= (current_level.height * blockSize)) {
         console.log("fall");
@@ -336,18 +389,18 @@ function colCheck(shapeA, shapeB) {
             oY = hHeights - Math.abs(vY);
         if (oX >= oY) {
             if (vY > 0) {
-                colDir = "t";
+                colDir = "t"; // Top collision
                 shapeA.y += oY;
             } else {
-                colDir = "b";
+                colDir = "b"; // Bottom collision
                 shapeA.y -= oY;
             }
         } else {
             if (vX > 0) {
-                colDir = "l";
+                colDir = "l"; // Left collision
                 shapeA.x += oX;
             } else {
-                colDir = "r";
+                colDir = "r"; // Right collision
                 shapeA.x -= oX;
             }
         }

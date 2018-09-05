@@ -42,6 +42,7 @@ function constructor(lvl)
                         x: posX,
                         y: posY
                     });
+                    //console.log("l:" + Level.lava.x + "=" + posX + "_" + Level.lava.y + "=" + posY);
                     break;
                 case '$':
                     Level.player.x = posX;
@@ -51,8 +52,10 @@ function constructor(lvl)
                 case 'v':
                     Level.fallenemy.push({
                         x: posX,
-                        y: posY
+                        y: posY,
+                        spawnY: posY
                     });
+                    //console.log("Enemy:" + Level.fallenemy.x + "=" + posX + "_" + Level.fallenemy.y + "=" + posY);
                     break;
                 case '|':
                     Level.horizenemy.push({
