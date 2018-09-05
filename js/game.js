@@ -86,6 +86,14 @@ function sound(src) {
     }
 }
 
+function quit(){
+    window.location.href = "../index.html";
+}
+
+function gamemenu(){
+    document.querySelector(".options").setAttribute("class","options show");
+}
+
 function creatLevel(id) {
     current_level = levels[id];
     canvas.width = width;
@@ -262,7 +270,9 @@ function update() {
     if (keys[27]) {
         // esc, 
         //game freeze + menu laden
-        alert("Hello! I am an alert box!!");
+        //alert("Hello! I am an alert box!!");
+        gamemenu();
+        game_status = 2;
     }
 
     player.velX *= friction; //both update loop

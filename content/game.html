@@ -42,6 +42,48 @@
                     </a>
                 </div>
             </div>
+
+
+            <div class="Options hidden">
+                    <div id="options">
+                        <a class="button" onclick="">
+                            Continue
+                        </a>
+                        <a class="button" onclick="(function(){location.reload(true);})();">
+                            Restart
+                        </a>
+                        <a class="button" onclick="loadMusic()">
+                            Sound
+                        </a>
+                        <a class="button" onclick="quit()">
+                            Exit
+                            </a>
+                    </div>
+                </div>
+
+
+
+<!--             
+            <div class="music_status hidden">
+                    <button id = "back_to_options" onclick="gamemenu()">Back to Options</button>
+                    <button id = "music_play" onclick="document.getElementById('audio_player').play()">Play</button>
+                    <button id = "music_pause" onclick="document.getElementById('audio_player').pause()">Pause</button>
+            </div>
+                  
+            <div class="sound_volume hidden">
+                    <button id = "sound_off" onclick="document.getElementById('audio_player').muted = true">Music off</button>
+                    <button id = "sound_on" onclick="document.getElementById('audio_player').muted = false">Music on</button>
+            </div>
+                
+            <input type="range" onchange="setVolumebar()" id='volumecontrol' min=0 max=1 step=0.01 value='0.1'>
+            </div>
+  -->
+
+
+
+
+
+
         <div class="sidemenu">
             <div id="game_life">Life: <span></span></div>
             <div id="game_cookies"><img src="../assets/coin/cookie.png" width="20" height="20" /><span></span></div>
@@ -55,6 +97,7 @@
         </div>
         <div id="helps" class="rollout">
             <div class="controles">
+                <div>Menu: ESC</div>
                 <div>Move Right: <i class="fas fa-arrow-alt-circle-right"></i></div>
                 <div>Move Left: <i class="fas fa-arrow-alt-circle-left"></i></div>
                 <div>Jump: <i class="fas fa-arrow-alt-circle-up"></i></div>

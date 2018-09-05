@@ -143,6 +143,9 @@ canvas{
 .sidemenu #game_life {
     color: #A21FD8;
 }
+.music_status,
+.sound_volume,
+.options,
 .gameover,
 .win{
     background-color: rgba(0,0,0,0.5);

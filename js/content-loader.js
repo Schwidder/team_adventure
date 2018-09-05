@@ -1,11 +1,10 @@
-function loadOptions() {
-    document.getElementById("menu").setAttribute("include-html-content", "content/options.html");
-    loadContent();
-}
-
 function loadMusic() {
-    document.getElementById("menu").setAttribute("include-html-content", "content/music.html");
-    loadContent();
+    //document.querySelector(".options").setAttribute("class","options show");
+    document.querySelector(".back_to_options").setAttribute("class","back_to_options show");
+    //document.getElementById("penis").classList.toggle("hidden");
+    //document.querySelector(".options").setAttribute("class","options show");
+    // das soll mit dem click auf sound aufgerufen werden in gleicher struktur
+    // problem ID klasse?
 }
 
 function setVolume() {
