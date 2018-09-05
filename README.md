@@ -10,7 +10,7 @@ Wir haben uns für ein einfaches und schlichtes Level design in Form eines Array
 sodass es für jeden einfach zu lesen und zu editieren ist. 
 **
 ## Release-Informationen
-**Release**: Block Run 1.0
+**Release**: Block Run 2.0
 
 ### Browserkompatibilität
 Die folgenden Browser werden vollständig unterstützt:
@@ -28,9 +28,7 @@ Dieses Projekt setzt auf vanilla HTML, CSS und JavaScript im ES6-Standard auf.
 Die Einbindung von Libraries ist generell nicht vorgesehen.
 
 Um das Projekt lokal aufsetzen, sind die folgenden Schritte erforderlich:
-1. [Node.js](https://nodejs.org/de/) (6er-Release-Zyklus, aktuellster LTS-Release) mit npm (Node Package Manager) installieren
 1. Repository klonen: `git clone https://github.com/Schwidder/team_adventure.git`
-2. Abhängigkeiten des Projekts lokal installieren: `npm install`
 
 ## Architektur
 ### Verzeichnisse und Dateien
@@ -55,6 +53,6 @@ Die Architektur des Spiels setzt sich im Wesentlichen aus X Ebenen (Layern) zusa
 
 
 Wesentlich an dem Projkekt mitgewirkt haben:
-* Gleb Shpak (Development, Design, Lizenzierung)
-* Fabian Kaspar (Level Design, Testing, Compliance)
-* Kevin Schwidder (Development, Design, Animationen)
+* Gleb Shpak (Level Design, Animationen / Testuren / Musik,Testing ,Lizenzierung)
+* Fabian Kaspar (Menu Design, Development , Compliance)
+* Kevin Schwidder (Development, Homepage Design, Bugfixing, Codecleaning)
