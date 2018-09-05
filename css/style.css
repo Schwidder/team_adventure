@@ -92,28 +92,6 @@ a.button:hover{
     color: #EDE5CC;
     cursor: pointer;
 }
-b{
-    display: block;
-    background-color: #D680FE;
-    color: #EDE5CC;
-    font-size: 14px;
-    font-weight: bold;
-    text-shadow: 1px 1px #333;
-    text-decoration: none;
-    padding: 10px;
-    border: 1px solid #A21FD8;
-    border-radius: 4px;
-    margin: auto;
-    margin-bottom: 10px;
-    text-align: center;
-    width: 150px;
-}
-b:hover{
-    background-color: #917052;
-    border-color: #333333;
-    color: #EDE5CC;
-    cursor: pointer;
-}
 canvas{
     display: inline-block;
     border:1px solid rgb(0, 0, 0);
@@ -143,8 +121,7 @@ canvas{
 .sidemenu #game_life {
     color: #A21FD8;
 }
-.music_status,
-.sound_volume,
+#music_settings,
 .options,
 .gameover,
 .win{
@@ -161,6 +138,12 @@ canvas{
 .container{
     display: block;
     width: 100%;
+}
+.music_status a{
+    display: inline-block;
+}
+.sound_volume a{
+    display: inline-block;
 }
 
 .hidden{

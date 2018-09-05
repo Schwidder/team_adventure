@@ -24,60 +24,58 @@
     <div id="game">
         <canvas id="canvas"></canvas>
         <div class="gameover hidden">
-                    <div id="restart">
-                        <h3>Game Over</h3>
-                        <div class="game_states"></div>
-                        <a class="button" onclick="(function(){location.reload(true);})();">
-                            Try again
-                        </a>
-                    </div>
-               <!-- <div id="menu"></div> -->
+            <div id="restart">
+                <h3>Game Over</h3>
+                <div class="game_states"></div>
+                <a class="button" onclick="(function(){location.reload(true);})();">
+                    Try again
+                </a>
             </div>
+        </div>
         <div class="win hidden">
-                <div id="next_lvl">
-                    <h3>You Win!</h3>
-                    <div class="game_states"></div>
-                    <a class="button" onclick="nextLevel()">
-                        Next level
-                    </a>
-                </div>
+            <div id="next_lvl">
+                <h3>You Win!</h3>
+                <div class="game_states"></div>
+                <a class="button" onclick="nextLevel()">
+                    Next level
+                </a>
+            </div>
+        </div>
+
+
+        <div class="Options hidden">
+            <div id="options">
+                <a class="button" onclick="continueGame()">
+                        Continue
+                </a>
+                <a class="button" onclick="(function(){location.reload(true);})();">
+                    Restart
+                </a>
+                <a class="button" onclick="loadMusicSetting()">
+                    Sound
+                </a>
+                <a class="button" onclick="quit()">
+                    Exit
+                </a>
+            </div>
+        </div>
+
+
+
+        <div id="music_settings" class="hidden">
+            <div class="music_status">
+                <a id = "back_to_options" class="button" onclick="closeMusicSetting()">Back to Options</a>
+                <a id = "music_play" class="button" onclick="document.getElementById('audio_player').play()">Play</a>
+                <a id = "music_pause" class="button" onclick="document.getElementById('audio_player').pause()">Pause</a>
             </div>
 
-
-            <div class="Options hidden">
-                    <div id="options">
-                        <a class="button" onclick="">
-                            Continue
-                        </a>
-                        <a class="button" onclick="(function(){location.reload(true);})();">
-                            Restart
-                        </a>
-                        <a class="button" onclick="loadMusic()">
-                            Sound
-                        </a>
-                        <a class="button" onclick="quit()">
-                            Exit
-                            </a>
-                    </div>
-                </div>
-
-
-
-<!--             
-            <div class="music_status hidden">
-                    <button id = "back_to_options" onclick="gamemenu()">Back to Options</button>
-                    <button id = "music_play" onclick="document.getElementById('audio_player').play()">Play</button>
-                    <button id = "music_pause" onclick="document.getElementById('audio_player').pause()">Pause</button>
+            <div class="sound_volume">
+                <a id = "sound_off" class="button" onclick="document.getElementById('audio_player').muted = true">Music off</a>
+                <a id = "sound_on" class="button" onclick="document.getElementById('audio_player').muted = false">Music on</a>
             </div>
-                  
-            <div class="sound_volume hidden">
-                    <button id = "sound_off" onclick="document.getElementById('audio_player').muted = true">Music off</button>
-                    <button id = "sound_on" onclick="document.getElementById('audio_player').muted = false">Music on</button>
-            </div>
-                
+
             <input type="range" onchange="setVolumebar()" id='volumecontrol' min=0 max=1 step=0.01 value='0.1'>
-            </div>
-  -->
+        </div>
 
 
 
@@ -85,17 +83,16 @@
 
 
         <div class="sidemenu">
-            <div id="game_life">Life: <span></span></div>
+            <div id="game_life"></div>
             <div id="game_cookies"><img src="../assets/coin/cookie.png" width="20" height="20" /><span></span></div>
             <div id="game_time">Time: <span></span></div>
-           <!-- <div id="menu"></div> -->
         </div>
     </div>
     <div id="helper_container" class="show">
         <div class="container">
             <a id="help_button" class="button" onclick="openColseHelpMenu()">Help</a>
         </div>
-        <div id="helps" class="rollout">
+        <div id="helps" class="rollin">
             <div class="controles">
                 <div>Menu: ESC</div>
                 <div>Move Right: <i class="fas fa-arrow-alt-circle-right"></i></div>
@@ -105,6 +102,10 @@
             <div class="collectives">
                 <div>Cookies:
                     <img src="../assets/coin/cookie.png" width="20" height="20" />
+                </div>
+                <div>Life:
+                    <img src="../assets/ui/full_life.png" width="20" height="20" />
+                    <img src="../assets/ui/null_life.png" width="20" height="20" />
                 </div>
             </div>
             <div class="enemies">

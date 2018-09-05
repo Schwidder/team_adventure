@@ -1,11 +1,12 @@
-function loadMusic() {
-    //document.querySelector(".options").setAttribute("class","options show");
-    document.querySelector(".back_to_options").setAttribute("class","back_to_options show");
-    //document.getElementById("penis").classList.toggle("hidden");
-    //document.querySelector(".options").setAttribute("class","options show");
-    // das soll mit dem click auf sound aufgerufen werden in gleicher struktur
-    // problem ID klasse?
+function loadMusicSetting() {
+    document.querySelector("#music_settings").setAttribute("class","show");
 }
+
+function closeMusicSetting() {
+    document.querySelector("#music_settings").setAttribute("class","hidden");
+}
+
+
 
 function setVolume() {
     var myAudio = document.getElementById("audio_player");  

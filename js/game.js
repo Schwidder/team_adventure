@@ -94,6 +94,12 @@ function gamemenu(){
     document.querySelector(".options").setAttribute("class","options show");
 }
 
+function continueGame(){
+    document.querySelector(".options").setAttribute("class","options hidden");
+    game_status = 0;
+    requestAnimationFrame(update);
+}
+
 function creatLevel(id) {
     current_level = levels[id];
     canvas.width = width;
@@ -359,11 +365,8 @@ function update() {
     drawBackground(current_level);
     drawPlayer(player);
 
+    updateGameInfo();
 
-    // Game information
-    document.getElementById("game_cookies").querySelector("span").innerHTML = cookie_current;
-    document.getElementById("game_life").querySelector("span").innerHTML = player.life;
-    document.getElementById("game_time").querySelector("span").innerHTML = Math.round((Date.now()-starttime)/1000);
     //document.getElementById("music").innerHTML = "Menu";
 
     if(game_status == 0)
@@ -371,7 +374,21 @@ function update() {
 
 }
 
-//
+function updateGameInfo() {// Game information
+    var lifes = "";
+    for(var i=0; i<3; i++){
+        if(i >= player.life) {
+            lifes = lifes + '<img src=\"../assets/ui/null_life.png\" width=\"20\" height=\"20\" />';
+        }
+        else{
+            lifes = lifes + '<img src=\"../assets/ui/full_life.png\" width=\"20\" height=\"20\" />';
+        }
+    }
+
+    document.getElementById("game_cookies").querySelector("span").innerHTML = cookie_current;
+    document.getElementById("game_life").innerHTML = lifes;
+    document.getElementById("game_time").querySelector("span").innerHTML = Math.round((Date.now()-starttime)/1000);
+}
 
 function colCheck(shapeA, shapeB) {
     // get the vectors to check against
