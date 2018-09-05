@@ -16,13 +16,9 @@ sodass es für jeden einfach zu lesen und zu editieren ist.
 Die folgenden Browser werden vollständig unterstützt:
 * Google Chrome (Microsoft Windows, Apple macOS, Linux)
 * Mozilla Firefox (Microsoft Windows, Apple macOS, Linux)
-
-Die folgenden Browser werden teilweise unterstützt:
-* Apple Safari (Apple macOS)
-
-Die folgenden Browser werden nicht unterstützt:
 * Microsoft Internet Explorer
 * Microsoft Edge
+* Apple Safari (Apple macOS)
 
 ### Bekannte Fehler (Bugs)
 
@@ -50,8 +46,9 @@ Die Architektur des Spiels setzt sich im Wesentlichen aus X Ebenen (Layern) zusa
 
 
 ## Credits
-* Grafik ([http://bevouliin.com](http://bevouliin.com), Open Game Art License / OGA-BY)
-* Coin Animation ([dontmind8.blogspot.com](dontmind8.blogspot.com), Creative Commons / CC-BY)
+
+* Cookie ([Opengameart](https://opengameart.org/), Creative Commons / CC-BY)
+* Playeranimation ([http://bevouliin.com](https://bevouliin.com/hairy-marshmallow-character/), Open Game Art License / OGA-BY)
 * Platformer Art Candy ([kenney.nl](https://kenney.nl/assets/platformer-art-candy), Creative Commons / CC0)
 * Game-Game ([metaruka](https://opengameart.org/content/game-game), Creative Commons / CC-BY-SA)
 * Sound Pack ([artisticdude](https://opengameart.org/content/rpg-sound-pack), Creative Commons / CC0)
