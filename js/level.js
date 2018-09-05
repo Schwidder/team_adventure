@@ -18,7 +18,7 @@ var levelPlans = [
 	"  x     j     o      x x                                                   xxxx",
 	"  x                  x x               e                                      x ",
 	"  x          xxxx    x x                   o           l                      x    ",
-	"  x  $       x  x    x x          =                  =          xxxxxxx    o  x ",
+	"  x  $       x  x    x x          =                  ]          xxxxxxx    o  x ",
 	"  xxxxxxxxxxxx  xxxxxx xxxxxxx    xxxxxxxxxxxxxxxxxxxx      xxxxx     xxxxxxxxx  ",
 	"                             x    x                  x      x                   ",
 	"                             x!!!!x                  x!!!!!!x                   ",

@@ -84,7 +84,12 @@ function drawBackground(level)
 
     //FallEnemy
     for (var i = 0; i < fallenemy.length; i++) {
-        drawFallenemy(fallenemy[i]);
+        drawFallEnemy(fallenemy[i]);
+    }
+
+    //VertEnemy
+    for (var i = 0; i < vertenemy.length; i++) {
+        drawVertEnemy(vertenemy[i]);
     }
 
     // Cookie
@@ -121,7 +126,7 @@ function drawLava(lava) {
         lava.width,
         lava.height);
 }
-function drawFallenemy(fallenemy) {
+function drawFallEnemy(fallenemy) {
     // ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
     ctx.drawImage(
         ilava,
@@ -133,6 +138,20 @@ function drawFallenemy(fallenemy) {
         fallenemy.y - map_shift_y,
         fallenemy.width,
         fallenemy.height);
+}
+
+function drawVertEnemy(vertenemy) {
+    // ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
+    ctx.drawImage(
+        ienemy,
+        0,
+        0,
+        128,
+        128,
+        vertenemy.x - map_shift_x,
+        vertenemy.y - map_shift_y,
+        vertenemy.width,
+        vertenemy.height);
 }
 
 function drawCookie(coin) {

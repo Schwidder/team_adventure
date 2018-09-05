@@ -27,7 +27,7 @@ var canvas = document.getElementById("canvas"),
 var starttime = Date.now();
 var blockSize;
 var highestLevelPosition;
-var boxes = [], lava = [], coin = [], fallenemy = [];
+var boxes = [], lava = [], coin = [], fallenemy = [], vertenemy = [];
 var cookie_current = 0;
 var current_level, current_level_id = 0, game_status = 0;
 var respawn = {x:0,y:0};
@@ -56,6 +56,10 @@ boden.src = "../assets/boden/boden.png";
 // Erstellt ein Bildobjekt für den Lava
 var ilava = new Image(); 
 ilava.src = "../assets/lava/lava2.png";
+
+// Erstellt ein Bildobjekt für den Enemy
+var ienemy = new Image();
+ienemy.src = "../assets/enemy/saw.png";
 
 // Erstellt ein Bildobjekt für den Cookie
 var cookie = new Image(); 
@@ -111,6 +115,7 @@ function creatLevel(id) {
     boxes = [];
     lava = [];
     fallenemy = [];
+    vertenemy = [];
     coin = [];
 
 
@@ -118,6 +123,7 @@ function creatLevel(id) {
     creatLava();
     creatCoins();
     creatFallEnemy();
+    creatVertEnemy();
     // coin counter
     for (var i in coin) {
         if (coin[i].alive == 1) {
@@ -171,6 +177,21 @@ function creatFallEnemy() {
         //console.log("FALLENEMY" + fallenemy[b].y);
     }
 }
+function creatVertEnemy() {
+    for (var b in current_level.vertenemy) {
+        var block = current_level.vertenemy[b];
+        vertenemy.push({
+            x: block.startX * blockSize,
+            y: block.y * blockSize,
+            startX: block.startX * blockSize,
+            endX: block.endX * blockSize,
+            moveDirection: 1,
+            width: blockSize,
+            height: blockSize
+        });
+        //console.log("FALLENEMY" + fallenemy[b].y);
+    }
+}
 function creatCoins() {
     for (var b in current_level.coins) {
         var block = current_level.coins[b];
@@ -201,19 +222,21 @@ function checkToRespawn() {
     }
 }
 
-function collisionLava() {
+function collisionForDead() {
     for (var i = 0; i < lava.length; i++) {
-
         var dir1 = colCheck(player, lava[i]);
-
         if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
             checkToRespawn();
         }
     }
     for (var i = 0; i < fallenemy.length; i++) {
-
         var dir1 = colCheck(player, fallenemy[i]);
-
+        if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
+            checkToRespawn();
+        }
+    }
+    for (var i = 0; i < vertenemy.length; i++) {
+        var dir1 = colCheck(player, vertenemy[i]);
         if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
             checkToRespawn();
         }
@@ -285,6 +308,16 @@ function fallingEnemyMovement() {
             fallenemy[x].y = fallenemy[x].spawnY * blockSize;
         }
     }
+}
+
+function verticalEnemyMovement() {
+    for(var x = 0; x < vertenemy.length; x++)
+    {
+        vertenemy[x].x += 2 * vertenemy[x].moveDirection;
+        if(vertenemy[x].x >= vertenemy[x].endX || vertenemy[x].x <= vertenemy[x].startX){
+            vertenemy[x].moveDirection = vertenemy[x].moveDirection * (-1);
+        }
+    }
 
 }
 
@@ -339,7 +372,7 @@ function update() {
 
     player.grounded = false;
 
-    collisionLava();
+    collisionForDead();
     collisionBox();
     collisionCoin();
     collisionFallingEnemy();
@@ -352,6 +385,7 @@ function update() {
     player.y += player.velY;
 
     fallingEnemyMovement();
+    verticalEnemyMovement();
 
 
     if (player.y >= (current_level.height * blockSize)) {

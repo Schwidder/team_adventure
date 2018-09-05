@@ -65,13 +65,20 @@ function constructor(lvl)
                     break;
                 
                 case '=':
+                    var matches = row.substring(x,row.length).match(/(.*)(])/);// get the rest of the row and search for the character "]"
+                    var movingarea = 0;
+
+                    if(matches != null) {
+                        movingarea = (posX + matches[0].length) - 1;
+                        console.log("Moving Area:"+movingarea);
+                    }
+
                     Level.vertenemy.push({
-                        x: posX,
-                        y: posY
+                        startX: posX,
+                        y: posY,
+                        endX: movingarea
                     });
                     break;
-
-
                 case 'o':
                     Level.coins.push({
                         x: posX,

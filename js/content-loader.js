@@ -6,8 +6,6 @@ function closeMusicSetting() {
     document.querySelector("#music_settings").setAttribute("class","hidden");
 }
 
-
-
 function setVolume() {
     var myAudio = document.getElementById("audio_player");  
     myAudio.volume = 0.1; // set start volume
