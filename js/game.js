@@ -408,7 +408,7 @@ function update() {
     player.y += player.velY;
 
     fallingEnemyMovement(fallenemy, 14);
-    fallingEnemyMovement(slowfallenemy, 7);
+    fallingEnemyMovement(slowfallenemy, 4);
     verticalEnemyMovement();
 
 
