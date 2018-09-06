@@ -63,13 +63,11 @@ function constructor(lvl)
                     break;
                 
                 case '=':
-                    var matches = row.substring(x,row.length).match(/([a-zA-Z\s])+(])/g);// get the rest of the row and search for the character "]"
+                    var matches = row.substring(x,row.length).match(/([a-zA-Z\s])+(])/g); // get the rest of the row and search for the character "]"
                     var movingarea = 0;
 
                     if(matches != null) {
                         movingarea = (posX + matches[0].length);
-                        //console.log("Moving Area:" + movingarea);
-                        //console.log(matches);
                     }
 
                     Level.vertenemy.push({

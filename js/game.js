@@ -5,12 +5,12 @@
 
 var canvas = document.getElementById("canvas"),
     ctx = canvas.getContext("2d"),
-    width = 604, //500
-    height = 404, //200
+    width = 604, 
+    height = 404, 
     player = {
         width: 25,
         height: 25, 
-        x: 250, //width / 2
+        x: 250, //width 
         y: 40,
         speed: 3,
         velX: 0,
@@ -20,10 +20,10 @@ var canvas = document.getElementById("canvas"),
         life: 3
     },
     keys = [],
-    friction = 0.75, // a lower number makes you slide less, a higher number makes you slide more
+    friction = 0.75, // slide Faktor
     gravity = 0.20;
 
-
+// Variablen sezten
 var starttime = Date.now();
 var pausetime = 0;
 var blockSize;
@@ -37,6 +37,7 @@ var map_shift_y = 0;
 
 creatLevel(current_level_id);
 
+// Funktion zum nächsten Level
 function nextLevel()
 {
     current_level_id++;
@@ -98,18 +99,23 @@ function sound(src) {
     };
 }
 
+// Quit game
 function quit(){
     window.location.href = "../index.html";
 }
+
+// Pause time for continue
 function updatePausetime() {
     pausetime = pausetime + (Date.now()-starttime);
 }
 
+// Gamemenü aufrufen
 function gamemenu(){
     updatePausetime();
     document.querySelector(".options").setAttribute("class","options show");
 }
 
+// Options continue game
 function continueGame(){
     document.querySelector(".options").setAttribute("class","options hidden");
     starttime = Date.now();
@@ -117,6 +123,7 @@ function continueGame(){
     requestAnimationFrame(update);
 }
 
+// Level erstellen
 function creatLevel(id) {
     current_level = levels[id];
     canvas.width = width;
@@ -125,6 +132,7 @@ function creatLevel(id) {
     highestLevelPosition = height - ((current_level.height) * blockSize);
 
 
+// Arrays von Spielobjekten
     boxes = [];
     milk = [];
     fallenemy = [];
@@ -139,6 +147,7 @@ function creatLevel(id) {
     creatSlowFallEnemy();
     creatFallEnemy(current_level.fallenemy);
     creatVertEnemy();
+
     // cookie counter
     for (var i in cookie) {
         if (cookie[i].alive == 1) {
@@ -155,9 +164,8 @@ function creatLevel(id) {
     startAnimation();
 }
 
-
+// Gameobjekte erstellen
 function creatPlattform() {
-    //platform
     for (var b in current_level.walls) {
         var block = current_level.walls[b];
         boxes.push({
@@ -231,6 +239,7 @@ function creatCookies() {
     }
 }
 
+// Respawn
 function checkToRespawn() {
     if (player.life > 1) {
         loseSound.play();
@@ -241,7 +250,6 @@ function checkToRespawn() {
     }
     else {
         loseSound.play();
-        // alert("GAME OVER");
         document.querySelector(".gameover").setAttribute("class","gameover show");
         document.querySelector(".game_states").innerHTML = "Time: "+ Math.round(
             (Date.now()-starttime+pausetime)/1000
@@ -251,6 +259,7 @@ function checkToRespawn() {
     }
 }
 
+// Collision player dead
 function collisionForDying() {
     for (var i = 0; i < milk.length; i++) {
         var dir1 = colCheck(player, milk[i]);
@@ -277,6 +286,8 @@ function collisionForDying() {
         }
     }
 }
+
+// Collision Platform
 function collisionBox() {
     for (var i = 0; i < boxes.length; i++) {
 
@@ -293,6 +304,8 @@ function collisionBox() {
         }
     }
 }
+
+// Collision Cookie
 function collisionCookie() {
     for (var i = 0; i < cookie.length; i++) {
         if(cookie[i].alive == 1)
@@ -308,9 +321,7 @@ function collisionCookie() {
                 console.log("ABZUG:" + cookie_current);
                 if(cookie_current == 0)
                 {
-                    //WIN SOUND
                     winSound.play();
-
                     document.querySelector(".win").setAttribute("class","win show");
                     document.querySelector(".win .game_states").innerHTML = "Time needed: "+ Math.round((Date.now()-starttime+pausetime)/1000)+ " Seconds";
                     updatePausetime();
@@ -323,6 +334,7 @@ function collisionCookie() {
     }
 }
 
+// Collision dropping Milk
 function collisionFallingEnemy(enemy) {
     for(var x = 0; x < enemy.length; x++) {
         for (var i = 0; i < boxes.length; i++) {
@@ -331,12 +343,12 @@ function collisionFallingEnemy(enemy) {
 
             if (dir === "b") {
                 enemy[x].y = enemy[x].spawnY * blockSize;
-                //console.log("Reset Position: " + enemy[x].y);
             }
         }
     }
 }
 
+// Dropping Milk Bewegung
 function fallingEnemyMovement(enemy, speed) {
     for(var x = 0; x < enemy.length; x++)
     {
@@ -347,6 +359,8 @@ function fallingEnemyMovement(enemy, speed) {
         }
     }
 }
+
+
 function verticalEnemyMovement() {
     for(var x = 0; x < vertenemy.length; x++)
     {
@@ -358,8 +372,8 @@ function verticalEnemyMovement() {
 
 }
 
+// update checks for keys
 function update() {
-    // check keys
     if (keys[65]) {
         // A
         if (player.velX > -player.speed) {
@@ -390,7 +404,7 @@ function update() {
         game_status = 2;
     }
 
-    player.velX *= friction; //both update loop
+    player.velX *= friction; 
     player.velY += gravity;
 
     //box zeichnen
@@ -409,7 +423,8 @@ function update() {
          player.velY = 0;
     }
     
-    player.x += player.velX;   //player movements
+    //player movements
+    player.x += player.velX;   
     player.y += player.velY;
 
     fallingEnemyMovement(fallenemy, 14);
@@ -435,7 +450,8 @@ function update() {
 
 }
 
-function updateGameInfo() {// Game information
+// Game information
+function updateGameInfo() {
     var lifes = "";
     for(var i=0; i<3; i++){
         if(i >= player.life) {
@@ -451,18 +467,16 @@ function updateGameInfo() {// Game information
     document.getElementById("game_time").querySelector("span").innerHTML = Math.round((Date.now()-starttime+pausetime)/1000);
 }
 
+    // Nach Collesion checken
 function colCheck(shapeA, shapeB) {
-    // get the vectors to check against
     var vX = (shapeA.x + (shapeA.width / 2)) - (shapeB.x + (shapeB.width / 2)),
         vY = (shapeA.y + (shapeA.height / 2)) - (shapeB.y + (shapeB.height / 2)),
-        // add the half widths and half heights of the objects
         hWidths = (shapeA.width / 2) + (shapeB.width / 2),
         hHeights = (shapeA.height / 2) + (shapeB.height / 2),
         collisionDirection = null;
 
-    // if the x and y vector are less than the half width or half height, they we must be inside the object, causing a collision
+    // Collesion von verschiedenen Richtungen
     if (Math.abs(vX) < hWidths && Math.abs(vY) < hHeights) {
-        // figures out on which side we are colliding (top, bottom, left, or right)
         var oX = hWidths - Math.abs(vX),
             oY = hHeights - Math.abs(vY);
         if (oX >= oY) {
