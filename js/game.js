@@ -30,7 +30,7 @@ var blockSize;
 var highestLevelPosition;
 var boxes = [], milk = [], cookie = [], fallenemy = [], vertenemy = [], slowfallenemy = [];
 var cookie_current = 0;
-var current_level, current_level_id = 3, game_status = 0;
+var current_level, current_level_id = 0, game_status = 0;
 var respawn = {x:0,y:0};
 var map_shift_x = 0;
 var map_shift_y = 0;
@@ -78,8 +78,9 @@ var loseSound;
 var jumpSound;
 
 eatSound = new sound("../sounds/cookie.wav");
-loseSound = new sound("../sounds/losing.wav");
+loseSound = new sound("../sounds/death.wav");
 jumpSound = new sound("../sounds/jump.wav");
+winSound = new sound("../sounds/win.wav");
 
 // Sound construktor
 function sound(src) {
@@ -232,6 +233,7 @@ function creatCookies() {
 
 function checkToRespawn() {
     if (player.life > 1) {
+        loseSound.play();
         player.life = player.life - 1;
         player.x = respawn.x; //Spawnfix
         player.y = respawn.y;
@@ -298,6 +300,7 @@ function collisionCookie() {
             var dir2 = colCheck(player, cookie[i]);
 
             if (dir2 === "l" || dir2 === "r" || dir2 === "b" || dir2 === "t") {
+                
                 //Cookie -- and disappear
                 cookie[i].alive = 0;
                 eatSound.play();
@@ -306,6 +309,8 @@ function collisionCookie() {
                 if(cookie_current == 0)
                 {
                     //WIN SOUND
+                    winSound.play();
+
                     document.querySelector(".win").setAttribute("class","win show");
                     document.querySelector(".win .game_states").innerHTML = "Time needed: "+ Math.round((Date.now()-starttime+pausetime)/1000)+ " Seconds";
                     updatePausetime();
