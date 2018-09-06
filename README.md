@@ -53,6 +53,6 @@ Die Architektur des Spiels setzt sich im Wesentlichen aus X Ebenen (Layern) zusa
 
 
 Wesentlich an dem Projkekt mitgewirkt haben:
-* Gleb Shpak (Level Design, Animationen / Testuren / Musik,Testing ,Lizenzierung)
-* Fabian Kaspar (Menu Design, Development , Compliance)
+* Gleb Shpak (Level Design, Animationen / Testuren, Testing ,Lizenzierung)
+* Fabian Kaspar (Menu Design, Development, Musik , Testing, Compliance)
 * Kevin Schwidder (Development, Homepage Design, Bugfixing, Codecleaning)
