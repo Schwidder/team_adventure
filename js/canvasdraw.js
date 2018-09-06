@@ -91,12 +91,17 @@ function drawBackground(level)
 
     //milk
     for (var i = 0; i < milk.length; i++) {
-        drawMilk(milk[i]);
+        drawMilkObject(milk[i]);
     }
 
     //FallEnemy
     for (var i = 0; i < fallenemy.length; i++) {
-        drawFallEnemy(fallenemy[i]);
+        drawMilkObject(fallenemy[i]);
+    }
+
+    //FallEnemy
+    for (var i = 0; i < slowfallenemy.length; i++) {
+        drawMilkObject(slowfallenemy[i]);
     }
 
     //VertEnemy
@@ -125,7 +130,7 @@ function drawBlock(box) {
         box.width,
         box.height);
 }
-function drawMilk(milk) {
+function drawMilkObject(milk) {
     ctx.drawImage(
         imilk,
         0,
@@ -136,18 +141,6 @@ function drawMilk(milk) {
         milk.y - map_shift_y,
         milk.width,
         milk.height);
-}
-function drawFallEnemy(fallenemy) {
-    ctx.drawImage(
-        imilk,
-        0,
-        0,
-        128,
-        128,
-        fallenemy.x - map_shift_x,
-        fallenemy.y - map_shift_y,
-        fallenemy.width,
-        fallenemy.height);
 }
 function drawVertEnemy(vertenemy) {
     ctx.drawImage(

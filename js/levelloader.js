@@ -6,7 +6,7 @@ function constructor(lvl)
             walls: [],
 
             milk: [],
-            horizenemy: [],
+            slowfallenemy: [],
             vertenemy: [],
             fallenemy: [],
 
@@ -55,19 +55,21 @@ function constructor(lvl)
                     });
                     break;
                 case '|':
-                    Level.horizenemy.push({
+                    Level.slowfallenemy.push({
                         x: posX,
-                        y: posY
+                        y: posY,
+                        spawnY: posY
                     });
                     break;
                 
                 case '=':
-                    var matches = row.substring(x,row.length).match(/(.*)(])/);// get the rest of the row and search for the character "]"
+                    var matches = row.substring(x,row.length).match(/([a-zA-Z\s])+(])/g);// get the rest of the row and search for the character "]"
                     var movingarea = 0;
 
                     if(matches != null) {
-                        movingarea = (posX + matches[0].length) - 1;
-                        console.log("Moving Area:"+movingarea);
+                        movingarea = (posX + matches[0].length);
+                        console.log("Moving Area:" + movingarea);
+                        console.log(matches);
                     }
 
                     Level.vertenemy.push({
@@ -97,6 +99,7 @@ for(var i=0; i < levelPlans.length;i++)
 {
     var level = constructor(levelPlans[i]);
     levels.push(level);
+    break;
 }
 
 console.log("levels:", levels);

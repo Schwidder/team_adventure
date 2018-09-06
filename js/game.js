@@ -25,9 +25,10 @@ var canvas = document.getElementById("canvas"),
 
 
 var starttime = Date.now();
+var pausetime = 0;
 var blockSize;
 var highestLevelPosition;
-var boxes = [], milk = [], cookie = [], fallenemy = [], vertenemy = [];
+var boxes = [], milk = [], cookie = [], fallenemy = [], vertenemy = [], slowfallenemy = [];
 var cookie_current = 0;
 var current_level, current_level_id = 0, game_status = 0;
 var respawn = {x:0,y:0};
@@ -89,22 +90,27 @@ function sound(src) {
     document.body.appendChild(this.sound);
     this.play = function(){
         this.sound.play();
-    }
+    };
     this.stop = function(){
         this.sound.pause();
-    }
+    };
 }
 
 function quit(){
     window.location.href = "../index.html";
 }
+function updatePausetime() {
+    pausetime = pausetime + (Date.now()-starttime);
+}
 
 function gamemenu(){
+    updatePausetime();
     document.querySelector(".options").setAttribute("class","options show");
 }
 
 function continueGame(){
     document.querySelector(".options").setAttribute("class","options hidden");
+    starttime = Date.now();
     game_status = 0;
     requestAnimationFrame(update);
 }
@@ -120,6 +126,7 @@ function creatLevel(id) {
     boxes = [];
     milk = [];
     fallenemy = [];
+    slowfallenemy = [];
     vertenemy = [];
     cookie = [];
 
@@ -127,7 +134,8 @@ function creatLevel(id) {
     creatPlattform();
     creatMilk();
     creatCookies();
-    creatFallEnemy();
+    creatSlowFallEnemy();
+    creatFallEnemy(current_level.fallenemy);
     creatVertEnemy();
     // cookie counter
     for (var i in cookie) {
@@ -179,7 +187,18 @@ function creatFallEnemy() {
             width: blockSize,
             height: blockSize
         });
-        //console.log("FALLENEMY" + fallenemy[b].y);
+    }
+}
+function creatSlowFallEnemy() {
+    for (var b in current_level.slowfallenemy) {
+        var block = current_level.slowfallenemy[b];
+        slowfallenemy.push({
+            x: block.x * blockSize,
+            y: block.y * blockSize,
+            spawnY: block.spawnY,
+            width: blockSize,
+            height: blockSize
+        });
     }
 }
 function creatVertEnemy() {
@@ -221,13 +240,15 @@ function checkToRespawn() {
         loseSound.play();
         // alert("GAME OVER");
         document.querySelector(".gameover").setAttribute("class","gameover show");
-        document.querySelector(".game_states").innerHTML = "Time: "+ Math.round((Date.now()-starttime)/1000) + " Seconds";
+        document.querySelector(".game_states").innerHTML = "Time: "+ Math.round(
+            (Date.now()-starttime+pausetime)/1000
+        ) + " Seconds";
         console.log("game over");
         game_status = 2;
     }
 }
 
-function collisionForDead() {
+function collisionForDying() {
     for (var i = 0; i < milk.length; i++) {
         var dir1 = colCheck(player, milk[i]);
         if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
@@ -240,6 +261,12 @@ function collisionForDead() {
             checkToRespawn();
         }
     }
+    for (var i = 0; i < slowfallenemy.length; i++) {
+        var dir1 = colCheck(player, slowfallenemy[i]);
+        if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
+            checkToRespawn();
+        }
+    }
     for (var i = 0; i < vertenemy.length; i++) {
         var dir1 = colCheck(player, vertenemy[i]);
         if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
@@ -247,7 +274,6 @@ function collisionForDead() {
         }
     }
 }
-console.log(boxes);
 function collisionBox() {
     for (var i = 0; i < boxes.length; i++) {
 
@@ -280,7 +306,8 @@ function collisionCookie() {
                 {
                     //WIN SOUND
                     document.querySelector(".win").setAttribute("class","win show");
-                    document.querySelector(".win .game_states").innerHTML = "Time needed: "+ Math.round((Date.now()-starttime)/1000)+ " Seconds";
+                    document.querySelector(".win .game_states").innerHTML = "Time needed: "+ Math.round((Date.now()-starttime+pausetime)/1000)+ " Seconds";
+                    updatePausetime();
                     game_status = 1;
                 }
             }
@@ -290,31 +317,30 @@ function collisionCookie() {
     }
 }
 
-function collisionFallingEnemy() {
-    for(var x = 0; x < fallenemy.length; x++) {
+function collisionFallingEnemy(enemy) {
+    for(var x = 0; x < enemy.length; x++) {
         for (var i = 0; i < boxes.length; i++) {
 
-            var dir = colCheck(fallenemy[x], boxes[i]);
+            var dir = colCheck(enemy[x], boxes[i]);
 
             if (dir === "b") {
-                fallenemy[x].y = fallenemy[x].spawnY * blockSize;
-                console.log("Reset Position: " + fallenemy[x].y);
+                enemy[x].y = enemy[x].spawnY * blockSize;
+                //console.log("Reset Position: " + enemy[x].y);
             }
         }
     }
 }
 
-function fallingEnemyMovement() {
-    for(var x = 0; x < fallenemy.length; x++)
+function fallingEnemyMovement(enemy, speed) {
+    for(var x = 0; x < enemy.length; x++)
     {
-        fallenemy[x].y += 14 * gravity;
-        if(fallenemy[x].y >= current_level.height * blockSize)
+        enemy[x].y += speed * gravity;
+        if(enemy[x].y >= current_level.height * blockSize)
         {
-            fallenemy[x].y = fallenemy[x].spawnY * blockSize;
+            enemy[x].y = enemy[x].spawnY * blockSize;
         }
     }
 }
-
 function verticalEnemyMovement() {
     for(var x = 0; x < vertenemy.length; x++)
     {
@@ -329,29 +355,21 @@ function verticalEnemyMovement() {
 function update() {
     // check keys
     if (keys[65]) {
-        // left arrow
-
-        console.log('links');
-
+        // A
         if (player.velX > -player.speed) {
             player.velX--;
         }
-        
     }
 
     if (keys[68]) {
-        // right arrow,
-
-    
-        console.log('rechts');
-
+        // D
         if (player.velX < player.speed) {
             player.velX++;
         }
     }
 
     if (keys[87]) {
-        // up arrow
+        // W
         if (!player.jumping && player.grounded) {
             player.jumping = true;
             jumpSound.play();
@@ -361,9 +379,7 @@ function update() {
     }
 
     if (keys[27]) {
-        // esc, 
-        //game freeze + menu laden
-        //alert("Hello! I am an alert box!!");
+        // esc,
         gamemenu();
         game_status = 2;
     }
@@ -377,10 +393,11 @@ function update() {
 
     player.grounded = false;
 
-    collisionForDead();
+    collisionForDying();
     collisionBox();
     collisionCookie();
-    collisionFallingEnemy();
+    collisionFallingEnemy(fallenemy);
+    collisionFallingEnemy(slowfallenemy);
 
     if(player.grounded){
          player.velY = 0;
@@ -389,7 +406,8 @@ function update() {
     player.x += player.velX;   //player movements
     player.y += player.velY;
 
-    fallingEnemyMovement();
+    fallingEnemyMovement(fallenemy, 14);
+    fallingEnemyMovement(slowfallenemy, 7);
     verticalEnemyMovement();
 
 
@@ -404,12 +422,10 @@ function update() {
     drawBackground(current_level);
     drawPlayer(player);
 
-    updateGameInfo();
-
-    //document.getElementById("music").innerHTML = "Menu";
-
-    if(game_status == 0)
+    if(game_status == 0) {
+        updateGameInfo();
         requestAnimationFrame(update);
+    }
 
 }
 
@@ -426,7 +442,7 @@ function updateGameInfo() {// Game information
 
     document.getElementById("game_cookies").querySelector("span").innerHTML = cookie_current;
     document.getElementById("game_life").innerHTML = lifes;
-    document.getElementById("game_time").querySelector("span").innerHTML = Math.round((Date.now()-starttime)/1000);
+    document.getElementById("game_time").querySelector("span").innerHTML = Math.round((Date.now()-starttime+pausetime)/1000);
 }
 
 function colCheck(shapeA, shapeB) {
