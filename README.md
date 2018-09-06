@@ -1,6 +1,6 @@
 # team_adventure
 
-![beschreibung](https://user-images.githubusercontent.com/41168148/45174198-83799300-b20a-11e8-8598-b9915a9760fd.png) "Beschreibung des Spiels.") 
+![beschreibung](https://user-images.githubusercontent.com/41168148/45174198-83799300-b20a-11e8-8598-b9915a9760fd.png "Beschreibung des Spiels.")
 Cookie Adventure ist ein Adventure Spiel, welches im Rahmen der Vorlesung "Projekte der Wirtschaftsinformatik" (Q3/2018) 
 an der FHDW in Bergisch Gladbach entwickelt wurde.
 
