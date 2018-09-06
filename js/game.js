@@ -27,7 +27,7 @@ var canvas = document.getElementById("canvas"),
 var starttime = Date.now();
 var blockSize;
 var highestLevelPosition;
-var boxes = [], lava = [], coin = [], fallenemy = [], vertenemy = [];
+var boxes = [], lava = [], cookie = [], fallenemy = [], vertenemy = [];
 var cookie_current = 0;
 var current_level, current_level_id = 0, game_status = 0;
 var respawn = {x:0,y:0};
@@ -63,8 +63,8 @@ var ienemy = new Image();
 ienemy.src = "../assets/enemy/saw.png";
 
 // Erstellt ein Bildobjekt für den Cookie
-var cookie = new Image(); 
-cookie.src = "../assets/coin/cookie.png";
+var icookie = new Image();
+icookie.src = "../assets/cookie/cookie.png";
 
 // Sounds
 var eatSound;
@@ -117,17 +117,17 @@ function creatLevel(id) {
     lava = [];
     fallenemy = [];
     vertenemy = [];
-    coin = [];
+    cookie = [];
 
 
     creatPlattform();
     creatLava();
-    creatCoins();
+    creatCookies();
     creatFallEnemy();
     creatVertEnemy();
-    // coin counter
-    for (var i in coin) {
-        if (coin[i].alive == 1) {
+    // cookie counter
+    for (var i in cookie) {
+        if (cookie[i].alive == 1) {
             cookie_current = cookie_current + 1;
         }
     }
@@ -193,10 +193,10 @@ function creatVertEnemy() {
         //console.log("FALLENEMY" + fallenemy[b].y);
     }
 }
-function creatCoins() {
-    for (var b in current_level.coins) {
-        var block = current_level.coins[b];
-        coin.push({
+function creatCookies() {
+    for (var b in current_level.cookies) {
+        var block = current_level.cookies[b];
+        cookie.push({
             x: block.x * blockSize,
             y: block.y * blockSize,
             width: blockSize,
@@ -260,15 +260,15 @@ function collisionBox() {
         }
     }
 }
-function collisionCoin() {
-    for (var i = 0; i < coin.length; i++) {
-        if(coin[i].alive == 1)
+function collisionCookie() {
+    for (var i = 0; i < cookie.length; i++) {
+        if(cookie[i].alive == 1)
         {
-            var dir2 = colCheck(player, coin[i]);
+            var dir2 = colCheck(player, cookie[i]);
 
             if (dir2 === "l" || dir2 === "r" || dir2 === "b" || dir2 === "t") {
-                //coin-- and disappear
-                coin[i].alive = 0;
+                //Cookie -- and disappear
+                cookie[i].alive = 0;
                 eatSound.play();
                 cookie_current = cookie_current -1;
                 console.log("ABZUG:" + cookie_current);
@@ -375,7 +375,7 @@ function update() {
 
     collisionForDead();
     collisionBox();
-    collisionCoin();
+    collisionCookie();
     collisionFallingEnemy();
 
     if(player.grounded){

@@ -10,7 +10,7 @@ function constructor(lvl)
             vertenemy: [],
             fallenemy: [],
 
-            coins: [],
+            cookies: [],
             player: [],
             width: 0,
             height: 0
@@ -80,7 +80,7 @@ function constructor(lvl)
                     });
                     break;
                 case 'o':
-                    Level.coins.push({
+                    Level.cookies.push({
                         x: posX,
                         y: posY
                         });

@@ -94,8 +94,8 @@ function drawBackground(level)
 
     // Cookie
     
-    for (var i = 0; i < coin.length; i++) {
-       drawCookie(coin[i]);
+    for (var i = 0; i < cookie.length; i++) {
+       drawCookie(cookie[i]);
     }
 
     ctx.fill();
@@ -154,17 +154,17 @@ function drawVertEnemy(vertenemy) {
         vertenemy.height);
 }
 
-function drawCookie(coin) {
-    if ( coin.alive == 1){
+function drawCookie(cookie) {
+    if ( cookie.alive == 1){
         ctx.drawImage(
-            cookie,
+            icookie,
             0,
             0,
             162,
             162,
-            coin.x - map_shift_x,
-            coin.y - map_shift_y,
-            coin.width,
-            coin.height);
+            cookie.x - map_shift_x,
+            cookie.y - map_shift_y,
+            cookie.width,
+            cookie.height);
     }
 }
