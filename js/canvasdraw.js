@@ -19,7 +19,9 @@ var sheight = spriteHeight/rows;
 
 //Anzahl der Bilder/Sprites
 var curFrame = 0; 
-var frameCount = 6; 
+var frameCount = 6;
+
+var enemyFrame = 0;
 
 //x und y Kordinate um aus dem feld zu zeichnen
 var srcX=0; 
@@ -30,11 +32,23 @@ var character = new Image();
 character.src = "../assets/player/walk/playerwalk.png";
 
 
-function updateFrame(){
-//Updated das Spriteelement anahnd des Indexes 
-    curFrame = ++curFrame % frameCount; 
+function startAnimation() {
+    var animationWalk = setInterval(function () {
+        if(enemyFrame == 0){
+            enemyFrame = 1;
+        }else{
+            enemyFrame = 0;
+        }
+        //console.log("FRame "+ienemy[enemyFrame].src);
+        //Updated das Spriteelement anhand des Indexes
+        curFrame = ++curFrame % frameCount;
+    }, 100);
+}
 
-//Berechnet die X Koordinate des Sprites 
+
+
+function updateFrame(){
+    //Berechnet die X Koordinate des Sprites
     if(keys[65]){
         //linkeanimation
         srcX = curFrame * swidth; 
@@ -46,8 +60,6 @@ function updateFrame(){
         srcX = curFrame * swidth; 
         srcY = trackRight * sheight;
     }
-// Löscht das vorherige Bild
-   // ctx.clearRect(x,y,width,height);
 }
 
 // Zeichnet das Sprite
@@ -143,7 +155,7 @@ function drawFallEnemy(fallenemy) {
 function drawVertEnemy(vertenemy) {
     // ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
     ctx.drawImage(
-        ienemy,
+        ienemy[enemyFrame],
         0,
         0,
         128,

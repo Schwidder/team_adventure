@@ -59,8 +59,12 @@ var ilava = new Image();
 ilava.src = "../assets/lava/lava2.png";
 
 // Erstellt ein Bildobjekt für den Enemy
-var ienemy = new Image();
-ienemy.src = "../assets/enemy/saw.png";
+var ienemy = [];
+ienemy[0] = new Image();
+ienemy[0].src = "../assets/enemy/saw.png";
+ienemy[1] = new Image();
+ienemy[1].src = "../assets/enemy/saw_move.png";
+console.log("Image"+ienemy.length);
 
 // Erstellt ein Bildobjekt für den Cookie
 var icookie = new Image();
@@ -138,7 +142,7 @@ function creatLevel(id) {
     player.y = (current_level.player.y) * blockSize;
     respawn.x = player.x;
     respawn.y = player.y;
-
+    startAnimation();
 }
 
 
