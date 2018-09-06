@@ -13,7 +13,7 @@ Wir haben uns für ein einfaches und schlichtes Level design in Form eines Array
 sodass es für jeden einfach zu lesen und zu editieren ist. 
 **
 ## Release-Informationen
-**Release**: Cookie Aventure 2.0
+**Release**: Cookie Adventure 2.0
 
 ### Browserkompatibilität
 Die folgenden Browser werden vollständig unterstützt:
