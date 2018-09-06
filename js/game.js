@@ -46,6 +46,7 @@ function nextLevel()
 
     document.querySelector(".win").setAttribute("class","win hidden");
     document.querySelector(".win .game_states").innerHTML = "";
+    starttime = Date.now();
     game_status = 0;
     player.life = 3;
     update();

@@ -23,7 +23,7 @@ function constructor(lvl)
     for(var y=0; y < lvl.length; y++)
     {
         var row = lvl[y];
-        //console.log(row, "=>", row.length);
+
         for(var x=0; x<row.length;x++)
         {
             var c = row[x];
@@ -68,8 +68,8 @@ function constructor(lvl)
 
                     if(matches != null) {
                         movingarea = (posX + matches[0].length);
-                        console.log("Moving Area:" + movingarea);
-                        console.log(matches);
+                        //console.log("Moving Area:" + movingarea);
+                        //console.log(matches);
                     }
 
                     Level.vertenemy.push({
@@ -99,7 +99,6 @@ for(var i=0; i < levelPlans.length;i++)
 {
     var level = constructor(levelPlans[i]);
     levels.push(level);
-    break;
 }
 
 console.log("levels:", levels);
