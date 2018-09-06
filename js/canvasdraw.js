@@ -18,7 +18,7 @@ var swidth = spriteWidth/cols;
 var sheight = spriteHeight/rows; 
 
 //Anzahl der Bilder/Sprites
-var curFrame = 0; 
+var playerFrame = 0;
 var frameCount = 6;
 
 var enemyFrame = 0;
@@ -41,7 +41,7 @@ function startAnimation() {
         }
         //console.log("FRame "+ienemy[enemyFrame].src);
         //Updated das Spriteelement anhand des Indexes
-        curFrame = ++curFrame % frameCount;
+        playerFrame = ++playerFrame % frameCount;
     }, 100);
 }
 
@@ -51,13 +51,13 @@ function updateFrame(){
     //Berechnet die X Koordinate des Sprites
     if(keys[65]){
         //linkeanimation
-        srcX = curFrame * swidth; 
+        srcX = playerFrame * swidth;
         srcY = trackLeft * sheight; 
     }
 
     if (keys[68]) {
     //rechte Animation
-        srcX = curFrame * swidth; 
+        srcX = playerFrame * swidth;
         srcY = trackRight * sheight;
     }
 }
@@ -81,17 +81,17 @@ function drawPlayer(){
 }
 function drawBackground(level)
 {
-    //console.log("STart draw");
+
     ctx.beginPath();
 
-    
+
     for (var i = 0; i < boxes.length; i++) {
         drawBlock(boxes[i]);
     }
 
-    //Lava
-    for (var i = 0; i < lava.length; i++) {
-        drawLava(lava[i]);
+    //milk
+    for (var i = 0; i < milk.length; i++) {
+        drawMilk(milk[i]);
     }
 
     //FallEnemy
@@ -125,23 +125,21 @@ function drawBlock(box) {
         box.width,
         box.height);
 }
-function drawLava(lava) {
-    // ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
+function drawMilk(milk) {
     ctx.drawImage(
-        ilava,
+        imilk,
         0,
         0,
         128,
         128,
-        lava.x - map_shift_x,
-        lava.y - map_shift_y,
-        lava.width,
-        lava.height);
+        milk.x - map_shift_x,
+        milk.y - map_shift_y,
+        milk.width,
+        milk.height);
 }
 function drawFallEnemy(fallenemy) {
-    // ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
     ctx.drawImage(
-        ilava,
+        imilk,
         0,
         0,
         128,
@@ -151,9 +149,7 @@ function drawFallEnemy(fallenemy) {
         fallenemy.width,
         fallenemy.height);
 }
-
 function drawVertEnemy(vertenemy) {
-    // ctx.rect(lava[i].x, lava[i].y, lava[i].width, lava[i].height);
     ctx.drawImage(
         ienemy[enemyFrame],
         0,
@@ -165,7 +161,6 @@ function drawVertEnemy(vertenemy) {
         vertenemy.width,
         vertenemy.height);
 }
-
 function drawCookie(cookie) {
     if ( cookie.alive == 1){
         ctx.drawImage(

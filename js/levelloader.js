@@ -5,7 +5,7 @@ function constructor(lvl)
         {
             walls: [],
 
-            lava: [],
+            milk: [],
             horizenemy: [],
             vertenemy: [],
             fallenemy: [],
@@ -38,16 +38,14 @@ function constructor(lvl)
                     });
                     break;
                 case '!':
-                    Level.lava.push({
+                    Level.milk.push({
                         x: posX,
                         y: posY
                     });
-                    //console.log("l:" + Level.lava.x + "=" + posX + "_" + Level.lava.y + "=" + posY);
                     break;
                 case '$':
                     Level.player.x = posX;
                     Level.player.y = posY;
-                    //console.log("Player:" + Level.player.x + "=" + posX + "_" + Level.player.y + "=" + posY);
                     break;
                 case 'v':
                     Level.fallenemy.push({
@@ -55,7 +53,6 @@ function constructor(lvl)
                         y: posY,
                         spawnY: posY
                     });
-                    //console.log("Enemy:" + Level.fallenemy.x + "=" + posX + "_" + Level.fallenemy.y + "=" + posY);
                     break;
                 case '|':
                     Level.horizenemy.push({

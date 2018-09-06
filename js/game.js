@@ -27,7 +27,7 @@ var canvas = document.getElementById("canvas"),
 var starttime = Date.now();
 var blockSize;
 var highestLevelPosition;
-var boxes = [], lava = [], cookie = [], fallenemy = [], vertenemy = [];
+var boxes = [], milk = [], cookie = [], fallenemy = [], vertenemy = [];
 var cookie_current = 0;
 var current_level, current_level_id = 0, game_status = 0;
 var respawn = {x:0,y:0};
@@ -55,8 +55,8 @@ var boden = new Image();
 boden.src = "../assets/boden/boden.png";
 
 // Erstellt ein Bildobjekt für den Lava
-var ilava = new Image(); 
-ilava.src = "../assets/lava/lava2.png";
+var imilk = new Image();
+imilk.src = "../assets/lava/lava2.png";
 
 // Erstellt ein Bildobjekt für den Enemy
 var ienemy = [];
@@ -118,14 +118,14 @@ function creatLevel(id) {
 
 
     boxes = [];
-    lava = [];
+    milk = [];
     fallenemy = [];
     vertenemy = [];
     cookie = [];
 
 
     creatPlattform();
-    creatLava();
+    creatMilk();
     creatCookies();
     creatFallEnemy();
     creatVertEnemy();
@@ -158,10 +158,10 @@ function creatPlattform() {
         });
     }
 }
-function creatLava() {
-    for (var b in current_level.lava) {
-        var block = current_level.lava[b];
-        lava.push({
+function creatMilk() {
+    for (var b in current_level.milk) {
+        var block = current_level.milk[b];
+        milk.push({
             x: block.x * blockSize,
             y: block.y * blockSize,
             width: blockSize,
@@ -228,8 +228,8 @@ function checkToRespawn() {
 }
 
 function collisionForDead() {
-    for (var i = 0; i < lava.length; i++) {
-        var dir1 = colCheck(player, lava[i]);
+    for (var i = 0; i < milk.length; i++) {
+        var dir1 = colCheck(player, milk[i]);
         if (dir1 === "l" || dir1 === "r" || dir1 === "b" || dir1 === "t") {
             checkToRespawn();
         }
@@ -436,7 +436,7 @@ function colCheck(shapeA, shapeB) {
         // add the half widths and half heights of the objects
         hWidths = (shapeA.width / 2) + (shapeB.width / 2),
         hHeights = (shapeA.height / 2) + (shapeB.height / 2),
-        colDir = null;
+        collisionDirection = null;
 
     // if the x and y vector are less than the half width or half height, they we must be inside the object, causing a collision
     if (Math.abs(vX) < hWidths && Math.abs(vY) < hHeights) {
@@ -445,23 +445,23 @@ function colCheck(shapeA, shapeB) {
             oY = hHeights - Math.abs(vY);
         if (oX >= oY) {
             if (vY > 0) {
-                colDir = "t"; // Top collision
+                collisionDirection = "t"; // Top collision
                 shapeA.y += oY;
             } else {
-                colDir = "b"; // Bottom collision
+                collisionDirection = "b"; // Bottom collision
                 shapeA.y -= oY;
             }
         } else {
             if (vX > 0) {
-                colDir = "l"; // Left collision
+                collisionDirection = "l"; // Left collision
                 shapeA.x += oX;
             } else {
-                colDir = "r"; // Right collision
+                collisionDirection = "r"; // Right collision
                 shapeA.x -= oX;
             }
         }
     }
-    return colDir;
+    return collisionDirection;
 }
 
 
