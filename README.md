@@ -33,7 +33,7 @@ Um das Projekt lokal aufsetzen, sind die folgenden Schritte erforderlich:
 ## Architektur
 ### Verzeichnisse und Dateien
 Zu den relevanten Verzeichnissen und Dateien zählen:
-* `content/`: Kontent
+* `content/`: Inhalt
 * `js/`: generierter ES5-JavaScript-Quellcode, der im Browser genutzt wird.
 * `css/`: CSS-Dateien
 
