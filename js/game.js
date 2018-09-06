@@ -54,9 +54,9 @@ function nextLevel()
 var boden = new Image(); 
 boden.src = "../assets/boden/boden.png";
 
-// Erstellt ein Bildobjekt für den Lava
+// Erstellt ein Bildobjekt für den Mich
 var imilk = new Image();
-imilk.src = "../assets/lava/lava2.png";
+imilk.src = "../assets/milk/milk.png";
 
 // Erstellt ein Bildobjekt für den Enemy
 var ienemy = [];
