@@ -30,7 +30,7 @@ var blockSize;
 var highestLevelPosition;
 var boxes = [], milk = [], cookie = [], fallenemy = [], vertenemy = [], slowfallenemy = [];
 var cookie_current = 0;
-var current_level, current_level_id = 0, game_status = 0;
+var current_level, current_level_id = 3, game_status = 0;
 var respawn = {x:0,y:0};
 var map_shift_x = 0;
 var map_shift_y = 0;
@@ -56,9 +56,9 @@ function nextLevel()
 var boden = new Image(); 
 boden.src = "../assets/boden/boden.png";
 
-// Erstellt ein Bildobjekt für den Lava
+// Erstellt ein Bildobjekt für den Mich
 var imilk = new Image();
-imilk.src = "../assets/lava/lava2.png";
+imilk.src = "../assets/milk/milk.png";
 
 // Erstellt ein Bildobjekt für den Enemy
 var ienemy = [];
