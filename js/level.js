@@ -146,7 +146,7 @@ var levelPlans = [
 	"x  o                    x                        x",
 	"x                      x               x         x",
 	"x    xx                x                         x",
-	"x     x =           ] ]x o      =               ]x",
+	"x     x =           ]  x o      =               ]x",
 	"x     xxxxxxxxxxxxxxxxxxxx      xxxxxxxxxxxxxxxxxx",
 	"xx                        x                      x",
 	"x                         x                      x",
