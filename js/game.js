@@ -41,6 +41,7 @@ creatLevel(current_level_id);
 function nextLevel()
 {
     current_level_id++;
+    cookie_current = 0;
     creatLevel(current_level_id);
     map_shift_x = 0;
     map_shift_y = 0;
@@ -242,6 +243,7 @@ function creatCookies() {
 
 // Respawn
 function checkToRespawn() {
+    player.velX=0; player.velY=0;
     if (player.life > 1) {
         loseSound.play();
         player.life = player.life - 1;
