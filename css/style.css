@@ -102,7 +102,6 @@ a.button:hover{
 canvas{
     display: inline-block;
     border:1px solid rgb(0, 0, 0);
-    
     background-image: url('../assets/background/BG.png');
     background-repeat: no-repeat;
     background-size: auto 100%; 

@@ -46,6 +46,7 @@ function nextLevel()
     map_shift_y = 0;
 
     document.querySelector(".win").setAttribute("class","win hidden");
+    document.querySelector(".gameover").setAttribute("class","gameover hidden");
     document.querySelector(".win .game_states").innerHTML = "";
     starttime = Date.now();
     game_status = 0;
@@ -130,7 +131,7 @@ function creatLevel(id) {
     canvas.height = height;
     blockSize = 25;
     highestLevelPosition = height - ((current_level.height) * blockSize);
-
+    document.getElementById("game_level").querySelector("span").innerHTML = (current_level_id+1);
 
 // Arrays von Spielobjekten
     boxes = [];
@@ -254,6 +255,13 @@ function checkToRespawn() {
         document.querySelector(".game_states").innerHTML = "Time: "+ Math.round(
             (Date.now()-starttime+pausetime)/1000
         ) + " Seconds";
+
+        var nextlink = "";
+        if((levels.length-1) != current_level_id) {
+            nextlink = '<a class="button" onclick="nextLevel()">Skip level</a>';
+        }
+        document.querySelector(".gameover").querySelector(".nextLevel").innerHTML = nextlink;
+        starttime= Date.now();
         console.log("game over");
         game_status = 2;
     }
@@ -324,6 +332,14 @@ function collisionCookie() {
                     winSound.play();
                     document.querySelector(".win").setAttribute("class","win show");
                     document.querySelector(".win .game_states").innerHTML = "Time needed: "+ Math.round((Date.now()-starttime+pausetime)/1000)+ " Seconds";
+                    var nextlink;
+                    if((levels.length-1) == current_level_id) {
+                        nextlink = '<a class="button" onclick="(function(){location.reload(true);})();">Back to Level 1</a>';
+                    }
+                    else {
+                        nextlink = '<a class="button" onclick="nextLevel()">Next level</a>';
+                    }
+                    document.querySelector(".win").querySelector(".nextLevel").innerHTML = nextlink;
                     updatePausetime();
                     game_status = 1;
                 }
@@ -461,7 +477,6 @@ function updateGameInfo() {
             lifes = lifes + '<img src=\"../assets/ui/full_life.png\" width=\"20\" height=\"20\" />';
         }
     }
-
     document.getElementById("game_cookies").querySelector("span").innerHTML = cookie_current;
     document.getElementById("game_life").innerHTML = lifes;
     document.getElementById("game_time").querySelector("span").innerHTML = Math.round((Date.now()-starttime+pausetime)/1000);

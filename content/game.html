@@ -29,6 +29,11 @@
                 <a class="button" onclick="(function(){location.reload(true);})();">
                     Try again
                 </a>
+                <div class="nextLevel">
+                    <a class="button" onclick="nextLevel()">
+                        Skip level
+                    </a>
+                </div>
             </div>
         </div>
         <div class="win hidden">
@@ -36,9 +41,11 @@
                 <h3>You Win!</h3>
                 <div class="game_states"></div>
                 <br /><br />
-                <a class="button" onclick="nextLevel()">
-                    Next level
-                </a>
+                <div class="nextLevel">
+                    <a class="button" onclick="nextLevel()">
+                        Next level
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -80,6 +87,7 @@
 
 
         <div class="sidemenu">
+            <div id="game_level">Level: <span></span></div>
             <div id="game_life"></div>
             <div id="game_cookies"><img src="../assets/cookie/cookie.png" width="20" height="20" /><span></span></div>
             <div id="game_time">Time: <span></span></div>
