@@ -6,30 +6,41 @@
 
     <title>Go Team Adventure, Go!</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/animation.css" />
     <link rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
           crossorigin="anonymous">
-    <script type="application/javascript" src="js/content-loader.js"></script>
+    <script type="application/javascript" src="js/content.js"></script>
 </head>
 <body>
     <div id="header">
             <a id="home" href="#"><i class="fas fa-home"></i></a> <!--position und farbe noch ändern-->
-        <div id="header-title" class="center-block"><h1> Welcome to Team Adventure</h1></div>
+        <div id="header-title" class="center-block"><img src="assets/logo/cookieadventure_light.png" height="180" /></div>
     </div>
     <div id="outer">
         <div id="inner" class="center-block">
             <div id="menu">
+                <div class = "text">
+                    Cookie Adventure ist ein Adventure Spiel, welches im Rahmen der Vorlesung "Projekte der 
+                    Wirtschaftsinformatik" (Q3/2018) an der FHDW in Bergisch Gladbach entwickelt wurde.
+                    <br /><br />
+                    Das ganze Spiel basiert auf unterschiedlichen Leveln die der Spieler erfolgreich meisten muss.
+                    Ein Level zählt dann als geschafft, wenn alle Cookies aufgesammelt worden sind: Wenn der Spieler
+                    die lila Milch berührt wird das Level zurückgesetzt und er muss wieder von seiner Startpositon
+                    (Spawn) anfangen.
+                </div>
+                    <img src="assets/help/help.png" height=500" />
                 <a class="button" href="content/game.html">Play</a>
-                <a class="button" href="content/impressum.html">Legal notice</a>
             </div>
         </div>
     </div>
 
     <div id="footer">
-
+        <div class= "links" >
+            <a class="" href="content/impressum.html">Impressum</a> |
+            <a class="" href="content/datenschutz.html">Datenschutz</a> |
+            <a class="" href="https://github.com/Schwidder/team_adventure">Credits</a>
+        </div>
     </div>
-
 </body>
 </html>

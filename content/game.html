@@ -4,12 +4,11 @@
 
     <title>Go Team Adventure, Go!</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../css/animation.css" />
     <link rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
           crossorigin="anonymous">
-    <script type="application/javascript" src="../js/content-loader.js"></script>
+    <script type="application/javascript" src="../js/content.js"></script>
     <script type="application/javascript" src="../js/level.js"></script>
     <script type="application/javascript" src="../js/levelloader.js"></script>
     <script type="application/javascript" src="../js/canvasdraw.js"></script>
@@ -18,7 +17,7 @@
 <body>
 <div id="header">
     <a id="home" href="../index.html"><i class="fas fa-home"></i></a> <!--position und farbe noch ändern-->
-    <div id="header-title" class="center-block"><h1> Welcome to Team Adventure</h1></div>
+    <div id="header-title" class="center-block"><img src="../assets/logo/cookieadventure_light.png" height="180" /></div>
 </div>
 <div id="outer">
     <div id="game">
@@ -30,15 +29,23 @@
                 <a class="button" onclick="(function(){location.reload(true);})();">
                     Try again
                 </a>
+                <div class="nextLevel">
+                    <a class="button" onclick="nextLevel()">
+                        Skip level
+                    </a>
+                </div>
             </div>
         </div>
         <div class="win hidden">
             <div id="next_lvl">
                 <h3>You Win!</h3>
                 <div class="game_states"></div>
-                <a class="button" onclick="nextLevel()">
-                    Next level
-                </a>
+                <br /><br />
+                <div class="nextLevel">
+                    <a class="button" onclick="nextLevel()">
+                        Next level
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -79,10 +86,8 @@
 
 
 
-
-
-
         <div class="sidemenu">
+            <div id="game_level">Level: <span></span></div>
             <div id="game_life"></div>
             <div id="game_cookies"><img src="../assets/cookie/cookie.png" width="20" height="20" /><span></span></div>
             <div id="game_time">Time: <span></span></div>
@@ -127,7 +132,11 @@
 </div>
 
 <div id="footer">
-
+        <div class= "links" >
+                <a class="" href="../content/impressum.html">Impressum</a> |
+                <a class="" href="../content/datenschutz.html">Datenschutz</a> |
+                <a class="" href="../https://github.com/Schwidder/team_adventure">Credits</a>
+        </div>
 </div>
 
 <audio id="audio_player" src="../sounds/background_music1.mp3" autoplay onloadeddata ="setVolume()">

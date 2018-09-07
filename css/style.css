@@ -41,6 +41,9 @@ Vanille: #FC3
     text-shadow: 2px 2px #333;
     color: #EDE5CC;
 }
+#header-title img{
+    margin-top: -55px;
+}
 .center-block {
     display: inline-block;
     text-align: center;
@@ -55,14 +58,18 @@ Vanille: #FC3
 }
 #inner{
     box-sizing: border-box;
-    padding: 30px;
+    padding: 30px 60px;
     width: 100%;
     background-color: #ffffff;
 }
 #menu{
     padding: 10px;
     display: inline-block;
-    text-align: center;
+    text-align: left;
+}
+#impressum,
+#datenschutz{
+    text-align: left;
 }
 a{
     text-decoration: none;
@@ -95,10 +102,97 @@ a.button:hover{
 canvas{
     display: inline-block;
     border:1px solid rgb(0, 0, 0);
-    
     background-image: url('../assets/background/BG.png');
     background-repeat: no-repeat;
     background-size: auto 100%; 
+}
+.text{
+    padding: 20px 0px;
+}
+input[type=range] {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+    background: #A21FD8;
+    border-radius: 1.3px;
+    border: 0.2px solid black;
+}
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+    border: 1px solid black;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #EDE5CC;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -14px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #A21FD8;
+}
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+    background: #A21FD8;
+    border-radius: 1.3px;
+    border: 0.2px solid black;
+}
+input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+    border: 1px solid black;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #EDE5CC;
+    cursor: pointer;
+}
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+    background: #A21FD8;
+    border: 0.2px solid black;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+}
+input[type=range]::-ms-fill-upper {
+    background: #A21FD8;
+    border: 0.2px solid black;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+}
+input[type=range]::-ms-thumb {
+    box-shadow: 1px 1px 1px black, 0px 0px 1px black;
+    border: 1px solid black;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #EDE5CC;
+    cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: #A21FD8;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: #A21FD8;
 }
 .sidemenu{
     display: inline-block;
@@ -207,6 +301,15 @@ canvas{
     font-size: 11px;
 
 }
-#footer:after{
-    content: "Copyright: All rights reserved by Fabian Kaspar, Kevin Schwidder und Gleb Spack @ 2018";
+#footer a{
+    color: #EDE5CC;
+}
+#footer a:hover{
+    color: #A21FD8;
+}
+#footer .links{
+    display: block;
+}
+#footer:before{
+    content: "Copyright: All rights reserved by Fabian Kaspar, Kevin Schwidder und Gleb Shpak @ 2018";
 }
