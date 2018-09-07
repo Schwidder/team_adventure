@@ -68,7 +68,8 @@ Die Architektur des Spiels setzt sich im Wesentlichen aus X Ebenen (Layern) zusa
 * Game-Game ([metaruka](https://opengameart.org/content/game-game), Creative Commons / CC-BY-SA)
 * Sound Pack ([artisticdude](https://opengameart.org/content/rpg-sound-pack), Creative Commons / CC0)
 * Hintergrund Musik ([Heaven Voices by Waimis](https://soundcloud.com/waimis), Creative Commons 3.0 / CC-BY 3.0)
-* Homepage Icon's ([Font Awesome Free](https://fontawesome.com/free), Creative Commons 4.0 / CC-BY 4.0) 
+* Homepage Icon's ([Font Awesome Free](https://fontawesome.com/free), Creative Commons 4.0 / CC-BY 4.0)
+* Control discription ([pixabay](https://pixabay.com/de/tastatur-computer-einfache-pc-1293389/), Creative Commons / CC0) 
 
 
 Wesentlich an dem Projkekt mitgewirkt haben:
