@@ -1,4 +1,4 @@
-# team_adventure
+# Cookie Adventure
 
 ![beschreibung](https://user-images.githubusercontent.com/41168148/45183901-aa918e00-b225-11e8-8d7f-f949964e1ce1.png "Beschreibung des Spiels.")
 Cookie Adventure ist ein Adventure Spiel, welches im Rahmen der Vorlesung "Projekte der Wirtschaftsinformatik" (Q3/2018) 
@@ -10,19 +10,28 @@ Wenn der Spieler die lila Milch berührt wird das Level zurückgesetzt und er mu
 von seiner Startpositon (Spawn) anfangen.
 
 Wir haben uns für ein einfaches und schlichtes Level design in Form eines Array's entschieden, 
-sodass es für jeden einfach zu lesen und zu editieren ist. 
-**
+sodass es für jeden einfach zu lesen und zu editieren ist.
+
 ## Release-Informationen
 **Release**: Cookie Adventure 1.0
-* Player (Rechteck), Platform (Rechteck), Movements
+* Spieler (Rechteck), Bewegung des Spielers, Springen,
+* Platformen (Rechtecke) hard reingezeichnet
 
 **Release**: Cookie Adventure 1.5
-* Collision, Coins, Lava
-* Map erstellen, Map einlesen
+* Collision, Lav
+* Map erstellen, Map in Canvas einlesen, 
+* Map Elemente: Spawn ,Coins, Lava
 
 **Release**: Cookie Adventure 2.0
-* Änderung zum Cookie Style
-* Image Player, Enemy, Menü, Win, Lose
+* Design: Player, Enemy, Cookie:
+** Animantionen, Soundeffekte hinzugefügt
+** Neuen Name, neues Logo, neue Bider und Pitchslide hinzugefügt
+
+* Game: neue Gegner, Viewpoint, Game Menu, Level überspringen
+** Viewpoint auf den Spieler, der Spieler wird vom Canvas verfolgt
+** Game Menu mit Pausieren, Musik einstellungen, Level überspringen hinzugefügt
+** Homepage überarbeitet, Spielanleitung hinzugefügt, Datenschutz und Impressum und Über das Spiel überarbeitet
+
 
 ### Browserkompatibilität
 Die folgenden Browser werden vollständig unterstützt:
