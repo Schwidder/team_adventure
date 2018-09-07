@@ -15,9 +15,11 @@ sodass es für jeden einfach zu lesen und zu editieren ist.
 ## Release-Informationen
 **Release**: Cookie Adventure 1.0
 * Player (Rechteck), Platform (Rechteck), Movements
+
 **Release**: Cookie Adventure 1.5
 * Collision, Coins, Lava
 * Map erstellen, Map einlesen
+
 **Release**: Cookie Adventure 2.0
 * Änderung zum Cookie Style
 * Image Player, Enemy, Menü, Win, Lose
