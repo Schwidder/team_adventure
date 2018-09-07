@@ -31,6 +31,7 @@ sodass es für jeden einfach zu lesen und zu editieren ist.
 ** Viewpoint auf den Spieler, der Spieler wird vom Canvas verfolgt
 ** Game Menu mit Pausieren, Musik einstellungen, Level überspringen hinzugefügt
 ** Homepage überarbeitet, Spielanleitung hinzugefügt, Datenschutz und Impressum und Über das Spiel überarbeitet
+** Neue Gegner: Zahnrad, langsam fallende Milch, Schnell fallende Milch
 
 
 ### Browserkompatibilität
