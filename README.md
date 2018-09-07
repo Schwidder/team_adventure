@@ -68,7 +68,8 @@ Die Architektur des Spiels setzt sich im Wesentlichen aus X Ebenen (Layern) zusa
 * Game-Game ([metaruka](https://opengameart.org/content/game-game), Creative Commons / CC-BY-SA)
 * Sound Pack ([artisticdude](https://opengameart.org/content/rpg-sound-pack), Creative Commons / CC0)
 * Hintergrund Musik ([Heaven Voices by Waimis](https://soundcloud.com/waimis), Creative Commons 3.0 / CC-BY 3.0)
-* Homepage Icon's ([Font Awesome Free](https://fontawesome.com/free), Creative Commons 4.0 / CC-BY 4.0) 
+* Homepage Icon's ([Font Awesome Free](https://fontawesome.com/free), Creative Commons 4.0 / CC-BY 4.0)
+* Datenschutzerklärung https://www.activemind.de/datenschutz/datenschutzhinweis-generator/
 
 
 Wesentlich an dem Projkekt mitgewirkt haben:
