@@ -58,14 +58,21 @@ Vanille: #FC3
 }
 #inner{
     box-sizing: border-box;
-    padding: 30px;
+    padding: 30px 60px;
     width: 100%;
     background-color: #ffffff;
 }
 #menu{
     padding: 10px;
     display: inline-block;
-    text-align: center;
+    text-align: left;
+}
+#impressum,
+#datenschutz{
+    text-align: left;
+}
+#{
+    text-align: left;
 }
 a{
     text-decoration: none;
@@ -297,6 +304,9 @@ input[type=range]:focus::-ms-fill-upper {
 }
 #footer a{
     color: #EDE5CC;
+}
+#footer a:hover{
+    color: #A21FD8;
 }
 #footer .links{
     display: block;
