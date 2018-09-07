@@ -71,9 +71,6 @@ Vanille: #FC3
 #datenschutz{
     text-align: left;
 }
-#{
-    text-align: left;
-}
 a{
     text-decoration: none;
     color: #D680FE;
@@ -109,6 +106,9 @@ canvas{
     background-image: url('../assets/background/BG.png');
     background-repeat: no-repeat;
     background-size: auto 100%; 
+}
+.text{
+    padding: 20px 0px;
 }
 input[type=range] {
     -webkit-appearance: none;
