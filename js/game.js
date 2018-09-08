@@ -52,6 +52,7 @@ function setChangeLevel(level_id)
     next_level_id = level_id;
     game_status = 4;
     document.querySelector(".change").setAttribute("class", "change show");
+    updatePausetime();
 }
 function startChangeLevel()
 {
