@@ -27,53 +27,54 @@ var canvas = document.getElementById("canvas"),
 var starttime = Date.now();
 var pausetime = 0;
 var blockSize;
-var highestLevelPosition;
 var boxes = [], milk = [], cookie = [], fallenemy = [], vertenemy = [], slowfallenemy = [];
 var cookie_current = 0;
-var current_level, current_level_id = 0, game_status = 0;
+var current_level, current_level_id = 0, game_status = 0, next_level_id = 0;
 var respawn = {x:0,y:0};
 var map_shift_x = 0;
 var map_shift_y = 0;
 
 creatLevel(current_level_id);
+startAnimation();
 
 // Funktion zum nächsten Level
 function nextLevel()
 {
     current_level_id++;
+    setLevel(current_level_id);
+}
+function tryAgainLevel()
+{
+    setLevel(current_level_id);
+}
+function setChangeLevel(level_id)
+{
+    next_level_id = level_id;
+    game_status = 4;
+    document.querySelector(".change").setAttribute("class", "change show");
+}
+function startChangeLevel()
+{
+    setLevel(next_level_id);
+    current_level_id = next_level_id;
+    document.querySelector(".change").setAttribute("class","change hidden");
+}
+function setLevel(level_id) {
     cookie_current = 0;
-    creatLevel(current_level_id);
+    creatLevel(level_id);
     map_shift_x = 0;
     map_shift_y = 0;
 
     document.querySelector(".win").setAttribute("class","win hidden");
     document.querySelector(".gameover").setAttribute("class","gameover hidden");
     document.querySelector(".win .game_states").innerHTML = "";
+    pausetime = 0;
     starttime = Date.now();
     game_status = 0;
     player.life = 3;
     update();
 }
 
-// Erstellt ein Bildobjekt für den Blöcke
-var boden = new Image(); 
-boden.src = "../assets/boden/boden.png";
-
-// Erstellt ein Bildobjekt für den Mich
-var imilk = new Image();
-imilk.src = "../assets/milk/milk.png";
-
-// Erstellt ein Bildobjekt für den Enemy
-var ienemy = [];
-ienemy[0] = new Image();
-ienemy[0].src = "../assets/enemy/saw.png";
-ienemy[1] = new Image();
-ienemy[1].src = "../assets/enemy/saw_move.png";
-console.log("Image"+ienemy.length);
-
-// Erstellt ein Bildobjekt für den Cookie
-var icookie = new Image();
-icookie.src = "../assets/cookie/cookie.png";
 
 // Sounds
 var eatSound;
@@ -120,9 +121,19 @@ function gamemenu(){
 // Options continue game
 function continueGame(){
     document.querySelector(".options").setAttribute("class","options hidden");
+    document.querySelector(".change").setAttribute("class","change hidden");
     starttime = Date.now();
     game_status = 0;
     requestAnimationFrame(update);
+}
+
+function setGameHighscore(){
+    document.getElementById("game_level").querySelector("span").innerHTML = (current_level_id+1);
+    var highscoreContent = '';
+    for(var i=0; i<highscore.length; i++){
+        highscoreContent += '<div class="row"><a onclick="setChangeLevel('+i+')">Lvl'+highscore[i].lvl_id+': </a><span>'+highscore[i].score+'</span></div>'
+    }
+    document.getElementById("game_highscore").innerHTML = highscoreContent;
 }
 
 // Level erstellen
@@ -131,8 +142,7 @@ function creatLevel(id) {
     canvas.width = width;
     canvas.height = height;
     blockSize = 25;
-    highestLevelPosition = height - ((current_level.height) * blockSize);
-    document.getElementById("game_level").querySelector("span").innerHTML = (current_level_id+1);
+    setGameHighscore();
 
 // Arrays von Spielobjekten
     boxes = [];
@@ -163,7 +173,6 @@ function creatLevel(id) {
     player.y = (current_level.player.y) * blockSize;
     respawn.x = player.x;
     respawn.y = player.y;
-    startAnimation();
 }
 
 // Gameobjekte erstellen
@@ -334,6 +343,10 @@ function collisionCookie() {
                     winSound.play();
                     document.querySelector(".win").setAttribute("class","win show");
                     document.querySelector(".win .game_states").innerHTML = "Time needed: "+ Math.round((Date.now()-starttime+pausetime)/1000)+ " Seconds";
+                    if(highscore[current_level_id].score == 0
+                        || highscore[current_level_id].score > Math.round((Date.now()-starttime+pausetime)/1000)) {
+                        highscore[current_level_id].score = Math.round((Date.now() - starttime + pausetime) / 1000);
+                    }
                     var nextlink;
                     if((levels.length-1) == current_level_id) {
                         nextlink = '<a class="button" onclick="(function(){location.reload(true);})();">Back to Level 1</a>';

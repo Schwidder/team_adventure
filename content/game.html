@@ -26,7 +26,7 @@
             <div id="restart">
                 <h3>Game Over</h3>
                 <div class="game_states"></div>
-                <a class="button" onclick="(function(){location.reload(true);})();">
+                <a class="button" onclick="tryAgainLevel()">
                     Try again
                 </a>
                 <div class="nextLevel">
@@ -44,6 +44,20 @@
                 <div class="nextLevel">
                     <a class="button" onclick="nextLevel()">
                         Next level
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="change hidden">
+            <div id="change_lvl">
+                <h3>Will you change to <span class="changeLevelId"></span> ?</h3>
+                <br /><br />
+                <div class="nextLevel">
+                    <a class="button" onclick="startChangeLevel()">
+                        Change
+                    </a>
+                    <a class="button" onclick="continueGame()">
+                        Back
                     </a>
                 </div>
             </div>
@@ -87,10 +101,13 @@
 
 
         <div class="sidemenu">
-            <div id="game_level">Level: <span></span></div>
+            <div id="game_level">Current Lvl: <span></span></div>
             <div id="game_life"></div>
             <div id="game_cookies"><img src="../assets/cookie/cookie.png" width="20" height="20" /><span></span></div>
             <div id="game_time">Time: <span></span></div>
+            <div id="game_highscore">
+
+            </div>
         </div>
     </div>
     <div id="helper_container" class="show">

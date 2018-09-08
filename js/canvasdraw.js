@@ -31,6 +31,26 @@ var srcY=0;
 var character = new Image(); 
 character.src = "../assets/player/walk/playerwalk.png";
 
+// Erstellt ein Bildobjekt für den Blöcke
+var boden = new Image();
+boden.src = "../assets/boden/boden.png";
+
+// Erstellt ein Bildobjekt für die Milch
+var imilk = new Image();
+imilk.src = "../assets/milk/milk.png";
+
+// Erstellt ein Bildobjekt für den Enemy
+var ienemy = [];
+ienemy[0] = new Image();
+ienemy[0].src = "../assets/enemy/saw.png";
+ienemy[1] = new Image();
+ienemy[1].src = "../assets/enemy/saw_move.png";
+console.log("Image"+ienemy.length);
+
+// Erstellt ein Bildobjekt für den Cookie
+var icookie = new Image();
+icookie.src = "../assets/cookie/cookie.png";
+
 
 function startAnimation() {
     var animationWalk = setInterval(function () {

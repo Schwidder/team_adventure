@@ -48,6 +48,13 @@ Vanille: #FC3
 .imgcenter{
     text-align: center;
 }
+.imgcenter img{
+    padding: 30px 0px;
+}
+.imgcenter a.button{
+    font-size: 30px;
+    padding: 20px;
+}
 
 .center-block {
     display: inline-block;
@@ -79,6 +86,7 @@ Vanille: #FC3
 a{
     text-decoration: none;
     color: #D680FE;
+    cursor: pointer;
 }
 a:hover{
     color: #A21FD8;
@@ -113,6 +121,7 @@ canvas{
 }
 .text{
     padding: 20px 0px;
+    max-width: 890px;
 }
 input[type=range] {
     -webkit-appearance: none;
@@ -223,6 +232,7 @@ input[type=range]:focus::-ms-fill-upper {
 #music_settings,
 .options,
 .gameover,
+.change,
 .win{
     background-color: rgba(0,0,0,0.5);
     text-align: center;

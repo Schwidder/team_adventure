@@ -192,18 +192,18 @@ var levelPlans = [
         " x                v           v  v         v   v             v        x",
         " x                                                                    x",
         " x                                                                    x",
-        " x                         =                                         ]x",
+        " x                         =            o                            ]x",
         " x                                     xx    xx  xx                   x",
         " x                     =                          ]                   x",
-        " x                 xxx     xxx    xxx      =                        o]x",
-        " x    =                           ]                   xxxx          xxx",
+        " x                 xxx     xxx!   xxx      =                        o]x",
+        " x    =                           ]                   xxxx!         xxx",
         " x           xxxx    =                     o ]                        x",
         " x                   xxx                  xxx=                       ]x",
-        " x                   x x=                             ]            xxxx",
+        " x                   x x=        o                    ]            xxxx",
         " x             o     x x       xxxxxx  =              ] xxxx          x",
         " x           xxxx    x x                   o        =                ]x",
         " x   $ x=   ]x  x    x x=                  ] =                 ]xxxxxxx",
-        " xxxxxxxxxxxxx  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        " xxxxxxxxxxxxx  xxxxxxxxxx!!!xxxxxxxxxxxx!!xxxxxxxxxxxxxxxxxxxxxx",
         ""
     ]
 ];

@@ -91,12 +91,16 @@ function constructor(lvl)
 
 var boxes = [];
 var levels = [];
+var highscore = [];
 
 console.log("levels", levelPlans.length);
 for(var i=0; i < levelPlans.length;i++)
 {
     var level = constructor(levelPlans[i]);
     levels.push(level);
+    highscore.push({
+        lvl_id: (i+1),
+        score: 0
+    });
 }
-
 console.log("levels:", levels);
