@@ -18,20 +18,27 @@ sodass es für jeden einfach zu lesen und zu editieren ist.
 * Platformen (Rechtecke) hard reingezeichnet
 
 **Release**: Cookie Adventure 1.5
-* Collision, Lav
-* Map erstellen, Map in Canvas einlesen, 
-* Map Elemente: Spawn ,Coins, Lava
+* Collisions:
+    * Player, Lava, Coin
+* Map:
+    * Map in Canvas einlesen
+    * Map Elemente: Spawn ,Coins, Lava
+* Funktionalitäten: 
+    * Coin einsammeln, Coin Counter, Lava = Gameover pushup, 
 
 **Release**: Cookie Adventure 2.0
-* Design: Player, Enemy, Cookie:
+* Corporate design: Player, Enemy, Cookie:
     * Animantionen, Soundeffekte hinzugefügt
     * Neuen Name, neues Logo, neue Bider und Pitchslide hinzugefügt
+    * Anpassung der Homepage, Schrift, Farbe, Icons...
 
-* Game: neue Gegner, Viewpoint, Game Menu, Level überspringen
+* Game: neue Gegner, Viewpoint, Game Menu, Level überspringen & auswählen
     * Viewpoint auf den Spieler, der Spieler wird vom Canvas verfolgt
     * Game Menu mit Pausieren, Musik einstellungen, Level überspringen hinzugefügt
     * Homepage überarbeitet, Spielanleitung hinzugefügt, Datenschutz und Impressum und Über das Spiel überarbeitet
     * Neue Gegner: Zahnrad, langsam fallende Milch, Schnell fallende Milch
+    * Neue Funktionalitäten: Musik button überarbeitet, Level auswählen hinzugefügt, Zeit pro Level hinzugefügt
+
 
 
 ### Browserkompatibilität
@@ -62,13 +69,6 @@ Zu den relevanten Verzeichnissen und Dateien zählen:
 * `js/`: JavaScript-Quellcode, der im Browser genutzt wird.
 * `css/`: CSS-Dateien die das Aussehen der Website beinflussen
 * `sounds/`: genutzte Sound-Dateien im Spiel
-
-
-
-### Layer-Aufbau
-Die Architektur des Spiels setzt sich im Wesentlichen aus X Ebenen (Layern) zusammen:
-
-
 
 ## Credits
 
