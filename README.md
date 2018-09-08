@@ -1,6 +1,6 @@
 # Cookie Adventure
 
-![beschreibung](https://user-images.githubusercontent.com/41168148/45183901-aa918e00-b225-11e8-8d7f-f949964e1ce1.png "Beschreibung des Spiels.")
+![beschreibung](![beschreibung](https://user-images.githubusercontent.com/41168148/45257800-36cdbd80-b3ac-11e8-8532-a484f25376a0.png "Beschreibung des Spiels")
 Cookie Adventure ist ein Adventure Spiel, welches im Rahmen der Vorlesung "Projekte der Wirtschaftsinformatik" (Q3/2018) 
 an der FHDW in Bergisch Gladbach entwickelt wurde.
 
@@ -38,8 +38,6 @@ sodass es für jeden einfach zu lesen und zu editieren ist.
     * Homepage überarbeitet, Spielanleitung hinzugefügt, Datenschutz und Impressum und Über das Spiel überarbeitet
     * Neue Gegner: Zahnrad, langsam fallende Milch, Schnell fallende Milch
     * Neue Funktionalitäten: Musik button überarbeitet, Level auswählen hinzugefügt, Zeit pro Level hinzugefügt
-
-
 
 ### Browserkompatibilität
 Die folgenden Browser werden vollständig unterstützt:
