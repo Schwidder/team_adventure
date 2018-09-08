@@ -44,6 +44,11 @@ Vanille: #FC3
 #header-title img{
     margin-top: -55px;
 }
+
+.imgcenter{
+    text-align: center;
+}
+
 .center-block {
     display: inline-block;
     text-align: center;
