@@ -298,12 +298,12 @@ input[type=range]:focus::-ms-fill-upper {
 .sidemenu #restart {
     color: #A21FD8;
 }
-#restart{
+#restart,
+#next_lvl,
+#change_lvl{
     color: #EDE5CC;
 }
-#next_lvl{
-    color: #EDE5CC;
-}
+
 #footer{
     display: block;
     padding: 30px;
