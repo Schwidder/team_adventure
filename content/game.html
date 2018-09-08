@@ -53,7 +53,7 @@
         <div class="Options hidden">
             <div id="options">
                 <a class="button" onclick="continueGame()">
-                        Continue
+                    Continue
                 </a>
                 <a class="button" onclick="(function(){location.reload(true);})();">
                     Restart
@@ -71,15 +71,17 @@
 
         <div id="music_settings" class="hidden">
             <div class="music_status">
-                <a id = "back_to_options" class="button" onclick="closeMusicSetting()">Back to Options</a>
-                <a id = "music_play" class="button" onclick="document.getElementById('audio_player').play()">Play</a>
-                <a id = "music_pause" class="button" onclick="document.getElementById('audio_player').pause()">Pause</a>
+                <a id = "back_to_options" class="button" onclick="closeMusicSetting()"><i class="fas fa-arrow-left"></i></a>
+                <!-- <button id="music_play">Play</button> -->
+                <a id = "music_play" class="button" ><i class="fas fa-play"></i></a>
+                <!-- <a id = "music_pause" class="button" onclick="document.getElementById('audio_player').pause()"><i class="Pause"></i></a> -->
             </div>
 
-            <div class="sound_volume">
+<!--        <div class="sound_volume">
                 <a id = "sound_off" class="button" onclick="document.getElementById('audio_player').muted = true">Music off</a>
                 <a id = "sound_on" class="button" onclick="document.getElementById('audio_player').muted = false">Music on</a>
             </div>
+ -->
 
             <input type="range" onchange="setVolumebar()" id='volumecontrol' min=0 max=1 step=0.01 value='0.1'>
         </div>
@@ -139,7 +141,7 @@
         </div>
 </div>
 
-<audio id="audio_player" src="../sounds/background_music1.mp3" autoplay onloadeddata ="setVolume()">
+<audio id="audio_player" src="../sounds/background_music1.mp3" onloadeddata ="setVolume()">
     Your browser does not support the HTML5 Audio element.
 </audio>
 <script type="text/javascript" src="../js/game.js" charset="utf-8"></script>

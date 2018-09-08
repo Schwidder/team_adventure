@@ -122,8 +122,9 @@ function continueGame(){
     document.querySelector(".options").setAttribute("class","options hidden");
     starttime = Date.now();
     game_status = 0;
-    requestAnimationFrame(update);
+    requestAnimationFrame(update);    
 }
+
 
 // Level erstellen
 function creatLevel(id) {
