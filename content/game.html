@@ -86,16 +86,8 @@
         <div id="music_settings" class="hidden">
             <div class="music_status">
                 <a id = "back_to_options" class="button" onclick="closeMusicSetting()"><i class="fas fa-arrow-left"></i></a>
-                <!-- <button id="music_play">Play</button> -->
                 <a id = "music_play" class="button" ><i class="fas fa-play"></i></a>
-                <!-- <a id = "music_pause" class="button" onclick="document.getElementById('audio_player').pause()"><i class="Pause"></i></a> -->
             </div>
-
-<!--        <div class="sound_volume">
-                <a id = "sound_off" class="button" onclick="document.getElementById('audio_player').muted = true">Music off</a>
-                <a id = "sound_on" class="button" onclick="document.getElementById('audio_player').muted = false">Music on</a>
-            </div>
- -->
 
             <input type="range" onchange="setVolumebar()" id='volumecontrol' min=0 max=1 step=0.01 value='0.1'>
         </div>

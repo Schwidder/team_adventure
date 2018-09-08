@@ -249,10 +249,7 @@ input[type=range]:focus::-ms-fill-upper {
     width: 100%;
 }
 .music_status a{
-    display: inline-block;
-}
-.sound_volume a{
-    display: inline-block;
+    display: block;
 }
 
 .hidden{
