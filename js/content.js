@@ -23,3 +23,21 @@ function openColseHelpMenu() {
         document.getElementById("helps").setAttribute("class", "rollout");
     }
 }
+
+document.addEventListener("DOMContentLoaded", function()
+{
+    document.getElementById("music_play").addEventListener("click", function(){
+        var audio = document.getElementById("audio_player");
+      if(this.className == 'is-playing'){
+        this.className = "";
+        this.innerHTML = '<i class="fas fa-play"></i>'
+        audio.pause();
+      }else{
+        this.className = "is-playing";
+        this.innerHTML = '<i class="far fa-pause-circle"></i>';
+        audio.play();
+      }
+    
+    });
+}, false);
+

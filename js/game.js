@@ -124,8 +124,9 @@ function continueGame(){
     document.querySelector(".change").setAttribute("class","change hidden");
     starttime = Date.now();
     game_status = 0;
-    requestAnimationFrame(update);
+    requestAnimationFrame(update);    
 }
+
 
 function setGameHighscore(){
     document.getElementById("game_level").querySelector("span").innerHTML = (current_level_id+1);

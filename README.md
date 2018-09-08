@@ -24,14 +24,14 @@ sodass es für jeden einfach zu lesen und zu editieren ist.
 
 **Release**: Cookie Adventure 2.0
 * Design: Player, Enemy, Cookie:
-** Animantionen, Soundeffekte hinzugefügt
-** Neuen Name, neues Logo, neue Bider und Pitchslide hinzugefügt
+    * Animantionen, Soundeffekte hinzugefügt
+    * Neuen Name, neues Logo, neue Bider und Pitchslide hinzugefügt
 
 * Game: neue Gegner, Viewpoint, Game Menu, Level überspringen
-** Viewpoint auf den Spieler, der Spieler wird vom Canvas verfolgt
-** Game Menu mit Pausieren, Musik einstellungen, Level überspringen hinzugefügt
-** Homepage überarbeitet, Spielanleitung hinzugefügt, Datenschutz und Impressum und Über das Spiel überarbeitet
-** Neue Gegner: Zahnrad, langsam fallende Milch, Schnell fallende Milch
+    * Viewpoint auf den Spieler, der Spieler wird vom Canvas verfolgt
+    * Game Menu mit Pausieren, Musik einstellungen, Level überspringen hinzugefügt
+    * Homepage überarbeitet, Spielanleitung hinzugefügt, Datenschutz und Impressum und Über das Spiel überarbeitet
+    * Neue Gegner: Zahnrad, langsam fallende Milch, Schnell fallende Milch
 
 
 ### Browserkompatibilität
