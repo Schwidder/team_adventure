@@ -39,6 +39,9 @@ sodass es für jeden einfach zu lesen und zu editieren ist.
     * Homepage überarbeitet, Spielanleitung hinzugefügt, Datenschutz und Impressum und Über das Spiel überarbeitet
     * Neue Gegner: Zahnrad, langsam fallende Milch, Schnell fallende Milch
     * Neue Funktionalitäten: Musik Buttons überarbeitet, Level auswählen hinzugefügt, Zeit pro Level hinzugefügt
+    
+    **Milestones**
+    * Von den verschiedenen Releases sind Screenshots im Ordner Milstones festgehalten worden.
 
 ### Browserkompatibilität
 Die folgenden Browser werden vollständig unterstützt:
