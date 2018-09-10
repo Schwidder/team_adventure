@@ -57,7 +57,6 @@ Die folgenden Browser werden teilweise unterstützt:
 * Im Microsoft Internet Explorer funktionieren die Soundeffects nicht.
 * Soundeffekte können nicht gemuted oder leiser gemacht werden
 * Wenn mehrere Cookies gleichzeitig eingesammelt wird der Sound nur einmal abgespielt, da wir keine Soundüberlappung erlauben wollten.
-* In Chrome funktioniert die Hintergrundmusik nicht beim Aufrufen der Webseite (Schutzmechanismus von Chrome)
 
 ## Projekt Details
 Dieses Projekt setzt auf vanilla HTML, CSS und JavaScript auf.
