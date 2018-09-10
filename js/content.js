@@ -26,18 +26,20 @@ function openColseHelpMenu() {
 
 document.addEventListener("DOMContentLoaded", function()
 {
-    document.getElementById("music_play").addEventListener("click", function(){
-        var audio = document.getElementById("audio_player");
-      if(this.className == 'button is-playing'){
-        this.className = "button";
-        this.innerHTML = '<i class="fas fa-play"></i>'
-        audio.pause();
-      }else{
-        this.className = "button is-playing";
-        this.innerHTML = '<i class="far fa-pause-circle"></i>';
-        audio.play();
-      }
-    
-    });
+    if(document.getElementById("music_play") != null) {
+        document.getElementById("music_play").addEventListener("click", function () {
+            var audio = document.getElementById("audio_player");
+            if (this.className == 'button is-playing') {
+                this.className = "button";
+                this.innerHTML = '<i class="fas fa-play"></i>'
+                audio.pause();
+            } else {
+                this.className = "button is-playing";
+                this.innerHTML = '<i class="far fa-pause-circle"></i>';
+                audio.play();
+            }
+
+        });
+    }
 }, false);
 

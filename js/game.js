@@ -51,13 +51,14 @@ function setChangeLevel(level_id)
 {
     next_level_id = level_id;
     game_status = 4;
+    document.querySelector(".change").querySelector(".changeLevelId").innerHTML = next_level_id+1;
     document.querySelector(".change").setAttribute("class", "change show");
     updatePausetime();
 }
 function startChangeLevel()
 {
-    setLevel(next_level_id);
     current_level_id = next_level_id;
+    setLevel(next_level_id);
     document.querySelector(".change").setAttribute("class","change hidden");
 }
 function setLevel(level_id) {
