@@ -52,6 +52,7 @@ Die folgenden Browser werden teilweise unterstützt:
 
 ### Bekannte Fehler (Bugs)
 * Im Microsoft Internet Explorer funktionieren die Soundeffects nicht.
+* Soundeffekte können nicht gemuted oder leiser gemacht werden
 * Wenn mehrere Cookies gleichzeitig eingesammelt wird der Sound nur einmal abgespielt, da wir keine Soundüberlappung erlauben wollten.
 * In Chrome funktioniert die Hintergrundmusik nicht beim Aufrufen der Webseite (Schutzmechanismus von Chrome)
 
@@ -63,6 +64,7 @@ Um das Projekt lokal aufsetzen, sind die folgenden Schritte erforderlich:
 
 1. Repository klonen: `git clone https://github.com/Schwidder/team_adventure.git`
 2. Im beliebigen Browser die `index.html` öffnen
+3. Je nach Browser **Geblockte Inhalte zulassen** bestätigen
 
 ## Architektur
 ### Verzeichnisse und Dateien
