@@ -237,7 +237,6 @@ function creatVertEnemy() {
             width: blockSize,
             height: blockSize
         });
-        //console.log("FALLENEMY" + fallenemy[b].y);
     }
 }
 function creatCookies() {

@@ -295,6 +295,18 @@ input[type=range]:focus::-ms-fill-upper {
     display: inline-block;
     width: 180px;
 }
+#helps .controles div,
+#helps .collectives div,
+#helps .enemies div{
+    padding-right: 20px;
+    padding-bottom: 5px;
+}
+#helps .controles span,
+#helps .collectives span,
+#helps .enemies span{
+    float: right;
+}
+
 .sidemenu #restart {
     color: #A21FD8;
 }
