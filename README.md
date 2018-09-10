@@ -1,7 +1,7 @@
 # Cookie Adventure
 
-<img src="beschreibung" height="180" />
-![beschreibung](https://user-images.githubusercontent.com/41168148/45257800-36cdbd80-b3ac-11e8-8532-a484f25376a0.png "Beschreibung des Spiels")
+![beschreibung](assets/help/gitintro.png "Beschreibung des Spiels")
+
 Cookie Adventure ist ein Adventure Spiel, welches im Rahmen der Vorlesung "Projekte der Wirtschaftsinformatik" (Q3/2018) 
 an der FHDW in Bergisch Gladbach entwickelt wurde.
 
@@ -101,8 +101,8 @@ Zu den relevanten Verzeichnissen und Dateien zählen:
 * Hintergrund Musik ([Heaven Voices by Waimis](https://soundcloud.com/waimis), Creative Commons 3.0 / CC-BY 3.0)
 * Homepage Icon's ([Font Awesome Free](https://fontawesome.com/free), Creative Commons 4.0 / CC-BY 4.0)
 * Control discription ([pixabay](https://pixabay.com/de/tastatur-computer-einfache-pc-1293389/), Creative Commons / CC0) 
-* Datenschutzerklärung ([activeMind.AG] (https://www.activemind.de/datenschutz/datenschutzhinweis-generator/) )
-* Canvas / Game Grundlagen ([w3schools] (https://www.w3schools.com/graphics/))
+* Datenschutzerklärung ([activeMind.AG](https://www.activemind.de/datenschutz/datenschutzhinweis-generator/))
+* Canvas / Game Grundlagen ([w3schools](https://www.w3schools.com/graphics/))
 
 
 Wesentlich an dem Projekt mitgewirkt haben:
